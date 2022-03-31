@@ -1,0 +1,8 @@
+prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install
+
+Name: forward_command_controller
+Description: Description of forward_command_controller
+Version: 0.17.2
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: controller_interface hardware_interface std_msgs realtime_tools

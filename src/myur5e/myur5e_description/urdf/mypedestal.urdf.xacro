@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mypedestal" >
+  <xacro:property name="pe_radius" value="0.1" />
+  <xacro:property name="pedestal_height" value="1.0" />
+  <link name="mypedestal">
+    <inertial>
+      <origin xyz="0 0 ${pedestal_height/2}" rpy="0 0 0"/>
+      <mass value="20" />
+      <inertia  ixx="200" ixy="200"  ixz="200"  iyy="200"  iyz="200"  izz="200" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 ${pedestal_height/2}" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="${pe_radius}" length="${pedestal_height}"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 ${pedestal_height/2}" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="${pe_radius}" length="${pedestal_height}"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="mypedestal">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+    <material>Gazebo/Gray</material>
+    <static>True</static>
+  </gazebo>
+</robot>

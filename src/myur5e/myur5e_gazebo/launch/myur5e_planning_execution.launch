@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="sim" default="True" />
+  <arg name="debug" default="false" />
+  <!-- By default, we won't load or override the robot_description -->
+  <arg name="load_robot_description" default="false"/>
+
+  <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="false"/>
+    <rosparam param="/source_list">[/joint_states]</rosparam>
+  </node> -->
+
+  <!-- <remap if="$(arg sim)" from="/follow_joint_trajectory" to="/myur5e_arm_controller/follow_joint_trajectory"/> -->
+
+  <include file="$(find myur5e_moveit_config)/launch/move_group.launch">
+    <arg name="debug" default="$(arg debug)" />
+    <arg name="load_robot_description" value="$(arg load_robot_description)"/>
+  </include>
+
+</launch>

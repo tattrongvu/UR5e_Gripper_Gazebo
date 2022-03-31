@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC   -shared -Wl,-soname,libur3_kin.so -o /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libur3_kin.so CMakeFiles/ur3_kin.dir/src/ur_kin.cpp.o 

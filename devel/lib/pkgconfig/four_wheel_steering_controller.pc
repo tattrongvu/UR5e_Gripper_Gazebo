@@ -1,0 +1,8 @@
+prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel
+
+Name: four_wheel_steering_controller
+Description: Description of four_wheel_steering_controller
+Version: 0.17.2
+Cflags: -I/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/four_wheel_steering_controller/include
+Libs: -L${prefix}/lib -lfour_wheel_steering_controller
+Requires: controller_interface nav_msgs four_wheel_steering_msgs realtime_tools tf urdf_geometry_parser pluginlib

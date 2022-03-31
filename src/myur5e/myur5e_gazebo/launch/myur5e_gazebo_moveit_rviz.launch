@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Gazebo -->
+  <include file="$(find myur5e_gazebo)/launch/myur5e_gazebo.launch"/>
+
+  <!-- MOVEIT Component -->
+  <include file="$(find myur5e_gazebo)/launch/myur5e_planning_execution.launch"/>
+
+  <!-- Run Rviz and load the default config to see the state of the move_group node -->
+  <include file="$(find myur5e_moveit_config)/launch/moveit_rviz.launch">
+    <arg name="rviz_config" value="$(find myur5e_moveit_config)/launch/moveit.rviz"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+</launch>

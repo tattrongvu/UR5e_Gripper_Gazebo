@@ -1,0 +1,8 @@
+prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel
+
+Name: joint_state_controller
+Description: Description of joint_state_controller
+Version: 0.17.2
+Cflags: -I/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/joint_state_controller/include
+Libs: -L${prefix}/lib -ljoint_state_controller
+Requires: realtime_tools roscpp hardware_interface pluginlib controller_interface sensor_msgs

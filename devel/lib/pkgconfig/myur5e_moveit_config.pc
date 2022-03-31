@@ -1,0 +1,8 @@
+prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel
+
+Name: myur5e_moveit_config
+Description: Description of myur5e_moveit_config
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

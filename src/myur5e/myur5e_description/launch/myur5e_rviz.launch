@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find myur5e_gazebo)/launch/myur5e_upload.launch"/>
+
+  <!-- use 'joint_state_publisher' gui to visualize different states of the robot in rviz -->
+  <!-- this will publisher joint state to the '/joint_states' topic and then received by the 'robot_state_publisher' node -->
+  <!-- gazebo has it own joint_state_publisher plugin to do this job -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
+    <param name="use_gui" value="true"/>
+  </node>
+  
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find myur5e_description)/cfg/view_robot.rviz" required="true" />
+</launch>

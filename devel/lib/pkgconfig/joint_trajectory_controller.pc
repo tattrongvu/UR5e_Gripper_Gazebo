@@ -1,0 +1,8 @@
+prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel
+
+Name: joint_trajectory_controller
+Description: Description of joint_trajectory_controller
+Version: 0.17.2
+Cflags: -I/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/joint_trajectory_controller/include
+Libs: -L${prefix}/lib -ljoint_trajectory_controller
+Requires: actionlib angles roscpp urdf control_toolbox controller_interface hardware_interface realtime_tools control_msgs trajectory_msgs

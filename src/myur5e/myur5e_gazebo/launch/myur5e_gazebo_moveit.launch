@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Gazebo -->
+  <include file="$(find myur5e_gazebo)/launch/myur5e_gazebo.launch"/>
+
+  <!-- MOVEIT Component -->
+  <include file="$(find myur5e_gazebo)/launch/myur5e_planning_execution.launch"/>
+
+</launch>

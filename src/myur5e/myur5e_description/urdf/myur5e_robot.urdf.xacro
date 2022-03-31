@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="myur5e" >
+
+  <!-- common stuff -->
+  <xacro:include filename="$(find ur_e_description)/urdf/common.gazebo.xacro" />
+
+  <!-- ur5e -->
+  <xacro:include filename="$(find ur_e_description)/urdf/ur5e.urdf.xacro" />
+
+  <!-- arm -->
+  <xacro:ur5e_robot prefix="" joint_limited="false"/>
+
+  <!-- robotiq 85 -->
+  <!--<xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_arg2f_85_model.xacro" />-->
+
+  <!-- wrist camera -->
+  <xacro:include filename="$(find myur5e_description)/urdf/mycamera.urdf.xacro" />
+  <!-- wrist camera attach -->
+  <xacro:mywristcamera parent="ee_link" >
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:mywristcamera>
+
+  <!-- robotiq 85 -->
+  <xacro:include filename="$(find robotiq_85_description)/urdf/robotiq_85_gripper.urdf.xacro" />
+
+  <!-- gripper -->
+  <xacro:robotiq_85_gripper prefix="" parent="wrist_attach" >
+    <origin xyz="${wrist_length} 0 0" rpy="0 0 0"/>
+  </xacro:robotiq_85_gripper>
+
+  <!-- pedestal -->
+  <xacro:include filename="$(find myur5e_description)/urdf/mypedestal.urdf.xacro" />
+
+  <!-- table -->
+  <xacro:include filename="$(find myur5e_description)/urdf/mytable.urdf.xacro" />
+
+  <!-- overview camera -->
+  <xacro:include filename="$(find myur5e_description)/urdf/my_overview_camera.urdf.xacro" />
+  
+  <link name="world" />
+
+  <xacro:property name="table_height" value="0.95" />
+
+  <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link = "mypedestal" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <joint name="world_to_table" type="fixed">
+    <parent link="world"/>
+    <child link="mytable"/>
+    <origin xyz="0.8 0.0 ${table_height}" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="robot_to_pedestal" type="fixed">
+    <parent link="mypedestal" />
+    <child link = "base_link" />
+    <origin xyz="0.0 0.0 ${pedestal_height}" rpy="0 0 0" />
+  </joint>
+
+  <joint name="table_to_overcamera" type="fixed">
+    <parent link="mytable"/>
+    <child link="overcamera_link"/>
+    <origin xyz="0.0 0.0 1" rpy="0 ${pi/2} 0"/>
+  </joint>
+
+</robot>

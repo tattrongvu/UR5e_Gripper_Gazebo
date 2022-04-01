@@ -18,7 +18,6 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/ackermann_steering_controller/include"
-  "/home/trong/miniconda3/include"
   "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/include"
   "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/diff_drive_controller/include"
   "/opt/ros/melodic/include"

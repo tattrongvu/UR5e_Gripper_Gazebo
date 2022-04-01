@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(ur_kinematics_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "include;/home/trong/miniconda3/include " STREQUAL " ")
+if(NOT "include;/usr/include " STREQUAL " ")
   set(ur_kinematics_INCLUDE_DIRS "")
-  set(_include_dirs "include;/home/trong/miniconda3/include")
+  set(_include_dirs "include;/usr/include")
   if(NOT "https://github.com/ros-industrial/universal_robot/issues " STREQUAL " ")
     set(_report "Check the issue tracker 'https://github.com/ros-industrial/universal_robot/issues' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "http://wiki.ros.org/ur_kinematics " STREQUAL " ")
@@ -116,7 +116,7 @@ if(NOT "include;/home/trong/miniconda3/include " STREQUAL " ")
   endforeach()
 endif()
 
-set(libraries "ur3_kin;ur5_kin;ur10_kin;ur3_moveit_plugin;ur5_moveit_plugin;ur10_moveit_plugin;/home/trong/miniconda3/lib/libboost_system.so.1.74.0")
+set(libraries "ur3_kin;ur5_kin;ur10_kin;ur3_moveit_plugin;ur5_moveit_plugin;ur10_moveit_plugin;/usr/lib/x86_64-linux-gnu/libboost_system.so")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")

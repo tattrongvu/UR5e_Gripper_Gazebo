@@ -3,6 +3,6 @@ prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel
 Name: ackermann_steering_controller
 Description: Description of ackermann_steering_controller
 Version: 0.17.2
-Cflags: -I/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/ackermann_steering_controller/include -I/home/trong/miniconda3/include
-Libs: -L${prefix}/lib -lackermann_steering_controller /home/trong/miniconda3/lib/libboost_system.so.1.74.0 /home/trong/miniconda3/lib/libboost_thread.so.1.74.0
+Cflags: -I/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/ackermann_steering_controller/include -I/usr/include
+Libs: -L${prefix}/lib -lackermann_steering_controller /usr/lib/x86_64-linux-gnu/libboost_system.so /usr/lib/x86_64-linux-gnu/libboost_thread.so /usr/lib/x86_64-linux-gnu/libboost_chrono.so /usr/lib/x86_64-linux-gnu/libboost_date_time.so /usr/lib/x86_64-linux-gnu/libboost_atomic.so /usr/lib/x86_64-linux-gnu/libpthread.so
 Requires: controller_interface diff_drive_controller hardware_interface nav_msgs realtime_tools roscpp tf

@@ -91,16 +91,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -111,6 +101,16 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target test
 test:
@@ -198,19 +198,34 @@ diff_drive_dyn_reconf_test/fast:
 .PHONY : diff_drive_dyn_reconf_test/fast
 
 # Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test.dir/rule
+ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/rule
+.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/rule
 
 # Convenience name for target.
-_run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test: ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test.dir/rule
+_run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test: ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/rule
 
-.PHONY : _run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test
+.PHONY : _run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test
 
 # fast build rule for target.
-_run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test.dir/build
-.PHONY : _run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test/fast
+_run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/build
+.PHONY : _run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test/fast
+
+# Convenience name for target.
+ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test.dir/rule
+.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test.dir/rule
+
+# Convenience name for target.
+run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test: ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test.dir/rule
+
+.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test
+
+# fast build rule for target.
+run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test.dir/build
+.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test/fast
 
 # Convenience name for target.
 ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test.dir/rule:
@@ -226,21 +241,6 @@ run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test: ros_contr
 run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test/fast:
 	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test.dir/build
 .PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test/fast
-
-# Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test.dir/rule
-
-# Convenience name for target.
-_run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test: ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test.dir/rule
-
-.PHONY : _run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test
-
-# fast build rule for target.
-_run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test.dir/build
-.PHONY : _run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test/fast
 
 # Convenience name for target.
 ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_controller_limits.test.dir/rule:
@@ -286,6 +286,36 @@ _run_tests_diff_drive_controller_rostest_test_diff_drive_controller_nan.test: ro
 _run_tests_diff_drive_controller_rostest_test_diff_drive_controller_nan.test/fast:
 	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_controller_nan.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_controller_nan.test.dir/build
 .PHONY : _run_tests_diff_drive_controller_rostest_test_diff_drive_controller_nan.test/fast
+
+# Convenience name for target.
+ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/rule
+.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/rule
+
+# Convenience name for target.
+run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test: ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/rule
+
+.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test
+
+# fast build rule for target.
+run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/build
+.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test/fast
+
+# Convenience name for target.
+ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/rule
+.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/rule
+
+# Convenience name for target.
+_run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test: ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/rule
+
+.PHONY : _run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test
+
+# fast build rule for target.
+_run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/build
+.PHONY : _run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test/fast
 
 # Convenience name for target.
 ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_controller_limits.test.dir/rule:
@@ -348,141 +378,6 @@ _run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test/fast:
 .PHONY : _run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test/fast
 
 # Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/rule
-
-# Convenience name for target.
-_run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test: ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/rule
-
-.PHONY : _run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test
-
-# fast build rule for target.
-_run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/build
-.PHONY : _run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test/fast
-
-# Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_eus.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_eus: ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-
-.PHONY : std_srvs_generate_messages_eus
-
-# fast build rule for target.
-std_srvs_generate_messages_eus/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_eus.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_eus.dir/build
-.PHONY : std_srvs_generate_messages_eus/fast
-
-# Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/clean_test_results_diff_drive_controller.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/clean_test_results_diff_drive_controller.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/clean_test_results_diff_drive_controller.dir/rule
-
-# Convenience name for target.
-clean_test_results_diff_drive_controller: ros_controllers/diff_drive_controller/CMakeFiles/clean_test_results_diff_drive_controller.dir/rule
-
-.PHONY : clean_test_results_diff_drive_controller
-
-# fast build rule for target.
-clean_test_results_diff_drive_controller/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/clean_test_results_diff_drive_controller.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/clean_test_results_diff_drive_controller.dir/build
-.PHONY : clean_test_results_diff_drive_controller/fast
-
-# Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest.dir/rule
-
-# Convenience name for target.
-run_tests_diff_drive_controller_rostest: ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest.dir/rule
-
-.PHONY : run_tests_diff_drive_controller_rostest
-
-# fast build rule for target.
-run_tests_diff_drive_controller_rostest/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest.dir/build
-.PHONY : run_tests_diff_drive_controller_rostest/fast
-
-# Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-nav_msgs_generate_messages_eus: ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
-
-.PHONY : nav_msgs_generate_messages_eus
-
-# fast build rule for target.
-nav_msgs_generate_messages_eus/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_eus.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_eus.dir/build
-.PHONY : nav_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/skidsteerbot.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/skidsteerbot.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/skidsteerbot.dir/rule
-
-# Convenience name for target.
-skidsteerbot: ros_controllers/diff_drive_controller/CMakeFiles/skidsteerbot.dir/rule
-
-.PHONY : skidsteerbot
-
-# fast build rule for target.
-skidsteerbot/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/skidsteerbot.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/skidsteerbot.dir/build
-.PHONY : skidsteerbot/fast
-
-# Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_py: ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-
-.PHONY : std_srvs_generate_messages_py
-
-# fast build rule for target.
-std_srvs_generate_messages_py/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_py.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_py.dir/build
-.PHONY : std_srvs_generate_messages_py/fast
-
-# Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/rule
-
-# Convenience name for target.
-run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test: ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/rule
-
-.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test
-
-# fast build rule for target.
-run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/build
-.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test/fast
-
-# Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/rule
-
-# Convenience name for target.
-_run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test: ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/rule
-
-.PHONY : _run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test
-
-# fast build rule for target.
-_run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test.dir/build
-.PHONY : _run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test/fast
-
-# Convenience name for target.
 ros_controllers/diff_drive_controller/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/rule:
 	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/rule
 .PHONY : ros_controllers/diff_drive_controller/CMakeFiles/controller_manager_msgs_generate_messages_cpp.dir/rule
@@ -513,6 +408,96 @@ controller_manager_msgs_generate_messages_nodejs/fast:
 .PHONY : controller_manager_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
+ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
+.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+nav_msgs_generate_messages_cpp: ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : nav_msgs_generate_messages_cpp
+
+# fast build rule for target.
+nav_msgs_generate_messages_cpp/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build
+.PHONY : nav_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_test.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_test.dir/rule
+.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_test.dir/rule
+
+# Convenience name for target.
+diff_drive_test: ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_test.dir/rule
+
+.PHONY : diff_drive_test
+
+# fast build rule for target.
+diff_drive_test/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_test.dir/build
+.PHONY : diff_drive_test/fast
+
+# Convenience name for target.
+ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_timeout_test.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_timeout_test.dir/rule
+.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_timeout_test.dir/rule
+
+# Convenience name for target.
+diff_drive_timeout_test: ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_timeout_test.dir/rule
+
+.PHONY : diff_drive_timeout_test
+
+# fast build rule for target.
+diff_drive_timeout_test/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_timeout_test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_timeout_test.dir/build
+.PHONY : diff_drive_timeout_test/fast
+
+# Convenience name for target.
+ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/rule
+.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/rule
+
+# Convenience name for target.
+run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test: ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/rule
+
+.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test
+
+# fast build rule for target.
+run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/build
+.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test/fast
+
+# Convenience name for target.
+ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test.dir/rule
+.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test.dir/rule
+
+# Convenience name for target.
+run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test: ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test.dir/rule
+
+.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test
+
+# fast build rule for target.
+run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test.dir/build
+.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test/fast
+
+# Convenience name for target.
+ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test.dir/rule
+.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test.dir/rule
+
+# Convenience name for target.
+run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test: ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test.dir/rule
+
+.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test
+
+# fast build rule for target.
+run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test.dir/build
+.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test/fast
+
+# Convenience name for target.
 ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule:
 	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
 .PHONY : ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
@@ -541,6 +526,21 @@ run_tests_diff_drive_controller_rostest_test_diff_drive_radius_sphere.test: ros_
 run_tests_diff_drive_controller_rostest_test_diff_drive_radius_sphere.test/fast:
 	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_radius_sphere.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_radius_sphere.test.dir/build
 .PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_radius_sphere.test/fast
+
+# Convenience name for target.
+ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_fail_test.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_fail_test.dir/rule
+.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_fail_test.dir/rule
+
+# Convenience name for target.
+diff_drive_fail_test: ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_fail_test.dir/rule
+
+.PHONY : diff_drive_fail_test
+
+# fast build rule for target.
+diff_drive_fail_test/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_fail_test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_fail_test.dir/build
+.PHONY : diff_drive_fail_test/fast
 
 # Convenience name for target.
 ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_limits_test.dir/rule:
@@ -618,184 +618,64 @@ _run_tests_diff_drive_controller_rostest_test_diff_drive_timeout.test/fast:
 .PHONY : _run_tests_diff_drive_controller_rostest_test_diff_drive_timeout.test/fast
 
 # Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test.dir/rule
+ros_controllers/diff_drive_controller/CMakeFiles/clean_test_results_diff_drive_controller.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/clean_test_results_diff_drive_controller.dir/rule
+.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/clean_test_results_diff_drive_controller.dir/rule
 
 # Convenience name for target.
-run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test: ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test.dir/rule
+clean_test_results_diff_drive_controller: ros_controllers/diff_drive_controller/CMakeFiles/clean_test_results_diff_drive_controller.dir/rule
 
-.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test
+.PHONY : clean_test_results_diff_drive_controller
 
 # fast build rule for target.
-run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test.dir/build
-.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test/fast
+clean_test_results_diff_drive_controller/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/clean_test_results_diff_drive_controller.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/clean_test_results_diff_drive_controller.dir/build
+.PHONY : clean_test_results_diff_drive_controller/fast
 
 # Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest.dir/rule
+.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest.dir/rule
 
 # Convenience name for target.
-std_srvs_generate_messages_cpp: ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
+run_tests_diff_drive_controller_rostest: ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest.dir/rule
 
-.PHONY : std_srvs_generate_messages_cpp
+.PHONY : run_tests_diff_drive_controller_rostest
 
 # fast build rule for target.
-std_srvs_generate_messages_cpp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
-.PHONY : std_srvs_generate_messages_cpp/fast
+run_tests_diff_drive_controller_rostest/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest.dir/build
+.PHONY : run_tests_diff_drive_controller_rostest/fast
 
 # Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_test.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_test.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_test.dir/rule
+ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
+.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-diff_drive_test: ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_test.dir/rule
+nav_msgs_generate_messages_eus: ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
 
-.PHONY : diff_drive_test
+.PHONY : nav_msgs_generate_messages_eus
 
 # fast build rule for target.
-diff_drive_test/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_test.dir/build
-.PHONY : diff_drive_test/fast
+nav_msgs_generate_messages_eus/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_eus.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_eus.dir/build
+.PHONY : nav_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
+ros_controllers/diff_drive_controller/CMakeFiles/skidsteerbot.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/skidsteerbot.dir/rule
+.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/skidsteerbot.dir/rule
 
 # Convenience name for target.
-nav_msgs_generate_messages_cpp: ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
+skidsteerbot: ros_controllers/diff_drive_controller/CMakeFiles/skidsteerbot.dir/rule
 
-.PHONY : nav_msgs_generate_messages_cpp
+.PHONY : skidsteerbot
 
 # fast build rule for target.
-nav_msgs_generate_messages_cpp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build
-.PHONY : nav_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test.dir/rule
-
-# Convenience name for target.
-run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test: ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test.dir/rule
-
-.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test
-
-# fast build rule for target.
-run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test.dir/build
-.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test/fast
-
-# Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_controller_gencfg.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_controller_gencfg.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_controller_gencfg.dir/rule
-
-# Convenience name for target.
-diff_drive_controller_gencfg: ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_controller_gencfg.dir/rule
-
-.PHONY : diff_drive_controller_gencfg
-
-# fast build rule for target.
-diff_drive_controller_gencfg/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_controller_gencfg.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_controller_gencfg.dir/build
-.PHONY : diff_drive_controller_gencfg/fast
-
-# Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_nodejs: ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-
-.PHONY : std_srvs_generate_messages_nodejs
-
-# fast build rule for target.
-std_srvs_generate_messages_nodejs/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build
-.PHONY : std_srvs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_timeout_test.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_timeout_test.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_timeout_test.dir/rule
-
-# Convenience name for target.
-diff_drive_timeout_test: ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_timeout_test.dir/rule
-
-.PHONY : diff_drive_timeout_test
-
-# fast build rule for target.
-diff_drive_timeout_test/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_timeout_test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_timeout_test.dir/build
-.PHONY : diff_drive_timeout_test/fast
-
-# Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/rule
-
-# Convenience name for target.
-run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test: ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/rule
-
-.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test
-
-# fast build rule for target.
-run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test.dir/build
-.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test/fast
-
-# Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test.dir/rule
-
-# Convenience name for target.
-run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test: ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test.dir/rule
-
-.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test
-
-# fast build rule for target.
-run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test.dir/build
-.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test/fast
-
-# Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test.dir/rule
-
-# Convenience name for target.
-run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test: ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test.dir/rule
-
-.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test
-
-# fast build rule for target.
-run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test.dir/build
-.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test/fast
-
-# Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_fail_test.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_fail_test.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_fail_test.dir/rule
-
-# Convenience name for target.
-diff_drive_fail_test: ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_fail_test.dir/rule
-
-.PHONY : diff_drive_fail_test
-
-# fast build rule for target.
-diff_drive_fail_test/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_fail_test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_fail_test.dir/build
-.PHONY : diff_drive_fail_test/fast
+skidsteerbot/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/skidsteerbot.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/skidsteerbot.dir/build
+.PHONY : skidsteerbot/fast
 
 # Convenience name for target.
 ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_dyn_reconf.test.dir/rule:
@@ -901,21 +781,6 @@ run_tests_diff_drive_controller_rostest_test_diff_drive_odom_tf.test: ros_contro
 run_tests_diff_drive_controller_rostest_test_diff_drive_odom_tf.test/fast:
 	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_odom_tf.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_odom_tf.test.dir/build
 .PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_odom_tf.test/fast
-
-# Convenience name for target.
-ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_lisp: ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-
-.PHONY : std_srvs_generate_messages_lisp
-
-# fast build rule for target.
-std_srvs_generate_messages_lisp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
-.PHONY : std_srvs_generate_messages_lisp/fast
 
 # Convenience name for target.
 ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_odom_tf.test.dir/rule:
@@ -1278,6 +1143,21 @@ run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test/f
 .PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test/fast
 
 # Convenience name for target.
+ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test.dir/rule
+.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test.dir/rule
+
+# Convenience name for target.
+_run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test: ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test.dir/rule
+
+.PHONY : _run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test
+
+# fast build rule for target.
+_run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test.dir/build
+.PHONY : _run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test/fast
+
+# Convenience name for target.
 ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller.dir/rule:
 	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller.dir/rule
 .PHONY : ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller.dir/rule
@@ -1456,6 +1336,51 @@ _run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param.test: ros_
 _run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param.test/fast:
 	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param.test.dir/build
 .PHONY : _run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param.test/fast
+
+# Convenience name for target.
+ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_controller_gencfg.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_controller_gencfg.dir/rule
+.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_controller_gencfg.dir/rule
+
+# Convenience name for target.
+diff_drive_controller_gencfg: ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_controller_gencfg.dir/rule
+
+.PHONY : diff_drive_controller_gencfg
+
+# fast build rule for target.
+diff_drive_controller_gencfg/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_controller_gencfg.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/diff_drive_controller_gencfg.dir/build
+.PHONY : diff_drive_controller_gencfg/fast
+
+# Convenience name for target.
+ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test.dir/rule
+.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test.dir/rule
+
+# Convenience name for target.
+run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test: ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test.dir/rule
+
+.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test
+
+# fast build rule for target.
+run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test.dir/build
+.PHONY : run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test/fast
+
+# Convenience name for target.
+ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test.dir/rule
+.PHONY : ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test.dir/rule
+
+# Convenience name for target.
+_run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test: ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test.dir/rule
+
+.PHONY : _run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test
+
+# fast build rule for target.
+_run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test.dir/build.make ros_controllers/diff_drive_controller/CMakeFiles/_run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test.dir/build
+.PHONY : _run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test/fast
 
 src/diff_drive_controller.o: src/diff_drive_controller.cpp.o
 
@@ -1981,49 +1906,41 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_dyn_reconf.test"
 	@echo "... diff_drive_dyn_reconf_test"
-	@echo "... _run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test"
+	@echo "... _run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test"
+	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test"
 	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test"
-	@echo "... _run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test"
 	@echo "... _run_tests_diff_drive_controller_rostest_test_diff_drive_controller_limits.test"
 	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_controller_nan.test"
 	@echo "... _run_tests_diff_drive_controller_rostest_test_diff_drive_controller_nan.test"
+	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test"
+	@echo "... edit_cache"
+	@echo "... _run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test"
 	@echo "... list_install_components"
 	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_controller_limits.test"
 	@echo "... diff_drive_nan_test"
 	@echo "... diff_drive_default_cmd_vel_out_test"
 	@echo "... _run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test"
-	@echo "... _run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test"
-	@echo "... std_srvs_generate_messages_eus"
-	@echo "... clean_test_results_diff_drive_controller"
-	@echo "... run_tests_diff_drive_controller_rostest"
-	@echo "... nav_msgs_generate_messages_eus"
-	@echo "... skidsteerbot"
-	@echo "... std_srvs_generate_messages_py"
-	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test"
-	@echo "... edit_cache"
-	@echo "... _run_tests_diff_drive_controller_rostest_test_diff_drive_left_right_multipliers.test"
 	@echo "... controller_manager_msgs_generate_messages_cpp"
 	@echo "... controller_manager_msgs_generate_messages_nodejs"
+	@echo "... nav_msgs_generate_messages_cpp"
+	@echo "... diff_drive_test"
+	@echo "... diff_drive_timeout_test"
+	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test"
+	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test"
+	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test"
 	@echo "... test"
 	@echo "... nav_msgs_generate_messages_nodejs"
 	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_radius_sphere.test"
+	@echo "... diff_drive_fail_test"
 	@echo "... diff_drive_limits_test"
 	@echo "... diff_drive_odom_tf_test"
 	@echo "... controller_manager_msgs_generate_messages_eus"
 	@echo "... nav_msgs_generate_messages_py"
 	@echo "... _run_tests_diff_drive_controller_rostest_test_diff_drive_timeout.test"
-	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_controller.test"
-	@echo "... std_srvs_generate_messages_cpp"
-	@echo "... diff_drive_test"
-	@echo "... nav_msgs_generate_messages_cpp"
-	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test"
-	@echo "... diff_drive_controller_gencfg"
-	@echo "... std_srvs_generate_messages_nodejs"
-	@echo "... diff_drive_timeout_test"
-	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_multipliers.test"
-	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_pub_cmd_vel_out.test"
-	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_publish_wheel_joint_controller_state.test"
-	@echo "... diff_drive_fail_test"
+	@echo "... clean_test_results_diff_drive_controller"
+	@echo "... run_tests_diff_drive_controller_rostest"
+	@echo "... nav_msgs_generate_messages_eus"
+	@echo "... skidsteerbot"
 	@echo "... _run_tests_diff_drive_controller_rostest_test_diff_drive_dyn_reconf.test"
 	@echo "... diffbot"
 	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_wrong.test"
@@ -2032,7 +1949,6 @@ help:
 	@echo "... _run_tests_diff_drive_controller_rostest_test_diff_drive_wrong.test"
 	@echo "... install"
 	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_odom_tf.test"
-	@echo "... std_srvs_generate_messages_lisp"
 	@echo "... _run_tests_diff_drive_controller_rostest_test_diff_drive_odom_tf.test"
 	@echo "... diff_drive_pub_cmd_vel_out_test"
 	@echo "... controller_manager_msgs_generate_messages_lisp"
@@ -2057,6 +1973,7 @@ help:
 	@echo "... _run_tests_diff_drive_controller_rostest_test_diff_drive_multiple_cmd_vel_publishers.test"
 	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_open_loop.test"
 	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test"
+	@echo "... _run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param_fail.test"
 	@echo "... _run_tests_diff_drive_controller"
 	@echo "... run_tests_diff_drive_controller_rostest_test_skid_steer_controller.test"
 	@echo "... nav_msgs_generate_messages_lisp"
@@ -2069,6 +1986,9 @@ help:
 	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param.test"
 	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_default_cmd_vel_out.test"
 	@echo "... _run_tests_diff_drive_controller_rostest_test_diff_drive_radius_param.test"
+	@echo "... diff_drive_controller_gencfg"
+	@echo "... run_tests_diff_drive_controller_rostest_test_diff_drive_separation_param.test"
+	@echo "... _run_tests_diff_drive_controller_rostest_test_diff_drive_bad_urdf.test"
 	@echo "... src/diff_drive_controller.o"
 	@echo "... src/diff_drive_controller.i"
 	@echo "... src/diff_drive_controller.s"

@@ -52,7 +52,7 @@
     <group_state name="close" group="gripper">
         <joint name="gripper_finger1_finger_tip_joint" value="0" />
         <joint name="gripper_finger1_inner_knuckle_joint" value="0" />
-        <joint name="gripper_finger1_joint" value="0.8" />
+        <joint name="gripper_finger1_joint" value="0.3" />
         <joint name="gripper_finger2_finger_tip_joint" value="0" />
         <joint name="gripper_finger2_inner_knuckle_joint" value="0" />
         <joint name="gripper_finger2_joint" value="0" />

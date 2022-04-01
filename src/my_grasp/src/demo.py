@@ -11,11 +11,15 @@ rospy.init_node('grasp')
 arm = moveit_commander.MoveGroupCommander("arm")
 grp = moveit_commander.MoveGroupCommander("gripper")
 
-for _ in range(10):
+for _ in range(5):
   arm.set_named_target('allZero')
   arm.go(wait=True)
+  grp.set_named_target('open')
+  grp.go(wait=True)
   arm.set_named_target('start')
   arm.go(wait=True)
+  grp.set_named_target('close')
+  grp.go(wait=True)
 
 wpose = arm.get_current_pose().pose
 print("Current pose: ",wpose)

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_FLAGS = -fPIC   -std=c++11
 
-CXX_DEFINES = -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"ur_kinematics\" -DUR10_PARAMS -Dur10_moveit_plugin_EXPORTS
+CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"ur_kinematics\" -DUR10_PARAMS -Dur10_moveit_plugin_EXPORTS
 
-CXX_INCLUDES = -I/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/universal_robot/ur_kinematics/include -I/opt/ros/melodic/include -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/opt/ros/melodic/share/orocos_kdl/cmake/../../../include -I/usr/include/eigen3 -isystem /home/trong/miniconda3/include 
+CXX_INCLUDES = -I/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/universal_robot/ur_kinematics/include -I/opt/ros/melodic/include -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/opt/ros/melodic/share/orocos_kdl/cmake/../../../include -I/usr/include/eigen3 
 

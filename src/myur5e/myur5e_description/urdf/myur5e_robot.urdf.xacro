@@ -22,6 +22,7 @@
 
   <!-- robotiq 85 -->
   <xacro:include filename="$(find robotiq_85_description)/urdf/robotiq_85_gripper.urdf.xacro" />
+  <!-- <xacro:include filename="$(find robotiq_description)/urdf/robotiq_85_gripper.urdf.xacro" /> -->
 
   <!-- gripper -->
   <xacro:robotiq_85_gripper prefix="" parent="wrist_attach" >
@@ -62,7 +63,7 @@
   <joint name="table_to_overcamera" type="fixed">
     <parent link="mytable"/>
     <child link="overcamera_link"/>
-    <origin xyz="0.0 0.0 1" rpy="0 ${pi/2} 0"/>
+    <origin xyz="0.75 0.0 1" rpy="${pi} ${3*pi/4} 0"/>
   </joint>
 
 </robot>

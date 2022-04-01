@@ -11,9 +11,6 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
-  "BOOST_ALL_NO_LIB"
-  "BOOST_SYSTEM_DYN_LINK"
-  "BOOST_THREAD_DYN_LINK"
   "ROSCONSOLE_BACKEND_LOG4CXX"
   "ROS_BUILD_SHARED_LIBS=1"
   "ROS_PACKAGE_NAME=\"ackermann_steering_controller\""
@@ -22,7 +19,6 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/ackermann_steering_controller/include"
-  "/home/trong/miniconda3/include"
   "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/include"
   "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/diff_drive_controller/include"
   "/opt/ros/melodic/include"

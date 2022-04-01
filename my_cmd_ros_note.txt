@@ -14,11 +14,15 @@ Moveit (with rviz) and Gazebo:
   roslaunch myur5e_gazebo myur5e_gazebo_moveit_rviz.launch
   roslaunch myur5e_gazebo myur5e_gazebo_moveit.launch
 
-Run Vision example:
+Run some examples:
   rosrun my_grasp myvision.py
+  rosrun my_grasp demo.py
 
 Print package: rospack list | grep gazebo_ros
 Print current active topics: rostopic list
+
+TEST GRIPPER PKG: 
+roslaunch robotiq_85_gazebo robotiq_85_moveit_rviz_test.launch
 
 
 ==========MOVEIT TUTORIAL=============

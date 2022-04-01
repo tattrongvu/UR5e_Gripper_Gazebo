@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(ackermann_steering_controller_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "include;/home/trong/miniconda3/include " STREQUAL " ")
+if(NOT "include;/usr/include " STREQUAL " ")
   set(ackermann_steering_controller_INCLUDE_DIRS "")
-  set(_include_dirs "include;/home/trong/miniconda3/include")
+  set(_include_dirs "include;/usr/include")
   if(NOT "https://github.com/ros-controls/ros_controllers/issues " STREQUAL " ")
     set(_report "Check the issue tracker 'https://github.com/ros-controls/ros_controllers/issues' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -116,7 +116,7 @@ if(NOT "include;/home/trong/miniconda3/include " STREQUAL " ")
   endforeach()
 endif()
 
-set(libraries "ackermann_steering_controller;/home/trong/miniconda3/lib/libboost_system.so.1.74.0;/home/trong/miniconda3/lib/libboost_thread.so.1.74.0")
+set(libraries "ackermann_steering_controller;/usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_thread.so;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;/usr/lib/x86_64-linux-gnu/libpthread.so")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")

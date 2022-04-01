@@ -156,8 +156,12 @@ ackermann_steering_controller_EXTERNAL_OBJECTS =
 /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
 /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /usr/lib/x86_64-linux-gnu/libpthread.so
 /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /home/trong/miniconda3/lib/libboost_system.so.1.74.0
-/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /home/trong/miniconda3/lib/libboost_thread.so.1.74.0
+/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /usr/lib/x86_64-linux-gnu/libboost_system.so
+/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /usr/lib/x86_64-linux-gnu/libpthread.so
 /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /opt/ros/melodic/lib/libdynamic_reconfigure_config_init_mutex.so
 /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /opt/ros/melodic/lib/librealtime_tools.so
 /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /opt/ros/melodic/lib/libtf.so
@@ -191,13 +195,13 @@ ackermann_steering_controller_EXTERNAL_OBJECTS =
 /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /opt/ros/melodic/lib/libxmlrpcpp.so
 /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /opt/ros/melodic/lib/librostime.so
 /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /opt/ros/melodic/lib/libcpp_common.so
-/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /usr/lib/x86_64-linux-gnu/libboost_system.so
 /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /usr/lib/x86_64-linux-gnu/libboost_thread.so
 /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
 /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
 /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
 /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /usr/lib/x86_64-linux-gnu/libpthread.so
 /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
+/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: /usr/lib/x86_64-linux-gnu/libboost_system.so
 /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so: ros_controllers/ackermann_steering_controller/CMakeFiles/ackermann_steering_controller.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared library /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libackermann_steering_controller.so"
 	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/ros_controllers/ackermann_steering_controller && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ackermann_steering_controller.dir/link.txt --verbose=$(VERBOSE)

@@ -74,8 +74,8 @@
         <camera name="wrist_cam">
           <horizontal_fov>1.3962634</horizontal_fov>
           <image>
-            <width>800</width>
-            <height>800</height>
+            <width>512</width>
+            <height>512</height>
             <format>R8G8B8</format>
           </image>
           <clip>

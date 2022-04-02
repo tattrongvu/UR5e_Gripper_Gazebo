@@ -36,14 +36,14 @@ class ur5_vision:
 
 def main():
   rospy.init_node('vision')
-  myvs=ur5_vision(resize=True)
+  myvs=ur5_vision(resize=False)
   cv2.namedWindow("Image window", 1)
   #rospy.spin()
   while not rospy.is_shutdown():
     cv_image = myvs.get_image()
     if cv_image is not None:
       cv2.imshow("Image window", cv_image)
-    if cv2.waitKey(3)==27:
+    if cv2.waitKey(1)==27:
       cv2.destroyAllWindows()
       break
     # img = myvs.get_image()

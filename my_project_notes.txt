@@ -1,0 +1,97 @@
+Rviz:
+  roslaunch myur5e_description myur5e_rviz.launch
+
+Run only Gazebo Simulation:
+  roslaunch myur5e_gazebo myur5e_gazebo.launch
+
+RQT rqt_joint_trajectory_controller gui:
+  rosrun rqt_joint_trajectory_controller rqt_joint_trajectory_controller
+
+Run Moveit:
+  roslaunch myur5e_gazebo myur5e_planning_execution.launch
+
+Moveit (with rviz) and Gazebo:
+  roslaunch myur5e_gazebo myur5e_gazebo_moveit_rviz.launch
+  roslaunch myur5e_gazebo myur5e_gazebo_moveit.launch
+
+Run some examples:
+  rosrun my_grasp myvision.py
+  rosrun my_grasp demo.py
+
+Print package: rospack list | grep gazebo_ros
+Print current active topics: rostopic list
+
+TEST GRIPPER PKG: 
+roslaunch robotiq_85_gazebo robotiq_85_moveit_rviz_test.launch
+
+
+==========MOVEIT TUTORIAL=============
+https://www.theconstructsim.com/control-gazebo-simulated-robot-moveit-video-answer/
+https://gramaziokohler.github.io/compas_fab/0.17.1/examples/03_backends_ros/08_ros_create_moveit_package_from_custom_urdf.html
+
+1. Moveit setup assistant:
+  Run:
+    roslaunch moveit_setup_assistant setup_assistant.launch
+  Load file:
+    myur5e_description/urdf/myur5e_with_gripper_for_moveit.urdf.xacro
+
+  Virtual Joint: Name: "FixedBase", child: "world", parent: world
+  Add planning group: 
+    "arm": add chain link from "base_link" to "ee_link"
+    "gripper": 9 link + wrist joint (for wrist camera)
+
+2. add "controllers.yaml" to above created moveit pkg: "myur5e_moveit_config/config" folder
+  Contents of controllers file could be determined when launch gazebo sim and use 'rostopic list' to find out which
+  topic (include name and type of controller) which is defined for the controller of robot
+
+  Edit: "myur5e_moveit_config/launch/myur5e_moveit_controller_manager.launch.xml" to include 'controllers.yaml' instead of 'ros_controllers.yaml'
+  Edit: 'trajectory_execution.launch.xml': delete all params when call the 'myur5e_moveit_controller_manager' (line 20-21)
+
+3. Create file 'myur5e_planning_execution.launch' (can be place at gazebo launch folder) to load 'move_group' node rviz(option,can be load at a main launch file)
+  When load move_group: <arg name="load_robot_description" value="false"/>
+
+DEMO Moveit with rviz:
+  roslaunch myur5e_moveit_config demo.launch
+
+======================TOTAL RUNNING SEQUENCE==================
+(can be found at myur5e_test.launch)
+s1, <arg>: define args
+s2, <include>: launch '.world' file: where we can define sim args like: gui, headless,..
+s3, <param../>: read robot '.urdf(.xacro)' file and write to 'robot_description' param and send to parameters server
+s4, <node>: spawn gazebo with the above uploaded 'robot_description' params
+s5, <include>: load controllers with 'myur5e_controllers.launch'
+s6, <include>: load move_group with 'myur5e_planning_execution.launch'
+    Inside:
+      <include> move_group.launch
+          <include> planning_context.launch
+            <param> myur5e_with_gripper_for_moveit.urdf.xacro (plan robot descrip, can be different from total urdf file, which include both robot and scenes)
+            <param> myur5e.srdf (plan semantic descrip)
+            <group> joint_limits.yaml / cartesian_limits.yaml / kinematics.yaml
+          <include> planning_pipeline.launch.xml
+            <include> ompl_planning_pipeline.launch.xml
+          <include> trajectory_execution.launch.xml
+            <include> myur5_moveit_controller_manager.launch.xml
+              <rosparam> myur5e_moveit_config/config/controllers.yaml
+          <node> move_group pkg="moveit_ros_move_group"
+
+
+s7, <node>: rviz or python node
+
+===================.launch file notes================
+<arg>..</arg>: define args
+<include>..</include>: roslaunch .launch file, 
+  args could be called when roslaunch .launch file with <arg../>
+<param../>: send params to parameters server
+<node>..</node>: rosrun, start a node
+
+
+#===============CREATE PYTHON PKG and run Python node=============
+Create my_grasp pkg with depend on rospy
+  catkin_create_pkg my_grasp rospy
+  cd my_grasp/src
+  touch grasp.py
+  chmod +x grasp.py
+Add this in the begin of file
+  #! /usr/bin/env python2.7
+Then run with: rosrun my_grasp grasp.py or directly with: python2 grasp.py
+

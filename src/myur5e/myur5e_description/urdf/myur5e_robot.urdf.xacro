@@ -21,10 +21,6 @@
     wrist_3_lower_limit="${-pi}" wrist_3_upper_limit="${pi}"
   />
 
-
-  <!-- robotiq 85 -->
-  <!--<xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_arg2f_85_model.xacro" />-->
-
   <!-- wrist camera -->
   <xacro:include filename="$(find myur5e_description)/urdf/mycamera.urdf.xacro" />
   <!-- wrist camera attach -->
@@ -35,6 +31,7 @@
   <!-- robotiq 85 -->
   <xacro:include filename="$(find robotiq_85_description)/urdf/robotiq_85_gripper.urdf.xacro" />
   <!-- <xacro:include filename="$(find robotiq_description)/urdf/robotiq_85_gripper.urdf.xacro" /> -->
+  <!--<xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_arg2f_85_model.xacro" />-->
 
   <!-- gripper -->
   <xacro:robotiq_85_gripper prefix="" parent="wrist_attach" >

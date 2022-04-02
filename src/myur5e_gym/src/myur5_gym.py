@@ -45,7 +45,7 @@ class myur5e_gym:
 
     #============INIT ROSPY============
     rospy.init_node('myur5e_gym',anonymous=True)
-    self.rate = rospy.Rate(5)
+    self.rate = rospy.Rate(1)
 
     #=============VISION OBSERVATION=============
     if self.vision_obs:
@@ -61,7 +61,7 @@ class myur5e_gym:
     self.arm = moveit_commander.MoveGroupCommander(self.arm_name)
     #self.grp = moveit_commander.MoveGroupCommander(self.gripper_name)
     self.arm.set_goal_position_tolerance(0.1)
-    self.arm.set_goal_orientation_tolerance(0.1)
+    self.arm.set_goal_orientation_tolerance(0.5)
 
     #end_effector_link
     self.ee_link = self.arm.get_end_effector_link()
@@ -78,7 +78,7 @@ class myur5e_gym:
     wpose.position.z += action[2]
     self.waypoints.append(deepcopy(wpose))
 
-    plan, fraction = self.arm.compute_cartesian_path(self.waypoints, 0.01, 0.0, True)
+    plan, fraction = self.arm.compute_cartesian_path(self.waypoints, 0.01, 5.0, True)
     return plan, fraction
     
   def step(self,action):
@@ -107,9 +107,9 @@ class myur5e_gym:
 
   def _get_obs(self):
     #Position of gripper
-    self.current_pose = self.arm.get_current_pose(self.ee_link).pose
     self.rate.sleep()
-
+    self.current_pose = self.arm.get_current_pose(self.ee_link).pose
+    
     if self.vision_obs:
       img = self.my_img_class.get_image()
       return self.current_pose, img
@@ -119,15 +119,21 @@ class myur5e_gym:
 def main(num_demo=10,max_step=50):
   try:
     env=myur5e_gym(arm_name='arm')
-    start = timeit.default_timer()
+    start_total = timeit.default_timer()
     for _ in range(num_demo):
+      rds=random.randint(0,10)
+      random.seed(rds)
+      start = timeit.default_timer()
       observation = env.reset()
       for t in range(max_step):
-        action = [random.uniform(0,0.01) for _ in range(3)]
+        action = random.uniform(-0.1,0.1,size=(3,))
         pose, img = env.step(action)
+        print("Step: {} \r".format(t))
+      stop = timeit.default_timer()
+      print('1 episode runtime: ', stop - start)
 
-    stop = timeit.default_timer()
-    print('Runtime: ', stop - start)
+    stop_total = timeit.default_timer()
+    print('Runtime: ', stop_total - start_total)
   except rospy.ROSInterruptException:
     print ("Program interrupted before completion")
 

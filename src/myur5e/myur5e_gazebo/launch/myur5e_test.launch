@@ -27,7 +27,7 @@
   <!-- MOVEIT Component -->
   <include file="$(find myur5e_gazebo)/launch/myur5e_planning_execution.launch"/>
 
-  <!-- MOVEIT Component -->
+  <!-- python Component -->
   <node pkg="my_grasp" name="vision_node" type="myvision.py" output="screen"/>
 
 </launch>

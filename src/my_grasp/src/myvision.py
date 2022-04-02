@@ -10,9 +10,9 @@ import cv2, cv_bridge
 #/myur5e/wrist_camera/wrist_image_raw
 
 class ur5_vision:
-  def __init__(self,image_topic='/myur5e/wrist_camera/wrist_image_raw', \
+  def __init__(self,image_topic='/myur5e/overview/overview_image_raw', \
                 resize = False, \
-                image_size=(256,256)):
+                image_size=(512,512)):
 
     self.topic = image_topic
     self.bridge = cv_bridge.CvBridge()

@@ -52,12 +52,12 @@ class myur5e_gym:
       #self.wrist_cam = myur5e_vision(image_topic = '/myur5e/wrist_camera/wrist_image_raw', resize=True)
       self.over_cam = myur5e_vision(image_topic = '/myur5e/overview/overview_image_raw', resize=True)
     
-    #Init moveit
+    #=============INIT MOVEIT=============
     moveit_commander.roscpp_initialize(sys.argv)
     self.robot = moveit_commander.RobotCommander()
-    #self.scene = moveit_commander.PlanningSceneInterface()
+    self.scene = moveit_commander.PlanningSceneInterface()
 
-    #MOVE GROUP
+    #=============MOVE GROUP=============
     self.arm = moveit_commander.MoveGroupCommander(self.arm_name)
     #self.grp = moveit_commander.MoveGroupCommander(self.gripper_name)
     self.arm.set_goal_position_tolerance(0.1)
@@ -66,6 +66,7 @@ class myur5e_gym:
     #end_effector_link
     self.ee_link = self.arm.get_end_effector_link()
 
+    #======Action space=======
     self.action_low = [0,0,0,0.3]
     self.action_high = [0.7,0.7,0.7,0.8]
 

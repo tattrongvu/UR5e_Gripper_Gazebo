@@ -1,0 +1,8 @@
+prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install
+
+Name: robotiq_2f_gripper_control
+Description: Description of robotiq_2f_gripper_control
+Version: 0.0.3
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: std_msgs robotiq_2f_gripper_msgs

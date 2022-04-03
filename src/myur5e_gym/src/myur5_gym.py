@@ -59,7 +59,7 @@ class myur5e_gym:
 
     #=============MOVE GROUP=============
     self.arm = moveit_commander.MoveGroupCommander(self.arm_name)
-    #self.grp = moveit_commander.MoveGroupCommander(self.gripper_name)
+    self.grp = moveit_commander.MoveGroupCommander(self.gripper_name)
     self.arm.set_goal_position_tolerance(0.1)
     self.arm.set_goal_orientation_tolerance(0.5)
 

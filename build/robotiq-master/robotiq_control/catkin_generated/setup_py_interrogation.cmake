@@ -1,0 +1,7 @@
+set(robotiq_control_SETUP_PY_SETUP_MODULE "distutils.core")
+set(robotiq_control_SETUP_PY_VERSION "0.1.0")
+set(robotiq_control_SETUP_PY_SCRIPTS "")
+set(robotiq_control_SETUP_PY_PACKAGES "robotiq_control")
+set(robotiq_control_SETUP_PY_PACKAGE_DIRS "src/robotiq_control")
+set(robotiq_control_SETUP_PY_MODULES "")
+set(robotiq_control_SETUP_PY_MODULE_DIRS "")

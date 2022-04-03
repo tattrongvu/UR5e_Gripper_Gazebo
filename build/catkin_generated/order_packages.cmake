@@ -105,7 +105,7 @@ list(APPEND CATKIN_ORDERED_PACKAGE_PATHS "ros_controllers/joint_state_controller
 list(APPEND CATKIN_ORDERED_PACKAGES_IS_META "False")
 list(APPEND CATKIN_ORDERED_PACKAGES_BUILD_TYPE "catkin")
 list(APPEND CATKIN_ORDERED_PACKAGES "roboticsgroup_gazebo_plugins")
-list(APPEND CATKIN_ORDERED_PACKAGE_PATHS "robotiq_85_gripper/robotiq_85_simulation/roboticsgroup_gazebo_plugins")
+list(APPEND CATKIN_ORDERED_PACKAGE_PATHS "roboticsgroup_gazebo_plugins")
 list(APPEND CATKIN_ORDERED_PACKAGES_IS_META "False")
 list(APPEND CATKIN_ORDERED_PACKAGES_BUILD_TYPE "catkin")
 list(APPEND CATKIN_ORDERED_PACKAGES "ur_bringup")

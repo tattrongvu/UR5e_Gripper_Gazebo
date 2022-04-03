@@ -1123,22 +1123,22 @@ roboticsgroup_gazebo_disable_link_plugin_LIB_DEPENDS:STATIC=general;/opt/ros/mel
 roboticsgroup_gazebo_mimic_joint_plugin_LIB_DEPENDS:STATIC=general;/opt/ros/melodic/lib/libgazebo_ros_api_plugin.so;general;/opt/ros/melodic/lib/libgazebo_ros_paths_plugin.so;general;/opt/ros/melodic/lib/libroslib.so;general;/opt/ros/melodic/lib/librospack.so;general;/usr/lib/x86_64-linux-gnu/libpython2.7.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml2.so;general;/opt/ros/melodic/lib/libtf.so;general;/opt/ros/melodic/lib/libtf2_ros.so;general;/opt/ros/melodic/lib/libactionlib.so;general;/opt/ros/melodic/lib/libmessage_filters.so;general;/opt/ros/melodic/lib/libtf2.so;general;/opt/ros/melodic/lib/libcontrol_toolbox.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml.so;general;/opt/ros/melodic/lib/libdynamic_reconfigure_config_init_mutex.so;general;/opt/ros/melodic/lib/librealtime_tools.so;general;/opt/ros/melodic/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/opt/ros/melodic/lib/librosconsole.so;general;/opt/ros/melodic/lib/librosconsole_log4cxx.so;general;/opt/ros/melodic/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/opt/ros/melodic/lib/libxmlrpcpp.so;general;/opt/ros/melodic/lib/libroscpp_serialization.so;general;/opt/ros/melodic/lib/librostime.so;general;/opt/ros/melodic/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4;general;BulletSoftBody;general;BulletDynamics;general;BulletCollision;general;LinearMath;general;/usr/lib/x86_64-linux-gnu/libSimTKsimbody.so;general;/usr/lib/x86_64-linux-gnu/libSimTKmath.so;general;/usr/lib/x86_64-linux-gnu/libSimTKcommon.so;general;/usr/lib/x86_64-linux-gnu/libblas.so;general;/usr/lib/x86_64-linux-gnu/liblapack.so;general;/usr/lib/x86_64-linux-gnu/libblas.so;general;pthread;general;rt;general;dl;general;m;general;/usr/lib/x86_64-linux-gnu/libgazebo.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_client.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_gui.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_sensors.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_rendering.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_physics.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_ode.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_transport.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_msgs.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_util.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_common.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_gimpact.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_opcode.so;general;/usr/lib/x86_64-linux-gnu/libgazebo_opende_ou.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_signals.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libprotobuf.so;general;-lpthread;general;/usr/lib/x86_64-linux-gnu/libsdformat.so;general;ignition-math4::ignition-math4;optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;general;ignition-math4::ignition-math4;general;ignition-transport4::ignition-transport4;general;ignition-msgs1::ignition-msgs1;general;ignition-common1::ignition-common1;general;ignition-fuel_tools1::ignition-fuel_tools1;
 
 //Value Computed by CMake
-roboticsgroup_gazebo_plugins_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq_85_gripper/robotiq_85_simulation/roboticsgroup_gazebo_plugins
+roboticsgroup_gazebo_plugins_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/roboticsgroup_gazebo_plugins
 
 //Value Computed by CMake
-roboticsgroup_gazebo_plugins_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq_85_gripper/robotiq_85_simulation/roboticsgroup_gazebo_plugins
+roboticsgroup_gazebo_plugins_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/roboticsgroup_gazebo_plugins
 
 //Value Computed by CMake
-robotiq_2f_140_gripper_visualization_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq/robotiq_2f_140_gripper_visualization
+robotiq_2f_140_gripper_visualization_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq_2finger_grippers/robotiq_2f_140_gripper_visualization
 
 //Value Computed by CMake
-robotiq_2f_140_gripper_visualization_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq/robotiq_2f_140_gripper_visualization
+robotiq_2f_140_gripper_visualization_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq_2finger_grippers/robotiq_2f_140_gripper_visualization
 
 //Value Computed by CMake
-robotiq_2f_85_gripper_visualization_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq/robotiq_2f_85_gripper_visualization
+robotiq_2f_85_gripper_visualization_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq_2finger_grippers/robotiq_2f_85_gripper_visualization
 
 //Value Computed by CMake
-robotiq_2f_85_gripper_visualization_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq/robotiq_2f_85_gripper_visualization
+robotiq_2f_85_gripper_visualization_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq_2finger_grippers/robotiq_2f_85_gripper_visualization
 
 //Value Computed by CMake
 robotiq_2f_c2_gripper_visualization_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq/robotiq_2f_c2_gripper_visualization
@@ -1153,13 +1153,21 @@ robotiq_2f_gripper_action_server_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_TH
 robotiq_2f_gripper_action_server_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq/robotiq_2f_gripper_action_server
 
 //Value Computed by CMake
-robotiq_2f_gripper_control_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq/robotiq_2f_gripper_control
+robotiq_2f_gripper_control_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq_2finger_grippers/robotiq_2f_gripper_control
 
-//The directory containing a CMake configuration file for robotiq_2f_gripper_control.
-robotiq_2f_gripper_control_DIR:PATH=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/share/robotiq_2f_gripper_control/cmake
+robotiq_2f_gripper_control_DIR:PATH=
 
 //Value Computed by CMake
-robotiq_2f_gripper_control_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq/robotiq_2f_gripper_control
+robotiq_2f_gripper_control_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq_2finger_grippers/robotiq_2f_gripper_control
+
+//Value Computed by CMake
+robotiq_2f_gripper_msgs_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq_2finger_grippers/robotiq_2f_gripper_msgs
+
+//The directory containing a CMake configuration file for robotiq_2f_gripper_msgs.
+robotiq_2f_gripper_msgs_DIR:PATH=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/share/robotiq_2f_gripper_msgs/cmake
+
+//Value Computed by CMake
+robotiq_2f_gripper_msgs_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq_2finger_grippers/robotiq_2f_gripper_msgs
 
 //Value Computed by CMake
 robotiq_3f_gripper_articulated_gazebo_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq/robotiq_3f_gripper_articulated_gazebo
@@ -1249,16 +1257,16 @@ robotiq_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/r
 robotiq_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq/robotiq
 
 //Value Computed by CMake
-robotiq_control_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq/robotiq_control
+robotiq_control_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq-master/robotiq_control
 
 //Value Computed by CMake
-robotiq_control_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq/robotiq_control
+robotiq_control_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq-master/robotiq_control
 
 //Value Computed by CMake
-robotiq_description_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq/robotiq_description
+robotiq_description_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq-master/robotiq_description
 
 //Value Computed by CMake
-robotiq_description_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq/robotiq_description
+robotiq_description_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq-master/robotiq_description
 
 //Value Computed by CMake
 robotiq_ethercat_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq/robotiq_ethercat
@@ -1273,22 +1281,22 @@ robotiq_ethercat_LIB_DEPENDS:STATIC=
 robotiq_ethercat_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq/robotiq_ethercat
 
 //Value Computed by CMake
-robotiq_ft_sensor_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq/robotiq_ft_sensor
+robotiq_ft_sensor_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq-master/robotiq_ft_sensor
 
 //Value Computed by CMake
-robotiq_ft_sensor_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq/robotiq_ft_sensor
+robotiq_ft_sensor_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq-master/robotiq_ft_sensor
 
 //Value Computed by CMake
-robotiq_gazebo_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq/robotiq_gazebo
+robotiq_gazebo_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq-master/robotiq_gazebo
 
 //Value Computed by CMake
-robotiq_gazebo_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq/robotiq_gazebo
+robotiq_gazebo_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq-master/robotiq_gazebo
 
 //Value Computed by CMake
-robotiq_modbus_rtu_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq/robotiq_modbus_rtu
+robotiq_modbus_rtu_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq_2finger_grippers/robotiq_modbus_rtu
 
 //Value Computed by CMake
-robotiq_modbus_rtu_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq/robotiq_modbus_rtu
+robotiq_modbus_rtu_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq_2finger_grippers/robotiq_modbus_rtu
 
 //Value Computed by CMake
 robotiq_modbus_tcp_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq/robotiq_modbus_tcp
@@ -1297,10 +1305,10 @@ robotiq_modbus_tcp_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/m
 robotiq_modbus_tcp_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq/robotiq_modbus_tcp
 
 //Value Computed by CMake
-robotiq_msgs_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq/robotiq_msgs
+robotiq_msgs_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/robotiq-master/robotiq_msgs
 
 //Value Computed by CMake
-robotiq_msgs_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq/robotiq_msgs
+robotiq_msgs_SOURCE_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq-master/robotiq_msgs
 
 //Value Computed by CMake
 ros_controllers_BINARY_DIR:STATIC=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/ros_controllers/ros_controllers

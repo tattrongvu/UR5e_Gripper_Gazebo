@@ -67,7 +67,7 @@ set(robotiq_msgs_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(robotiq_msgs_SOURCE_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq/robotiq_msgs)
+  set(robotiq_msgs_SOURCE_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq-master/robotiq_msgs)
   set(robotiq_msgs_DEVEL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel)
   set(robotiq_msgs_INSTALL_PREFIX "")
   set(robotiq_msgs_PREFIX ${robotiq_msgs_DEVEL_PREFIX})
@@ -110,7 +110,7 @@ if(NOT "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/include " STREQUAL 
         message(FATAL_ERROR "Project 'robotiq_msgs' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'robotiq_msgs' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq/robotiq_msgs/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'robotiq_msgs' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/robotiq-master/robotiq_msgs/${idir}'.  ${_report}")
     endif()
     _list_append_unique(robotiq_msgs_INCLUDE_DIRS ${include})
   endforeach()

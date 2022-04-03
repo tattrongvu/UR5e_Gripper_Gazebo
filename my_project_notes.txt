@@ -95,3 +95,16 @@ Add this in the begin of file
   #! /usr/bin/env python2.7
 Then run with: rosrun my_grasp grasp.py or directly with: python2 grasp.py
 
+
+
+#=============GRIPPER BROKEN FIX==================
+pkg: roboticsgroup_gazebo_plugins
+
+gripper gazebo plugin: https://github.com/crigroup/robotiq/issues/4
+
+->use this for gazebo version 9x https://github.com/roboticsgroup/roboticsgroup_gazebo_plugins
+
+https://github.com/crigroup/robotiq
+
+Fix broken gripper original: 
+https://github.com/ros-industrial/robotiq/issues/150?fbclid=IwAR2X9i3S3c5OImAd-8LYYSuDHSukO3QbjT2mNpEIo6hvRFaVljjZDoKt2-U

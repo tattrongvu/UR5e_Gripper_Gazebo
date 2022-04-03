@@ -25,8 +25,8 @@
             <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="${prefix}mimic_robotiq_85_2">
                 <joint>${prefix}gripper_finger1_joint</joint>
                 <mimicJoint>${prefix}gripper_finger2_inner_knuckle_joint</mimicJoint>
-                <!--multiplier>1.0</multiplier>
-                <offset>0.0</offset-->
+                <!-- <multiplier>-1.0</multiplier> -->
+                <!-- <offset>0.0</offset-->
             </plugin>
             <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="${prefix}mimic_robotiq_85_3">
                 <joint>${prefix}gripper_finger1_joint</joint>

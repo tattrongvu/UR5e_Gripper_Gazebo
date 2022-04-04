@@ -40,7 +40,7 @@ class myur5e_vision:
     return self._image
 
 class myur5e_gym:
-  def __init__(self, vision_obs = False, num_obj=3,arm_name='arm', gripper_name = 'gripper', reward_type='sparse', render=True):
+  def __init__(self, vision_obs = False, num_obj=1,arm_name='arm', gripper_name = 'gripper', reward_type='sparse', render=True):
 
     #============Init var===========
     self.vision_obs = vision_obs
@@ -73,7 +73,7 @@ class myur5e_gym:
     self.arm = moveit_commander.MoveGroupCommander(self.arm_name)
     self.grp = moveit_commander.MoveGroupCommander(self.gripper_name)
     self.arm.set_goal_position_tolerance(0.02)
-    self.arm.set_goal_orientation_tolerance(0.1)
+    self.arm.set_goal_orientation_tolerance(0.05)
 
     #end_effector_link
     self.ee_link = self.arm.get_end_effector_link()
@@ -88,7 +88,7 @@ class myur5e_gym:
       print("Service call failed: {}".format(e))
     
     self.spawn_track = False
-    self.spawn_room_x_high= 0.3
+    self.spawn_room_x_high= 0.25
     self.spawn_room_x_low= -0.48
     self.spawn_room_y_high= 0.65
     self.spawn_room_y_low= -0.65
@@ -111,7 +111,7 @@ class myur5e_gym:
     self.output_low= [-0.05,-0.05,-0.05]
     self.output_high= [0.05,0.05,0.05]
     self.moveit_step_resolution = 0.01
-    #self.minimum_movement_thres = 0.005
+    self.minimum_movement_thres = 0.001
 
     #=========================================================
 
@@ -124,8 +124,9 @@ class myur5e_gym:
 
     ##MOVE ROBOT ARM
     _action = self._scale_action(action)
-    plan, _ = self._moveit_plan(_action)
-    self.arm.execute(plan)
+    if self._check_valid_action(_action):
+      plan, _ = self._moveit_plan(_action)
+      self.arm.execute(plan)
 
     next_state = self._get_obs()
     reward = self._compute_reward()
@@ -143,6 +144,14 @@ class myur5e_gym:
       _action[i]+=self.output_low[i]
     return _action
 
+  def _check_valid_action(self,action):
+    diff=np.sqrt(action[0]**2+action[1]**2+action[2]**2)
+    if diff < self.minimum_movement_thres:
+      print("Invalid: ",action)
+      return False
+    else:
+      return True
+
   def _compute_reward(self):
     if self.vision_obs:
       return self._vision_reward()
@@ -150,6 +159,9 @@ class myur5e_gym:
       return self._sim_reward()
 
   def reset(self):
+    
+    random.seed(random.randint(0,1000))
+    #RESAMPLE ALL TARGET AND OBJECTS
     self.arm.set_named_target('start')
     self.arm.go(wait=True)
     #self._delete_obj()
@@ -171,9 +183,6 @@ class myur5e_gym:
       return (self.current_pose, img)
     else:
       return (self.current_pose, None)
-  
-  def _distance2point(self):
-    pass
   
   def _moveit_plan(self,action):
     current_pose = self.arm.get_current_pose().pose

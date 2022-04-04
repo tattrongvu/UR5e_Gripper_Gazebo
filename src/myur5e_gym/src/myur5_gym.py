@@ -49,10 +49,11 @@ class myur5e_gym:
     self.num_obj = num_obj
     self.wrist_topic = '/myur5e/wrist_camera/wrist_image_raw'
     self.over_topic = '/myur5e/overview/overview_image_raw'
-    self.reward_distance_threshold = 0.05
+
     self.reward_type = reward_type
     self.done=False
     self.render=render
+    self.goal_tolerance = 0.03
 
     #============INIT ROSPY============
     rospy.init_node('myur5e_gym',anonymous=True)
@@ -78,17 +79,20 @@ class myur5e_gym:
     self.ee_link = self.arm.get_end_effector_link()
 
     #=============SPAWN OBJECTS=============
-    self.spawn_model_client = rospy.ServiceProxy('/gazebo/spawn_sdf_model', SpawnModel)
-    self.delete_model_client = rospy.ServiceProxy('/gazebo/delete_model', DeleteModel)
-    self.get_obj_pos_client = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
-    self.set_state_client = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
+    try:
+      self.spawn_model_client = rospy.ServiceProxy('/gazebo/spawn_sdf_model', SpawnModel)
+      self.delete_model_client = rospy.ServiceProxy('/gazebo/delete_model', DeleteModel)
+      self.get_obj_pos_client = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
+      self.set_state_client = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
+    except rospy.ServiceException, e:
+      print("Service call failed: {}".format(e))
     
     self.spawn_track = False
-    self.spawn_room_x_high= 0.48
+    self.spawn_room_x_high= 0.3
     self.spawn_room_x_low= -0.48
-    self.spawn_room_y_high= 0.7
-    self.spawn_room_y_low= -0.7
-    self.spawn_room_z_high = 0.8
+    self.spawn_room_y_high= 0.65
+    self.spawn_room_y_low= -0.65
+    self.spawn_room_z_high = 0.7
     self.spawn_room_z_low = 0.03
 
     self.obj_prefix='box'
@@ -106,6 +110,8 @@ class myur5e_gym:
     self.action_high = [1,1,1]
     self.output_low= [-0.05,-0.05,-0.05]
     self.output_high= [0.05,0.05,0.05]
+    self.moveit_step_resolution = 0.01
+    #self.minimum_movement_thres = 0.005
 
     #=========================================================
 
@@ -151,6 +157,7 @@ class myur5e_gym:
 
     self._sample_obj_state()
     self._sample_target_state()
+    self.rate.sleep()
 
     return self._get_obs()
 
@@ -165,6 +172,9 @@ class myur5e_gym:
     else:
       return (self.current_pose, None)
   
+  def _distance2point(self):
+    pass
+  
   def _moveit_plan(self,action):
     current_pose = self.arm.get_current_pose().pose
     self.waypoints = []
@@ -174,7 +184,8 @@ class myur5e_gym:
     wpose.position.z += action[2]
     self.waypoints.append(deepcopy(wpose))
 
-    plan, fraction = self.arm.compute_cartesian_path(self.waypoints, 0.01, 5.0, True)
+    plan, fraction = self.arm.compute_cartesian_path(self.waypoints, eef_step=self.moveit_step_resolution,\
+                                                      jump_threshold=3.0, avoid_collisions=True)
     return plan, fraction
 
   def _vision_reward(self):
@@ -190,7 +201,7 @@ class myur5e_gym:
     dz=(target_abs_pos.z-object_interest.z)**2
     distance = np.sqrt(dx+dy+dz)
     reward = -distance
-    if distance <= self.reward_distance_threshold:
+    if distance <= self.goal_tolerance:
       self.done=True
       if self.reward_type == 'sparse':
         reward = 1    
@@ -209,7 +220,10 @@ class myur5e_gym:
       random_y=np.random.uniform(self.spawn_room_y_low,self.spawn_room_y_high)
       random_pose=Pose(position=Point(random_x,random_y,self.spawn_room_z_low),orientation=Quaternion(0,0,0,0))
       state_msg.pose = random_pose
-      self.set_state_client(state_msg)
+      try:
+        self.set_state_client(state_msg)
+      except rospy.ServiceException, e:
+        print("Service call failed: {}".format(e))
 
   def _sample_target_state(self):
     state_msg = ModelState()
@@ -220,29 +234,38 @@ class myur5e_gym:
     random_z=np.random.uniform(self.spawn_room_z_low,self.spawn_room_z_high)
     random_pose=Pose(position=Point(random_x,random_y,random_z),orientation=Quaternion(0,0,0,0))
     state_msg.pose = random_pose
-    self.set_state_client(state_msg)
+    try:
+      self.set_state_client(state_msg)
+    except rospy.ServiceException, e:
+      print("Service call failed: {}".format(e))
   
   def _spawn_obj(self):
     #SPAWN ALL OBJECTS
     if not self.spawn_track:
       #==============OBJ===============
       for i,name in enumerate(self.obj_name_list):
-        random_pose=Pose(position=Point(0,float(i/2),0.1),orientation=Quaternion(0,0,0,0))
+        random_pose=Pose(position=Point(0,0,0.5),orientation=Quaternion(0,0,0,0))
         #print(random_point)
-        self.spawn_model_client(model_name=name, \
-          model_xml=open(self.box_path, 'r').read(),\
-          robot_namespace='',\
-          initial_pose=random_pose,\
-          reference_frame=self.table_name)
+        try:
+          self.spawn_model_client(model_name=name, \
+            model_xml=open(self.box_path, 'r').read(),\
+            robot_namespace='',\
+            initial_pose=random_pose,\
+            reference_frame=self.table_name)
+        except rospy.ServiceException, e:
+          print("Service call failed: {}".format(e))
 
       #==============TARGET===============
-      random_pose=Pose(position=Point(0,0.3,0.1),orientation=Quaternion(0,0,0,0))
+      random_pose=Pose(position=Point(0.3,0,0.1),orientation=Quaternion(0,0,0,0))
       #print(random_point)
-      self.spawn_model_client(model_name=self.target_name, \
-          model_xml=open(self.target_path, 'r').read(),\
-          robot_namespace='',\
-          initial_pose=random_pose,\
-          reference_frame=self.table_name)
+      try:
+        self.spawn_model_client(model_name=self.target_name, \
+            model_xml=open(self.target_path, 'r').read(),\
+            robot_namespace='',\
+            initial_pose=random_pose,\
+            reference_frame=self.table_name)
+      except rospy.ServiceException, e:
+        print("Service call failed: {}".format(e))
       self.spawn_track=True
       #===================================
 

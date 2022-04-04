@@ -7,7 +7,7 @@ import moveit_msgs.msg
 import geometry_msgs.msg
 from copy import deepcopy
 from gazebo_msgs.srv import SpawnModel, GetModelState
-import rospy
+
 from geometry_msgs.msg import Pose, Point, Quaternion
 
 
@@ -36,9 +36,9 @@ model_coordinates = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
 spawn_model_client = rospy.ServiceProxy('/gazebo/spawn_sdf_model', SpawnModel)
 
 spawn_model_client(model_name='box',\
-  model_xml=open('/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/myur5e/myur5e_description/urdf/mybox.urdf.xacro', 'r').read(),\
+  model_xml=open('/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/myur5e/myur5e_description/urdf/objects/mybox.urdf.xacro', 'r').read(),\
   robot_namespace='',\
-  initial_pose=Pose(position= Point(0.8,0,1.05),orientation=Quaternion(0,0,0,0)),reference_frame="world")
+  initial_pose=Pose(position= Point(0,0,0.1),orientation=Quaternion(0,0,0,0)),reference_frame="mytable")
 
 # spawn_model_client(model_name='box2',\
 #   model_xml=open('/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/myur5e/myur5e_description/urdf/mybox.urdf.xacro', 'r').read(),\

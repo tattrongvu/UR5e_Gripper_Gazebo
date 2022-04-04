@@ -56,6 +56,18 @@ CMAKE_BINARY_DIR = /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -77,28 +89,6 @@ list_install_components:
 list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -123,17 +113,27 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
 
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,81 +168,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_disable_link_plugin.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_disable_link_plugin.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_disable_link_plugin.dir/rule
-
-# Convenience name for target.
-roboticsgroup_gazebo_disable_link_plugin: roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_disable_link_plugin.dir/rule
-
-.PHONY : roboticsgroup_gazebo_disable_link_plugin
-
-# fast build rule for target.
-roboticsgroup_gazebo_disable_link_plugin/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_disable_link_plugin.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_disable_link_plugin.dir/build
-.PHONY : roboticsgroup_gazebo_disable_link_plugin/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_mimic_joint_plugin.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_mimic_joint_plugin.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_mimic_joint_plugin.dir/rule
-
-# Convenience name for target.
-roboticsgroup_gazebo_mimic_joint_plugin: roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_mimic_joint_plugin.dir/rule
-
-.PHONY : roboticsgroup_gazebo_mimic_joint_plugin
-
-# fast build rule for target.
-roboticsgroup_gazebo_mimic_joint_plugin/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_mimic_joint_plugin.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_mimic_joint_plugin.dir/build
-.PHONY : roboticsgroup_gazebo_mimic_joint_plugin/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_py.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_py.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-control_msgs_generate_messages_py: roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_py.dir/rule
-
-.PHONY : control_msgs_generate_messages_py
-
-# fast build rule for target.
-control_msgs_generate_messages_py/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_py.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_py.dir/build
-.PHONY : control_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-control_msgs_generate_messages_nodejs: roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : control_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-control_msgs_generate_messages_nodejs/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_nodejs.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_nodejs.dir/build
-.PHONY : control_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-control_msgs_generate_messages_cpp: roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : control_msgs_generate_messages_cpp
-
-# fast build rule for target.
-control_msgs_generate_messages_cpp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_cpp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_cpp.dir/build
-.PHONY : control_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
 roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_py.dir/rule:
 	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_py.dir/rule
 .PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_py.dir/rule
@@ -256,336 +181,6 @@ control_toolbox_generate_messages_py: roboticsgroup_gazebo_plugins/CMakeFiles/co
 control_toolbox_generate_messages_py/fast:
 	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_py.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_py.dir/build
 .PHONY : control_toolbox_generate_messages_py/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-control_toolbox_generate_messages_lisp: roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule
-
-.PHONY : control_toolbox_generate_messages_lisp
-
-# fast build rule for target.
-control_toolbox_generate_messages_lisp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_lisp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_lisp.dir/build
-.PHONY : control_toolbox_generate_messages_lisp/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-control_toolbox_generate_messages_cpp: roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule
-
-.PHONY : control_toolbox_generate_messages_cpp
-
-# fast build rule for target.
-control_toolbox_generate_messages_cpp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_cpp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_cpp.dir/build
-.PHONY : control_toolbox_generate_messages_cpp/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_gencfg.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_gencfg.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_gencfg.dir/rule
-
-# Convenience name for target.
-control_toolbox_gencfg: roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_gencfg.dir/rule
-
-.PHONY : control_toolbox_gencfg
-
-# fast build rule for target.
-control_toolbox_gencfg/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_gencfg.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_gencfg.dir/build
-.PHONY : control_toolbox_gencfg/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_nodejs: roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_nodejs/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_nodejs.dir/build
-.PHONY : trajectory_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_lisp: roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_lisp
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_lisp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_lisp.dir/build
-.PHONY : trajectory_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_eus: roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_eus
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_eus/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_eus.dir/build
-.PHONY : trajectory_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_cpp: roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_cpp
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_cpp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_cpp.dir/build
-.PHONY : trajectory_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-trajectory_msgs_generate_messages_py: roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_py.dir/rule
-
-.PHONY : trajectory_msgs_generate_messages_py
-
-# fast build rule for target.
-trajectory_msgs_generate_messages_py/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/trajectory_msgs_generate_messages_py.dir/build
-.PHONY : trajectory_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_py.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_py.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-gazebo_msgs_generate_messages_py: roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_py.dir/rule
-
-.PHONY : gazebo_msgs_generate_messages_py
-
-# fast build rule for target.
-gazebo_msgs_generate_messages_py/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_py.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_py.dir/build
-.PHONY : gazebo_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_py.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_py.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_py.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_py: roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_py.dir/rule
-
-.PHONY : actionlib_generate_messages_py
-
-# fast build rule for target.
-actionlib_generate_messages_py/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_py.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_py.dir/build
-.PHONY : actionlib_generate_messages_py/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-control_msgs_generate_messages_lisp: roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : control_msgs_generate_messages_lisp
-
-# fast build rule for target.
-control_msgs_generate_messages_lisp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_lisp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_lisp.dir/build
-.PHONY : control_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_gencfg: roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-
-.PHONY : dynamic_reconfigure_gencfg
-
-# fast build rule for target.
-dynamic_reconfigure_gencfg/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_gencfg.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_gencfg.dir/build
-.PHONY : dynamic_reconfigure_gencfg/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_nodejs: roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_nodejs.dir/rule
-
-.PHONY : actionlib_generate_messages_nodejs
-
-# fast build rule for target.
-actionlib_generate_messages_nodejs/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_nodejs.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_nodejs.dir/build
-.PHONY : actionlib_generate_messages_nodejs/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_eus.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_eus.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_eus: roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_eus.dir/rule
-
-.PHONY : actionlib_generate_messages_eus
-
-# fast build rule for target.
-actionlib_generate_messages_eus/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_eus.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_eus.dir/build
-.PHONY : actionlib_generate_messages_eus/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_ros_gencfg.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_ros_gencfg.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_ros_gencfg.dir/rule
-
-# Convenience name for target.
-gazebo_ros_gencfg: roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_ros_gencfg.dir/rule
-
-.PHONY : gazebo_ros_gencfg
-
-# fast build rule for target.
-gazebo_ros_gencfg/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_ros_gencfg.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_ros_gencfg.dir/build
-.PHONY : gazebo_ros_gencfg/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_cpp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-actionlib_generate_messages_cpp: roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_cpp.dir/rule
-
-.PHONY : actionlib_generate_messages_cpp
-
-# fast build rule for target.
-actionlib_generate_messages_cpp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_cpp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_cpp.dir/build
-.PHONY : actionlib_generate_messages_cpp/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_py.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_py.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_py.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_py: roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_py.dir/rule
-
-.PHONY : tf_generate_messages_py
-
-# fast build rule for target.
-tf_generate_messages_py/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_py.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_py.dir/build
-.PHONY : tf_generate_messages_py/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_nodejs: roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_nodejs/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
-.PHONY : actionlib_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-gazebo_msgs_generate_messages_eus: roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/rule
-
-.PHONY : gazebo_msgs_generate_messages_eus
-
-# fast build rule for target.
-gazebo_msgs_generate_messages_eus/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_eus.dir/build
-.PHONY : gazebo_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_eus.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_eus.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-tf_generate_messages_eus: roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_eus.dir/rule
-
-.PHONY : tf_generate_messages_eus
-
-# fast build rule for target.
-tf_generate_messages_eus/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_eus.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_eus.dir/build
-.PHONY : tf_generate_messages_eus/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_cpp: roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-
-.PHONY : std_srvs_generate_messages_cpp
-
-# fast build rule for target.
-std_srvs_generate_messages_cpp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
-.PHONY : std_srvs_generate_messages_cpp/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_cpp: roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_cpp
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_cpp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
-.PHONY : actionlib_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_eus.dir/rule:
@@ -603,64 +198,79 @@ control_toolbox_generate_messages_eus/fast:
 .PHONY : control_toolbox_generate_messages_eus/fast
 
 # Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_nodejs.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_nodejs.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_nodejs.dir/rule
+roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule
+.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-tf_generate_messages_nodejs: roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_nodejs.dir/rule
+control_toolbox_generate_messages_nodejs: roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule
 
-.PHONY : tf_generate_messages_nodejs
+.PHONY : control_toolbox_generate_messages_nodejs
 
 # fast build rule for target.
-tf_generate_messages_nodejs/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_nodejs.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_nodejs.dir/build
-.PHONY : tf_generate_messages_nodejs/fast
+control_toolbox_generate_messages_nodejs/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/build
+.PHONY : control_toolbox_generate_messages_nodejs/fast
 
 # Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule
+roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_gencfg.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_gencfg.dir/rule
+.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_gencfg.dir/rule
 
 # Convenience name for target.
-tf2_msgs_generate_messages_nodejs: roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/rule
+control_toolbox_gencfg: roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_gencfg.dir/rule
 
-.PHONY : tf2_msgs_generate_messages_nodejs
+.PHONY : control_toolbox_gencfg
 
 # fast build rule for target.
-tf2_msgs_generate_messages_nodejs/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/build
-.PHONY : tf2_msgs_generate_messages_nodejs/fast
+control_toolbox_gencfg/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_gencfg.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_gencfg.dir/build
+.PHONY : control_toolbox_gencfg/fast
 
 # Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_eus.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
+roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_mimic_joint_plugin.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_mimic_joint_plugin.dir/rule
+.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_mimic_joint_plugin.dir/rule
 
 # Convenience name for target.
-std_srvs_generate_messages_eus: roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
+roboticsgroup_gazebo_mimic_joint_plugin: roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_mimic_joint_plugin.dir/rule
 
-.PHONY : std_srvs_generate_messages_eus
+.PHONY : roboticsgroup_gazebo_mimic_joint_plugin
 
 # fast build rule for target.
-std_srvs_generate_messages_eus/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_eus.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_eus.dir/build
-.PHONY : std_srvs_generate_messages_eus/fast
+roboticsgroup_gazebo_mimic_joint_plugin/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_mimic_joint_plugin.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_mimic_joint_plugin.dir/build
+.PHONY : roboticsgroup_gazebo_mimic_joint_plugin/fast
 
 # Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
+roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule
+.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-std_srvs_generate_messages_lisp: roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
+control_toolbox_generate_messages_cpp: roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_cpp.dir/rule
 
-.PHONY : std_srvs_generate_messages_lisp
+.PHONY : control_toolbox_generate_messages_cpp
 
 # fast build rule for target.
-std_srvs_generate_messages_lisp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
-.PHONY : std_srvs_generate_messages_lisp/fast
+control_toolbox_generate_messages_cpp/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_cpp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_cpp.dir/build
+.PHONY : control_toolbox_generate_messages_cpp/fast
+
+# Convenience name for target.
+roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule
+.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+control_msgs_generate_messages_cpp: roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : control_msgs_generate_messages_cpp
+
+# fast build rule for target.
+control_msgs_generate_messages_cpp/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_cpp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_cpp.dir/build
+.PHONY : control_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_eus.dir/rule:
@@ -678,319 +288,79 @@ control_msgs_generate_messages_eus/fast:
 .PHONY : control_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_cpp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_cpp.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_cpp.dir/rule
+roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule
+.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-tf_generate_messages_cpp: roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_cpp.dir/rule
+control_msgs_generate_messages_lisp: roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_lisp.dir/rule
 
-.PHONY : tf_generate_messages_cpp
+.PHONY : control_msgs_generate_messages_lisp
 
 # fast build rule for target.
-tf_generate_messages_cpp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_cpp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_cpp.dir/build
-.PHONY : tf_generate_messages_cpp/fast
+control_msgs_generate_messages_lisp/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_lisp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_lisp.dir/build
+.PHONY : control_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
+.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-std_srvs_generate_messages_py: roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_py.dir/rule
+control_msgs_generate_messages_nodejs: roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_nodejs.dir/rule
 
-.PHONY : std_srvs_generate_messages_py
+.PHONY : control_msgs_generate_messages_nodejs
 
 # fast build rule for target.
-std_srvs_generate_messages_py/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_py.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_py.dir/build
-.PHONY : std_srvs_generate_messages_py/fast
+control_msgs_generate_messages_nodejs/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_nodejs.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_nodejs.dir/build
+.PHONY : control_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_lisp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_lisp.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_lisp.dir/rule
+roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_py.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_py.dir/rule
+.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-tf_generate_messages_lisp: roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_lisp.dir/rule
+control_msgs_generate_messages_py: roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_py.dir/rule
 
-.PHONY : tf_generate_messages_lisp
+.PHONY : control_msgs_generate_messages_py
 
 # fast build rule for target.
-tf_generate_messages_lisp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_lisp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/tf_generate_messages_lisp.dir/build
-.PHONY : tf_generate_messages_lisp/fast
+control_msgs_generate_messages_py/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_py.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/control_msgs_generate_messages_py.dir/build
+.PHONY : control_msgs_generate_messages_py/fast
 
 # Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
+roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule
+.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-tf2_msgs_generate_messages_eus: roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_eus.dir/rule
+control_toolbox_generate_messages_lisp: roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_lisp.dir/rule
 
-.PHONY : tf2_msgs_generate_messages_eus
+.PHONY : control_toolbox_generate_messages_lisp
 
 # fast build rule for target.
-tf2_msgs_generate_messages_eus/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_eus.dir/build
-.PHONY : tf2_msgs_generate_messages_eus/fast
+control_toolbox_generate_messages_lisp/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_lisp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_lisp.dir/build
+.PHONY : control_toolbox_generate_messages_lisp/fast
 
 # Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_lisp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_lisp.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_lisp.dir/rule
+roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_disable_link_plugin.dir/rule:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_disable_link_plugin.dir/rule
+.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_disable_link_plugin.dir/rule
 
 # Convenience name for target.
-actionlib_generate_messages_lisp: roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_lisp.dir/rule
+roboticsgroup_gazebo_disable_link_plugin: roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_disable_link_plugin.dir/rule
 
-.PHONY : actionlib_generate_messages_lisp
+.PHONY : roboticsgroup_gazebo_disable_link_plugin
 
 # fast build rule for target.
-actionlib_generate_messages_lisp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_lisp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_generate_messages_lisp.dir/build
-.PHONY : actionlib_generate_messages_lisp/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_nodejs: roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-
-.PHONY : std_srvs_generate_messages_nodejs
-
-# fast build rule for target.
-std_srvs_generate_messages_nodejs/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build
-.PHONY : std_srvs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-gazebo_msgs_generate_messages_cpp: roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : gazebo_msgs_generate_messages_cpp
-
-# fast build rule for target.
-gazebo_msgs_generate_messages_cpp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_cpp.dir/build
-.PHONY : gazebo_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_eus: roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_eus
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_eus/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
-.PHONY : actionlib_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_lisp: roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_lisp
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_lisp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
-.PHONY : actionlib_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_py: roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_py
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_py/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
-.PHONY : actionlib_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-tf2_msgs_generate_messages_cpp: roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : tf2_msgs_generate_messages_cpp
-
-# fast build rule for target.
-tf2_msgs_generate_messages_cpp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/build
-.PHONY : tf2_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-tf2_msgs_generate_messages_lisp: roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : tf2_msgs_generate_messages_lisp
-
-# fast build rule for target.
-tf2_msgs_generate_messages_lisp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/build
-.PHONY : tf2_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-tf2_msgs_generate_messages_py: roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_py.dir/rule
-
-.PHONY : tf2_msgs_generate_messages_py
-
-# fast build rule for target.
-tf2_msgs_generate_messages_py/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_py.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/tf2_msgs_generate_messages_py.dir/build
-.PHONY : tf2_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-control_toolbox_generate_messages_nodejs: roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/rule
-
-.PHONY : control_toolbox_generate_messages_nodejs
-
-# fast build rule for target.
-control_toolbox_generate_messages_nodejs/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/control_toolbox_generate_messages_nodejs.dir/build
-.PHONY : control_toolbox_generate_messages_nodejs/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_cpp: roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_cpp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_cpp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_eus: roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_eus
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_eus/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_eus/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_lisp: roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_lisp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_lisp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_nodejs: roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_nodejs
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_nodejs/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_nodejs.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_nodejs/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_py: roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-
-.PHONY : dynamic_reconfigure_generate_messages_py
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_py/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_py/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-gazebo_msgs_generate_messages_lisp: roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : gazebo_msgs_generate_messages_lisp
-
-# fast build rule for target.
-gazebo_msgs_generate_messages_lisp/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_lisp.dir/build
-.PHONY : gazebo_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f CMakeFiles/Makefile2 roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule
-.PHONY : roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-gazebo_msgs_generate_messages_nodejs: roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : gazebo_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-gazebo_msgs_generate_messages_nodejs/fast:
-	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/gazebo_msgs_generate_messages_nodejs.dir/build
-.PHONY : gazebo_msgs_generate_messages_nodejs/fast
+roboticsgroup_gazebo_disable_link_plugin/fast:
+	cd /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build && $(MAKE) -f roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_disable_link_plugin.dir/build.make roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_disable_link_plugin.dir/build
+.PHONY : roboticsgroup_gazebo_disable_link_plugin/fast
 
 src/disable_link_plugin.o: src/disable_link_plugin.cpp.o
 
@@ -1052,68 +422,26 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... install/strip"
 	@echo "... install"
 	@echo "... list_install_components"
-	@echo "... edit_cache"
-	@echo "... roboticsgroup_gazebo_disable_link_plugin"
-	@echo "... roboticsgroup_gazebo_mimic_joint_plugin"
-	@echo "... control_msgs_generate_messages_py"
-	@echo "... control_msgs_generate_messages_nodejs"
-	@echo "... control_msgs_generate_messages_cpp"
 	@echo "... control_toolbox_generate_messages_py"
-	@echo "... control_toolbox_generate_messages_lisp"
-	@echo "... control_toolbox_generate_messages_cpp"
-	@echo "... control_toolbox_gencfg"
-	@echo "... trajectory_msgs_generate_messages_nodejs"
-	@echo "... trajectory_msgs_generate_messages_lisp"
-	@echo "... trajectory_msgs_generate_messages_eus"
-	@echo "... trajectory_msgs_generate_messages_cpp"
-	@echo "... trajectory_msgs_generate_messages_py"
-	@echo "... gazebo_msgs_generate_messages_py"
-	@echo "... actionlib_generate_messages_py"
-	@echo "... control_msgs_generate_messages_lisp"
-	@echo "... dynamic_reconfigure_gencfg"
-	@echo "... test"
-	@echo "... actionlib_generate_messages_nodejs"
-	@echo "... actionlib_generate_messages_eus"
-	@echo "... gazebo_ros_gencfg"
 	@echo "... rebuild_cache"
-	@echo "... actionlib_generate_messages_cpp"
-	@echo "... tf_generate_messages_py"
-	@echo "... actionlib_msgs_generate_messages_nodejs"
-	@echo "... gazebo_msgs_generate_messages_eus"
-	@echo "... tf_generate_messages_eus"
-	@echo "... std_srvs_generate_messages_cpp"
-	@echo "... actionlib_msgs_generate_messages_cpp"
 	@echo "... control_toolbox_generate_messages_eus"
-	@echo "... tf_generate_messages_nodejs"
-	@echo "... tf2_msgs_generate_messages_nodejs"
-	@echo "... install/local"
-	@echo "... std_srvs_generate_messages_eus"
-	@echo "... std_srvs_generate_messages_lisp"
-	@echo "... control_msgs_generate_messages_eus"
-	@echo "... tf_generate_messages_cpp"
-	@echo "... std_srvs_generate_messages_py"
-	@echo "... tf_generate_messages_lisp"
-	@echo "... tf2_msgs_generate_messages_eus"
-	@echo "... actionlib_generate_messages_lisp"
-	@echo "... std_srvs_generate_messages_nodejs"
-	@echo "... gazebo_msgs_generate_messages_cpp"
-	@echo "... actionlib_msgs_generate_messages_eus"
-	@echo "... actionlib_msgs_generate_messages_lisp"
-	@echo "... actionlib_msgs_generate_messages_py"
-	@echo "... tf2_msgs_generate_messages_cpp"
-	@echo "... install/strip"
-	@echo "... tf2_msgs_generate_messages_lisp"
-	@echo "... tf2_msgs_generate_messages_py"
 	@echo "... control_toolbox_generate_messages_nodejs"
-	@echo "... dynamic_reconfigure_generate_messages_cpp"
-	@echo "... dynamic_reconfigure_generate_messages_eus"
-	@echo "... dynamic_reconfigure_generate_messages_lisp"
-	@echo "... dynamic_reconfigure_generate_messages_nodejs"
-	@echo "... dynamic_reconfigure_generate_messages_py"
-	@echo "... gazebo_msgs_generate_messages_lisp"
-	@echo "... gazebo_msgs_generate_messages_nodejs"
+	@echo "... control_toolbox_gencfg"
+	@echo "... roboticsgroup_gazebo_mimic_joint_plugin"
+	@echo "... control_toolbox_generate_messages_cpp"
+	@echo "... control_msgs_generate_messages_cpp"
+	@echo "... install/local"
+	@echo "... control_msgs_generate_messages_eus"
+	@echo "... control_msgs_generate_messages_lisp"
+	@echo "... edit_cache"
+	@echo "... control_msgs_generate_messages_nodejs"
+	@echo "... control_msgs_generate_messages_py"
+	@echo "... control_toolbox_generate_messages_lisp"
+	@echo "... roboticsgroup_gazebo_disable_link_plugin"
+	@echo "... test"
 	@echo "... src/disable_link_plugin.o"
 	@echo "... src/disable_link_plugin.i"
 	@echo "... src/disable_link_plugin.s"

@@ -1,14 +1,18 @@
 #! /usr/bin/env python2.7
 import sys
 import copy
-import rospy
-import moveit_commander
-import moveit_msgs.msg
-import geometry_msgs.msg
 from copy import deepcopy
 import timeit
 import numpy as np
 from numpy import random
+
+import rospy
+import moveit_commander
+import moveit_msgs.msg
+import geometry_msgs.msg
+from gazebo_msgs.msg import ModelState
+from gazebo_msgs.srv import SpawnModel, GetModelState, DeleteModel, SetModelState
+from geometry_msgs.msg import Pose, Point, Quaternion
 
 class myur5e_vision:
   def __init__(self,image_topic='/myur5e/overview/overview_image_raw', \
@@ -36,12 +40,19 @@ class myur5e_vision:
     return self._image
 
 class myur5e_gym:
-  def __init__(self, vision_obs = False, arm_name='arm', gripper_name = 'gripper'):
+  def __init__(self, vision_obs = False, num_obj=3,arm_name='arm', gripper_name = 'gripper', reward_type='sparse', render=True):
 
     #============Init var===========
     self.vision_obs = vision_obs
     self.arm_name = arm_name
     self.gripper_name = gripper_name
+    self.num_obj = num_obj
+    self.wrist_topic = '/myur5e/wrist_camera/wrist_image_raw'
+    self.over_topic = '/myur5e/overview/overview_image_raw'
+    self.reward_distance_threshold = 0.05
+    self.reward_type = reward_type
+    self.done=False
+    self.render=render
 
     #============INIT ROSPY============
     rospy.init_node('myur5e_gym',anonymous=True)
@@ -49,8 +60,8 @@ class myur5e_gym:
 
     #=============VISION OBSERVATION=============
     if self.vision_obs:
-      #self.wrist_cam = myur5e_vision(image_topic = '/myur5e/wrist_camera/wrist_image_raw', resize=True)
-      self.over_cam = myur5e_vision(image_topic = '/myur5e/overview/overview_image_raw', resize=True)
+      self.wrist_cam = myur5e_vision(image_topic = self.wrist_topic, resize=True)
+      self.over_cam = myur5e_vision(image_topic = self.over_topic, resize=True)
     
     #=============INIT MOVEIT=============
     moveit_commander.roscpp_initialize(sys.argv)
@@ -60,16 +71,100 @@ class myur5e_gym:
     #=============MOVE GROUP=============
     self.arm = moveit_commander.MoveGroupCommander(self.arm_name)
     self.grp = moveit_commander.MoveGroupCommander(self.gripper_name)
-    self.arm.set_goal_position_tolerance(0.1)
-    self.arm.set_goal_orientation_tolerance(0.5)
+    self.arm.set_goal_position_tolerance(0.02)
+    self.arm.set_goal_orientation_tolerance(0.1)
 
     #end_effector_link
     self.ee_link = self.arm.get_end_effector_link()
 
-    #======Action space=======
-    self.action_low = [0,0,0,0.3]
-    self.action_high = [0.7,0.7,0.7,0.8]
+    #=============SPAWN OBJECTS=============
+    self.spawn_model_client = rospy.ServiceProxy('/gazebo/spawn_sdf_model', SpawnModel)
+    self.delete_model_client = rospy.ServiceProxy('/gazebo/delete_model', DeleteModel)
+    self.get_obj_pos_client = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
+    self.set_state_client = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
+    
+    self.spawn_track = False
+    self.spawn_room_x_high= 0.48
+    self.spawn_room_x_low= -0.48
+    self.spawn_room_y_high= 0.7
+    self.spawn_room_y_low= -0.7
+    self.spawn_room_z_high = 0.8
+    self.spawn_room_z_low = 0.03
 
+    self.obj_prefix='box'
+    self.table_name="mytable"
+    self.target_name = "target"
+    self.world_name = 'world'
+    self.obj_name_list=[(self.obj_prefix+str(i)) for i in range(self.num_obj)]
+
+    self.box_path = '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/myur5e/myur5e_description/urdf/objects/mybox.urdf.xacro'
+    self.target_path = '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/myur5e/myur5e_description/urdf/objects/mytarget.urdf.xacro'
+
+    #======Action space=======
+    self.act_dim = 3
+    self.action_low = [-1,-1,-1]
+    self.action_high = [1,1,1]
+    self.output_low= [-0.05,-0.05,-0.05]
+    self.output_high= [0.05,0.05,0.05]
+
+    #=========================================================
+
+  def step(self,action):
+    #ACTION [dx,dy,dz,d]
+    #d (0.3,0.8)cm
+    #x,y,z (m)(0,0.7)
+    #POSITION CONTROLLER action = (x,y,z,d)
+    #send action to robot
+
+    ##MOVE ROBOT ARM
+    _action = self._scale_action(action)
+    plan, _ = self._moveit_plan(_action)
+    self.arm.execute(plan)
+
+    next_state = self._get_obs()
+    reward = self._compute_reward()
+    
+    return next_state, reward, self.done
+
+  def _scale_action(self, action):
+    #input in scale [-1,1]
+    #SCALE ACTION to the appropiate with moveit
+    _action=action.copy()
+    for i in range(self.act_dim):
+      input_range=self.action_high[i]-self.action_low[i]
+      scale_range=self.output_high[i]-self.output_low[i]
+      _action[i]=scale_range*(_action[i]-self.action_low[i])/input_range
+      _action[i]+=self.output_low[i]
+    return _action
+
+  def _compute_reward(self):
+    if self.vision_obs:
+      return self._vision_reward()
+    else:
+      return self._sim_reward()
+
+  def reset(self):
+    self.arm.set_named_target('start')
+    self.arm.go(wait=True)
+    #self._delete_obj()
+    self._spawn_obj()
+
+    self._sample_obj_state()
+    self._sample_target_state()
+
+    return self._get_obs()
+
+  def _get_obs(self):
+    #Position of gripper
+    #self.rate.sleep()
+    self.current_pose = self.arm.get_current_pose(self.ee_link).pose
+    
+    if self.vision_obs:
+      img = self.my_img_class.get_image()
+      return (self.current_pose, img)
+    else:
+      return (self.current_pose, None)
+  
   def _moveit_plan(self,action):
     current_pose = self.arm.get_current_pose().pose
     self.waypoints = []
@@ -81,45 +176,93 @@ class myur5e_gym:
 
     plan, fraction = self.arm.compute_cartesian_path(self.waypoints, 0.01, 5.0, True)
     return plan, fraction
-    
-  def step(self,action):
-    #ACTION [dx,dy,dz,d]
-    #d (0.3,0.8)cm
-    #x,y,z (m)(0,0.7)
-    #POSITION CONTROLLER action = (x,y,z,d)
-    #send action to robot
 
-    ##MOVE ROBOT ARM
-    plan, _ = self._moveit_plan(action)
-    self.arm.execute(plan)
+  def _vision_reward(self):
+    return 0
 
-    next_state = self._get_obs()
-    #reward = self.compute_reward()
-    
-    return next_state#, reward
+  def _sim_reward(self):
+    target_abs_pos = self.get_obj_pos_client(self.target_name, self.world_name).pose.position
+    #object_interest = self.get_obj_pos_client(self.obj_name_list[0], 'world').pose.position
+    object_interest = self.arm.get_current_pose(self.ee_link).pose.position
 
-  def compute_reward(self):
-    pass
-
-  def reset(self):
-    self.arm.set_named_target('start')
-    self.arm.go(wait=True)
-    return self._get_obs()
-
-  def _get_obs(self):
-    #Position of gripper
-    self.rate.sleep()
-    self.current_pose = self.arm.get_current_pose(self.ee_link).pose
-    
-    if self.vision_obs:
-      img = self.my_img_class.get_image()
-      return self.current_pose, img
+    dx=(target_abs_pos.x-object_interest.x)**2
+    dy=(target_abs_pos.y-object_interest.y)**2
+    dz=(target_abs_pos.z-object_interest.z)**2
+    distance = np.sqrt(dx+dy+dz)
+    reward = -distance
+    if distance <= self.reward_distance_threshold:
+      self.done=True
+      if self.reward_type == 'sparse':
+        reward = 1    
     else:
-      return self.current_pose, None
+      self.done=False
+      if self.reward_type == 'sparse':
+        reward = -1
+    return reward
+
+  def _sample_obj_state(self):
+    for name in self.obj_name_list:
+      state_msg = ModelState()
+      state_msg.model_name = name
+      state_msg.reference_frame = self.table_name
+      random_x=np.random.uniform(self.spawn_room_x_low,self.spawn_room_x_high)
+      random_y=np.random.uniform(self.spawn_room_y_low,self.spawn_room_y_high)
+      random_pose=Pose(position=Point(random_x,random_y,self.spawn_room_z_low),orientation=Quaternion(0,0,0,0))
+      state_msg.pose = random_pose
+      self.set_state_client(state_msg)
+
+  def _sample_target_state(self):
+    state_msg = ModelState()
+    state_msg.model_name = self.target_name
+    state_msg.reference_frame = self.table_name
+    random_x=np.random.uniform(self.spawn_room_x_low,self.spawn_room_x_high)
+    random_y=np.random.uniform(self.spawn_room_y_low,self.spawn_room_y_high)
+    random_z=np.random.uniform(self.spawn_room_z_low,self.spawn_room_z_high)
+    random_pose=Pose(position=Point(random_x,random_y,random_z),orientation=Quaternion(0,0,0,0))
+    state_msg.pose = random_pose
+    self.set_state_client(state_msg)
+  
+  def _spawn_obj(self):
+    #SPAWN ALL OBJECTS
+    if not self.spawn_track:
+      #==============OBJ===============
+      for i,name in enumerate(self.obj_name_list):
+        random_pose=Pose(position=Point(0,float(i/2),0.1),orientation=Quaternion(0,0,0,0))
+        #print(random_point)
+        self.spawn_model_client(model_name=name, \
+          model_xml=open(self.box_path, 'r').read(),\
+          robot_namespace='',\
+          initial_pose=random_pose,\
+          reference_frame=self.table_name)
+
+      #==============TARGET===============
+      random_pose=Pose(position=Point(0,0.3,0.1),orientation=Quaternion(0,0,0,0))
+      #print(random_point)
+      self.spawn_model_client(model_name=self.target_name, \
+          model_xml=open(self.target_path, 'r').read(),\
+          robot_namespace='',\
+          initial_pose=random_pose,\
+          reference_frame=self.table_name)
+      self.spawn_track=True
+      #===================================
+
+    return True
+
+  def _delete_obj(self):
+    #DELETE ALL OBJECT
+    if self.spawn_track:
+      #=========OBJ=========
+      for name in self.obj_name_list:
+        self.delete_model_client(model_name=name)
+      #=========TARGET======
+      self.delete_model_client(model_name=self.target_name)
+      self.spawn_track=False
+    return True
+
 
 def main(num_demo=10,max_step=50):
   try:
-    env=myur5e_gym(arm_name='arm')
+    env=myur5e_gym(arm_name='arm',reward_type='dense')
     start_total = timeit.default_timer()
     for _ in range(num_demo):
       rds=random.randint(0,10)
@@ -127,9 +270,9 @@ def main(num_demo=10,max_step=50):
       start = timeit.default_timer()
       observation = env.reset()
       for t in range(max_step):
-        action = random.uniform(-0.1,0.1,size=(3,))
-        pose, img = env.step(action)
-        print("Step: {} \r".format(t))
+        action = random.uniform(-1,1,size=(3,))
+        pose, reward, done = env.step(action)
+        print("Step: {} reward: {} done {}".format(t,reward, done))
       stop = timeit.default_timer()
       print('1 episode runtime: ', stop - start)
 

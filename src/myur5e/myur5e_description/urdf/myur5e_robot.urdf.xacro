@@ -5,13 +5,10 @@
   <xacro:include filename="$(find ur_e_description)/urdf/common.gazebo.xacro" />
 
   <!-- ur5e -->
-  <!-- <xacro:include filename="$(find ur_e_description)/urdf/ur5e.urdf.xacro" /> -->
-  <!-- arm -->
-  <!-- <xacro:ur5e_robot prefix="" joint_limited="false"/> -->
-
-  <!-- Limited -->
   <xacro:include filename="$(find ur_e_description)/urdf/ur5e.urdf.xacro" />
-
+  <!-- Unlimited -->
+  <!-- <xacro:ur5e_robot prefix="" joint_limited="false"/> -->
+  <!-- Limited -->
   <xacro:ur5e_robot prefix="" joint_limited="true"
     shoulder_pan_lower_limit="${-pi}" shoulder_pan_upper_limit="${pi}"
     shoulder_lift_lower_limit="${-pi}" shoulder_lift_upper_limit="${pi}"
@@ -21,23 +18,27 @@
     wrist_3_lower_limit="${-pi}" wrist_3_upper_limit="${pi}"
   />
 
+  <!-- robotiq 85 -->
+  <xacro:include filename="$(find robotiq_85_description)/urdf/robotiq_85_gripper.urdf.xacro" />
+  <!-- <xacro:include filename="$(find robotiq_description)/urdf/robotiq_85_gripper.urdf.xacro" /> -->
+  <!--<xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_arg2f_85_model.xacro" />-->
+  
+  <!-- gripper without camera -->
+  <!-- <xacro:robotiq_85_gripper prefix="" parent="ee_link" >
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:robotiq_85_gripper> -->
+
+  <!-- gripper with camera -->
   <!-- wrist camera -->
   <xacro:include filename="$(find myur5e_description)/urdf/mycamera.urdf.xacro" />
-  <!-- wrist camera attach -->
   <xacro:mywristcamera parent="ee_link" >
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </xacro:mywristcamera>
 
-  <!-- robotiq 85 -->
-  <xacro:include filename="$(find robotiq_85_description)/urdf/robotiq_85_gripper.urdf.xacro" />
-  <!-- <xacro:include filename="$(find robotiq_description)/urdf/robotiq_85_gripper.urdf.xacro" /> -->
-  <!-- robotiq 85 -->
-  <!--<xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_arg2f_85_model.xacro" />-->
-
-  <!-- gripper -->
   <xacro:robotiq_85_gripper prefix="" parent="wrist_attach" >
     <origin xyz="${wrist_length} 0 0" rpy="0 0 0"/>
   </xacro:robotiq_85_gripper>
+  
 
   <!-- pedestal -->
   <xacro:include filename="$(find myur5e_description)/urdf/mypedestal.urdf.xacro" />
@@ -75,5 +76,6 @@
     <child link="overcamera_link"/>
     <origin xyz="0.75 0.0 0.8" rpy="${pi} ${3*pi/4} 0"/>
   </joint>
-
+  <xacro:include filename="$(find myur5e_description)/urdf/gzplugin_grasp_fix.urdf.xacro"/>
+  <xacro:gzplugin_grasp_fix/>
 </robot>

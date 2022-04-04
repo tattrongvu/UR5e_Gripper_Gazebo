@@ -57,10 +57,13 @@ class myur5e_gym:
     self.verbose=verbose
     self.goal_tolerance = 0.05
     self.gripper_extra_length = 0.15
+    self.desired_goal = [0,0,0]
 
     #============INIT ROSPY============
     rospy.init_node('myur5e_gym',anonymous=True)
+    rospy.loginfo("Starting GYM Node!")
     self.rate = rospy.Rate(10)
+    rospy.on_shutdown(self.cleanup)
 
     #=============VISION OBSERVATION=============
     if self.vision_obs:
@@ -75,6 +78,7 @@ class myur5e_gym:
     #=============MOVE GROUP=============
     self.arm = moveit_commander.MoveGroupCommander(self.arm_name)
     self.grp = moveit_commander.MoveGroupCommander(self.gripper_name)
+    ##self.arm.set_pose_reference_frame('/base_link')
     self.arm.set_goal_position_tolerance(0.02)
     self.arm.set_goal_orientation_tolerance(0.05)
 
@@ -147,9 +151,80 @@ class myur5e_gym:
 
     next_state = self._get_obs()
     reward = self._compute_reward()
+    #print("Robot State: ",self.robot.get_current_state())
     
     return next_state, reward, self.done
 
+  #============================================
+  def _compute_reward(self):
+    if self.vision_obs:
+      return self._vision_reward()
+    else:
+      return self._sim_reward()
+
+  def reset(self):
+    
+    random.seed(random.randint(0,1000))
+    #RESAMPLE ALL TARGET AND OBJECTS
+    self.arm.set_named_target('start')
+    self.arm.go(wait=True)
+    #self._delete_obj()
+    self._sample_obj_state()
+    self._sample_target_state()
+    self.rate.sleep()
+
+    self._update_desired_goal()
+
+    return self._get_obs()
+
+  def _update_desired_goal(self):
+    try:
+      target = self.get_obj_pos_client(self.target_name, 'world').pose.position
+      self.desired_goal = [target.x,target.y,target.z]
+    except rospy.ServiceException, e:
+      print("Service call failed: {}".format(e))
+
+  #=========================================================================================================
+  def _get_obs(self):
+    #Position of gripper
+    #self.rate.sleep()
+    self.current_pose = self.arm.get_current_pose(self.ee_link).pose
+    #=====================TCP==============
+    # if self.verbose:
+    #   state_msg = ModelState()
+    #   state_msg.model_name = self.tcp_name
+    #   state_msg.reference_frame = self.world_name
+    #   _possition = self.current_pose.position
+    #   _pose=Pose(position=Point(_possition.x,_possition.y,_possition.z-self.gripper_extra_length),orientation=Quaternion(0,0,0,0))
+    #   state_msg.pose = _pose
+    #   try:
+    #     self.set_state_client(state_msg)
+    #   except rospy.ServiceException, e:
+    #     print("Service call failed: {}".format(e))
+    #=====================TCP==============
+    
+    gripper_pos=[self.current_pose.position.x,self.current_pose.position.y,self.current_pose.position.z,\
+                self.current_pose.orientation.w, self.current_pose.orientation.x,\
+                self.current_pose.orientation.y,self.current_pose.orientation.z]
+    obs=[gripper_pos]
+    
+    #==================GOAL===================
+    achieved_goal = [self.current_pose.position.x,self.current_pose.position.y,self.current_pose.position.z]
+    desired_goal = self.desired_goal
+
+    #=================VISION OBS=============
+    if self.vision_obs:
+      over_img = self.over_cam.get_image()
+      wrist_img = self.wrist_cam.get_image()
+      vision_obs=[over_img,wrist_img]
+    else:
+      vision_obs=[None,None]
+
+    state_dict ={"observation":obs,"desired_goal":desired_goal,"achieved_goal":achieved_goal, "vision_obs":vision_obs}
+      
+    return state_dict
+  
+  #=========================================================================================================
   def _scale_action(self, action):
     #input in scale [-1,1]
     #SCALE ACTION to the appropiate with moveit
@@ -169,48 +244,18 @@ class myur5e_gym:
     else:
       return True
 
-  def _compute_reward(self):
-    if self.vision_obs:
-      return self._vision_reward()
+  #================GYM COMPONENT===============
+  #USE FOR DDPG+HER IMPLEMENTATION
+  def compute_reward(self, achieved_goal, goal, info):
+    assert achieved_goal.shape == goal.shape
+    d = np.linalg.norm(goal_a - goal_b, axis=-1)
+
+    if self.reward_type == "sparse":
+      return -(d > self.distance_threshold).astype(np.float32)
     else:
-      return self._sim_reward()
+      return -d
+  #============================================
 
-  def reset(self):
-    
-    random.seed(random.randint(0,1000))
-    #RESAMPLE ALL TARGET AND OBJECTS
-    self.arm.set_named_target('start')
-    self.arm.go(wait=True)
-    #self._delete_obj()
-    self._sample_obj_state()
-    self._sample_target_state()
-    self.rate.sleep()
-
-    return self._get_obs()
-
-  def _get_obs(self):
-    #Position of gripper
-    #self.rate.sleep()
-    self.current_pose = self.arm.get_current_pose(self.ee_link).pose
-    #=====================TCP==============
-    if self.verbose:
-      state_msg = ModelState()
-      state_msg.model_name = self.tcp_name
-      state_msg.reference_frame = self.world_name
-      _possition = self.current_pose.position
-      _pose=Pose(position=Point(_possition.x,_possition.y,_possition.z-self.gripper_extra_length),orientation=Quaternion(0,0,0,0))
-      state_msg.pose = _pose
-      try:
-        self.set_state_client(state_msg)
-      except rospy.ServiceException, e:
-        print("Service call failed: {}".format(e))
-    #=====================TCP==============
-    if self.vision_obs:
-      img = self.my_img_class.get_image()
-      return (self.current_pose, img)
-    else:
-      return (self.current_pose, None)
-  
   def _moveit_plan(self,action):
     current_pose = self.arm.get_current_pose().pose
     self.waypoints = []
@@ -329,6 +374,15 @@ class myur5e_gym:
       self.delete_model_client(model_name=self.target_name)
       self.spawn_track=False
     return True
+  
+  def cleanup(self):
+    rospy.loginfo("Stopping the robot")
+    # Stop any current arm movement
+    self.arm.stop()
+    #Shut down MoveIt! cleanly
+    rospy.loginfo("Shutting down Moveit!")
+    moveit_commander.roscpp_shutdown()
+    moveit_commander.os._exit(0)
 
 
 def main(num_demo=10,max_step=50):
@@ -342,8 +396,10 @@ def main(num_demo=10,max_step=50):
       observation = env.reset()
       for t in range(max_step):
         action = random.uniform(-1,1,size=(3,))
-        pose, reward, done = env.step(action)
+        obs, reward, done = env.step(action)
         print("Step: {} reward: {} done {}".format(t,reward, done))
+        # print(obs['desired_goal'])
+        # print(obs['achieved_goal'])
       stop = timeit.default_timer()
       print('1 episode runtime: ', stop - start)
 
@@ -353,4 +409,8 @@ def main(num_demo=10,max_step=50):
     print ("Program interrupted before completion")
 
 if __name__ == '__main__':
-  main()
+  try:
+    main()
+  except KeyboardInterrupt:
+    print "Shutting down Gym node."
+  

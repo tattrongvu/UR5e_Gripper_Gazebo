@@ -19,7 +19,7 @@ moveit_commander.roscpp_initialize(sys.argv)
 arm = moveit_commander.MoveGroupCommander("arm")
 grp = moveit_commander.MoveGroupCommander("gripper")
 eef_link = arm.get_end_effector_link()
-
+print(arm.get_pose_reference_frame())
 arm.set_named_target('start')
 arm.go(wait=True)
 # wpose = arm.get_current_pose(eef_link).pose
@@ -44,15 +44,18 @@ spawn_model_client(model_name='box',\
 #   model_xml=open('/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/myur5e/myur5e_description/urdf/mybox.urdf.xacro', 'r').read(),\
 #   robot_namespace='',\
 #   initial_pose=Pose(position= Point(0.2,0,0.1),orientation=Quaternion(0,0,0,0)),reference_frame="mytable")
-# a= model_coordinates('box','world').pose
-# print(a)
+obj_pose= model_coordinates('box','world').pose
+
 #============================================
 
 pose_goal = geometry_msgs.msg.Pose()
-pose_goal.orientation.w = 1.0
-pose_goal.position.x = 0.65
-pose_goal.position.y = 0
-pose_goal.position.z = 1.02
+pose_goal.position.x = 1
+pose_goal.position.y = 1
+pose_goal.position.z = 1
+pose_goal.orientation.w = obj_pose.orientation.w 
+# pose_goal.position.x = 0.65
+# pose_goal.position.y = 0
+# pose_goal.position.z = 1.02
 
 arm.set_pose_target(pose_goal)
 arm.go(wait=True)

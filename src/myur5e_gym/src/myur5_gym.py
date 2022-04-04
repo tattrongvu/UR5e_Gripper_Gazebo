@@ -13,6 +13,7 @@ import geometry_msgs.msg
 from gazebo_msgs.msg import ModelState
 from gazebo_msgs.srv import SpawnModel, GetModelState, DeleteModel, SetModelState
 from geometry_msgs.msg import Pose, Point, Quaternion
+from std_srvs.srv import Empty
 
 class myur5e_vision:
   def __init__(self,image_topic='/myur5e/overview/overview_image_raw', \
@@ -40,7 +41,7 @@ class myur5e_vision:
     return self._image
 
 class myur5e_gym:
-  def __init__(self, vision_obs = False, num_obj=1,arm_name='arm', gripper_name = 'gripper', reward_type='sparse', render=True, verbose=False):
+  def __init__(self, vision_obs = False, num_obj=0,arm_name='arm', gripper_name = 'gripper', reward_type='sparse', render=True, verbose=False):
 
     #============Init var===========
     self.vision_obs = vision_obs
@@ -54,12 +55,12 @@ class myur5e_gym:
     self.done=False
     self.render=render
     self.verbose=verbose
-    self.goal_tolerance = 0.03
+    self.goal_tolerance = 0.05
     self.gripper_extra_length = 0.15
 
     #============INIT ROSPY============
     rospy.init_node('myur5e_gym',anonymous=True)
-    self.rate = rospy.Rate(1)
+    self.rate = rospy.Rate(10)
 
     #=============VISION OBSERVATION=============
     if self.vision_obs:
@@ -82,9 +83,13 @@ class myur5e_gym:
 
     #=============SPAWN OBJECTS=============
     try:
+      rospy.wait_for_service('/gazebo/spawn_sdf_model')
       self.spawn_model_client = rospy.ServiceProxy('/gazebo/spawn_sdf_model', SpawnModel)
+      rospy.wait_for_service('/gazebo/delete_model')
       self.delete_model_client = rospy.ServiceProxy('/gazebo/delete_model', DeleteModel)
+      rospy.wait_for_service('/gazebo/get_model_state')
       self.get_obj_pos_client = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
+      rospy.wait_for_service('/gazebo/set_model_state')
       self.set_state_client = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
     except rospy.ServiceException, e:
       print("Service call failed: {}".format(e))
@@ -95,7 +100,7 @@ class myur5e_gym:
     self.spawn_room_y_high= 0.65
     self.spawn_room_y_low= -0.65
     self.spawn_room_z_high = 0.65
-    self.spawn_room_z_low = 0.03
+    self.spawn_room_z_low = 0.15
 
     self.obj_prefix='box'
     self.table_name="mytable"
@@ -117,7 +122,15 @@ class myur5e_gym:
     self.moveit_step_resolution = 0.01
     self.minimum_movement_thres = 0.001
 
-    #=========================================================
+    #=======================INIT WORLD=============================
+    try:
+      rospy.wait_for_service('/gazebo/reset_world')
+      self.reset_world_client = rospy.ServiceProxy('/gazebo/reset_world', Empty)
+      self.reset_world_client()
+    except rospy.ServiceException, e:
+      print("Service call failed: {}".format(e))
+    self.rate.sleep()
+    self._spawn_obj()
 
   def step(self,action):
     #ACTION [dx,dy,dz,d]
@@ -169,8 +182,6 @@ class myur5e_gym:
     self.arm.set_named_target('start')
     self.arm.go(wait=True)
     #self._delete_obj()
-    self._spawn_obj()
-
     self._sample_obj_state()
     self._sample_target_state()
     self.rate.sleep()

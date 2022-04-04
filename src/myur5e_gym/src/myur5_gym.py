@@ -40,7 +40,7 @@ class myur5e_vision:
     return self._image
 
 class myur5e_gym:
-  def __init__(self, vision_obs = False, num_obj=1,arm_name='arm', gripper_name = 'gripper', reward_type='sparse', render=True):
+  def __init__(self, vision_obs = False, num_obj=1,arm_name='arm', gripper_name = 'gripper', reward_type='sparse', render=True, verbose=False):
 
     #============Init var===========
     self.vision_obs = vision_obs
@@ -53,7 +53,9 @@ class myur5e_gym:
     self.reward_type = reward_type
     self.done=False
     self.render=render
+    self.verbose=verbose
     self.goal_tolerance = 0.03
+    self.gripper_extra_length = 0.15
 
     #============INIT ROSPY============
     rospy.init_node('myur5e_gym',anonymous=True)
@@ -92,17 +94,19 @@ class myur5e_gym:
     self.spawn_room_x_low= -0.48
     self.spawn_room_y_high= 0.65
     self.spawn_room_y_low= -0.65
-    self.spawn_room_z_high = 0.7
+    self.spawn_room_z_high = 0.65
     self.spawn_room_z_low = 0.03
 
     self.obj_prefix='box'
     self.table_name="mytable"
-    self.target_name = "target"
+    self.target_name = "mytarget"
+    self.tcp_name ="mytcp"
     self.world_name = 'world'
     self.obj_name_list=[(self.obj_prefix+str(i)) for i in range(self.num_obj)]
 
     self.box_path = '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/myur5e/myur5e_description/urdf/objects/mybox.urdf.xacro'
     self.target_path = '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/myur5e/myur5e_description/urdf/objects/mytarget.urdf.xacro'
+    self.tcp_path = '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/myur5e/myur5e_description/urdf/objects/mytcp.urdf.xacro'
 
     #======Action space=======
     self.act_dim = 3
@@ -177,7 +181,19 @@ class myur5e_gym:
     #Position of gripper
     #self.rate.sleep()
     self.current_pose = self.arm.get_current_pose(self.ee_link).pose
-    
+    #=====================TCP==============
+    if self.verbose:
+      state_msg = ModelState()
+      state_msg.model_name = self.tcp_name
+      state_msg.reference_frame = self.world_name
+      _possition = self.current_pose.position
+      _pose=Pose(position=Point(_possition.x,_possition.y,_possition.z-self.gripper_extra_length),orientation=Quaternion(0,0,0,0))
+      state_msg.pose = _pose
+      try:
+        self.set_state_client(state_msg)
+      except rospy.ServiceException, e:
+        print("Service call failed: {}".format(e))
+    #=====================TCP==============
     if self.vision_obs:
       img = self.my_img_class.get_image()
       return (self.current_pose, img)
@@ -251,6 +267,18 @@ class myur5e_gym:
   def _spawn_obj(self):
     #SPAWN ALL OBJECTS
     if not self.spawn_track:
+      #============TCP===========
+      if self.verbose:
+        try:
+          random_pose=Pose(position=Point(0,0,1),orientation=Quaternion(0,0,0,0))
+          self.spawn_model_client(model_name=self.tcp_name, \
+            model_xml=open(self.tcp_path, 'r').read(),\
+            robot_namespace='',\
+            initial_pose=random_pose,\
+            reference_frame=self.table_name)
+        except rospy.ServiceException, e:
+          print("Service call failed: {}".format(e))
+
       #==============OBJ===============
       for i,name in enumerate(self.obj_name_list):
         random_pose=Pose(position=Point(0,0,0.5),orientation=Quaternion(0,0,0,0))

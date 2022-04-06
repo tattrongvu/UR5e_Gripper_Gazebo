@@ -38,7 +38,7 @@
             <mu2>100000</mu2>
             <kp>100000000.0</kp>
             <kd>1.0</kd>
-            <turnGravityOff>1</turnGravityOff>
+            <!-- <turnGravityOff>1</turnGravityOff> -->
         </gazebo>   
 
         <joint name="${prefix}gripper_finger1_joint" type="revolute">
@@ -84,7 +84,7 @@
             <mu2>100000</mu2>
             <kp>100000000.0</kp>
             <kd>1.0</kd>
-            <turnGravityOff>1</turnGravityOff>
+            <!-- <turnGravityOff>1</turnGravityOff> -->
         </gazebo>   
 
         <link name="${prefix}gripper_finger2_knuckle_link">
@@ -113,7 +113,7 @@
             <mu2>100000</mu2>
             <kp>100000000.0</kp>
             <kd>1.0</kd>
-            <turnGravityOff>1</turnGravityOff>
+            <!-- <turnGravityOff>1</turnGravityOff> -->
         </gazebo> 
 
         <joint name="${prefix}gripper_finger1_finger_joint" type="fixed">
@@ -154,7 +154,7 @@
             <mu2>100000</mu2>
             <kp>100000000.0</kp>
             <kd>1.0</kd>
-            <turnGravityOff>1</turnGravityOff>
+            <!-- <turnGravityOff>1</turnGravityOff> -->
         </gazebo>  
 
         <link name="${prefix}gripper_finger2_finger_link">
@@ -183,7 +183,7 @@
             <mu2>100000</mu2>
             <kp>100000000.0</kp>
             <kd>1.0</kd>
-            <turnGravityOff>1</turnGravityOff>
+            <!-- <turnGravityOff>1</turnGravityOff> -->
         </gazebo>  
 
         <joint name="${prefix}gripper_finger1_inner_knuckle_joint" type="continuous">
@@ -230,7 +230,7 @@
             <mu2>100000</mu2>
             <kp>100000000.0</kp>
             <kd>1.0</kd>
-            <turnGravityOff>1</turnGravityOff>
+            <!-- <turnGravityOff>1</turnGravityOff> -->
         </gazebo> 
         
         <link name="${prefix}gripper_finger2_inner_knuckle_link">
@@ -259,7 +259,7 @@
             <mu2>100000</mu2>
             <kp>100000000.0</kp>
             <kd>1.0</kd>
-            <turnGravityOff>1</turnGravityOff>
+            <!-- <turnGravityOff>1</turnGravityOff> -->
         </gazebo> 
 
         <joint name="${prefix}gripper_finger1_finger_tip_joint" type="continuous">
@@ -307,7 +307,7 @@
             <mu2>100000</mu2>
             <kp>100000000.0</kp>
             <kd>1.0</kd>
-            <turnGravityOff>1</turnGravityOff>
+            <!-- <turnGravityOff>1</turnGravityOff> -->
         </gazebo> 
 
         <link name="${prefix}gripper_finger2_finger_tip_link">
@@ -336,7 +336,7 @@
             <mu2>100000</mu2>
             <kp>100000000.0</kp>
             <kd>1.0</kd>
-            <turnGravityOff>1</turnGravityOff>
+            <!-- <turnGravityOff>1</turnGravityOff> -->
         </gazebo>
         <xacro:robotiq_85_gripper_transmission prefix="${prefix}" />
 

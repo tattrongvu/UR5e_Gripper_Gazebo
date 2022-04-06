@@ -67,14 +67,14 @@ set(effort_controllers_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(effort_controllers_SOURCE_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/effort_controllers)
-  set(effort_controllers_DEVEL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel)
+  set(effort_controllers_SOURCE_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/ros_controllers/effort_controllers)
+  set(effort_controllers_DEVEL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel)
   set(effort_controllers_INSTALL_PREFIX "")
   set(effort_controllers_PREFIX ${effort_controllers_DEVEL_PREFIX})
 else()
   set(effort_controllers_SOURCE_PREFIX "")
   set(effort_controllers_DEVEL_PREFIX "")
-  set(effort_controllers_INSTALL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install)
+  set(effort_controllers_INSTALL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install)
   set(effort_controllers_PREFIX ${effort_controllers_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install/lib;/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install/lib;/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -185,7 +185,7 @@ foreach(t ${effort_controllers_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "angles;controller_interface;control_msgs;control_toolbox;forward_command_controller;realtime_tools;urdf")
+set(depends "control_msgs;control_toolbox;controller_interface;forward_command_controller;hardware_interface;realtime_tools;std_msgs;urdf")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(effort_controllers_LIBRARIES ${effort_controllers_LIBRARIES})
 
   _list_append_unique(effort_controllers_LIBRARY_DIRS ${${effort_controllers_dep}_LIBRARY_DIRS})
-  list(APPEND effort_controllers_EXPORTED_TARGETS ${${effort_controllers_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(effort_controllers_EXPORTED_TARGETS ${${effort_controllers_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

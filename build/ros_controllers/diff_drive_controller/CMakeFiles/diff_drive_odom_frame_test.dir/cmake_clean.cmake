@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib/diff_drive_controller/diff_drive_odom_frame_test"
+  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib/diff_drive_controller/diff_drive_odom_frame_test.pdb"
   "CMakeFiles/diff_drive_odom_frame_test.dir/test/diff_drive_odom_frame_test.cpp.o"
-  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/diff_drive_controller/diff_drive_odom_frame_test.pdb"
-  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/diff_drive_controller/diff_drive_odom_frame_test"
 )
 
 # Per-language clean rules from dependency scanning.

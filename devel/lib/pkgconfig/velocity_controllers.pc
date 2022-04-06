@@ -1,8 +1,8 @@
-prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel
+prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel
 
 Name: velocity_controllers
 Description: Description of velocity_controllers
-Version: 0.17.2
-Cflags: -I/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/velocity_controllers/include
+Version: 0.19.0
+Cflags: -I/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/ros_controllers/velocity_controllers/include
 Libs: -L${prefix}/lib -lvelocity_controllers
-Requires: angles control_msgs control_toolbox controller_interface forward_command_controller realtime_tools urdf
+Requires: control_msgs control_toolbox controller_interface forward_command_controller hardware_interface realtime_tools std_msgs urdf

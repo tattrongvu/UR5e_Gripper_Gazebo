@@ -1,8 +1,0 @@
-prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install
-
-Name: robotiq_msgs
-Description: Description of robotiq_msgs
-Version: 0.1.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: actionlib actionlib_msgs control_msgs message_runtime

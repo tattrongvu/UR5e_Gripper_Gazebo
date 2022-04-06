@@ -1,8 +1,0 @@
-prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install
-
-Name: robotiq_description
-Description: Description of robotiq_description
-Version: 0.1.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

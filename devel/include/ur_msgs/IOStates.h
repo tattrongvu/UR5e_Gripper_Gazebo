@@ -116,16 +116,6 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::ur_msgs::IOStates_<ContainerAllocator> >
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::ur_msgs::IOStates_<ContainerAllocator> const>
-  : FalseType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::ur_msgs::IOStates_<ContainerAllocator> >
   : TrueType
   { };
@@ -133,6 +123,16 @@ struct IsMessage< ::ur_msgs::IOStates_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsMessage< ::ur_msgs::IOStates_<ContainerAllocator> const>
   : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::ur_msgs::IOStates_<ContainerAllocator> >
+  : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::ur_msgs::IOStates_<ContainerAllocator> const>
+  : FalseType
   { };
 
 template <class ContainerAllocator>

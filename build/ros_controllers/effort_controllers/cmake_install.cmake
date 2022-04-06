@@ -1,8 +1,8 @@
-# Install script for directory: /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/effort_controllers
+# Install script for directory: /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/ros_controllers/effort_controllers
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,22 +38,22 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/ros_controllers/effort_controllers/catkin_generated/installspace/effort_controllers.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/build/ros_controllers/effort_controllers/catkin_generated/installspace/effort_controllers.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/effort_controllers/cmake" TYPE FILE FILES
-    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/ros_controllers/effort_controllers/catkin_generated/installspace/effort_controllersConfig.cmake"
-    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/ros_controllers/effort_controllers/catkin_generated/installspace/effort_controllersConfig-version.cmake"
+    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/build/ros_controllers/effort_controllers/catkin_generated/installspace/effort_controllersConfig.cmake"
+    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/build/ros_controllers/effort_controllers/catkin_generated/installspace/effort_controllersConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/effort_controllers" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/effort_controllers/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/effort_controllers" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/ros_controllers/effort_controllers/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/effort_controllers" TYPE DIRECTORY FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/effort_controllers/include/effort_controllers/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/effort_controllers" TYPE DIRECTORY FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/ros_controllers/effort_controllers/include/effort_controllers/")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -63,12 +63,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libeffort_controllers.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libeffort_controllers.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib/libeffort_controllers.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libeffort_controllers.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libeffort_controllers.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libeffort_controllers.so"
-         OLD_RPATH "/opt/ros/melodic/lib:"
+         OLD_RPATH "/opt/ros/noetic/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libeffort_controllers.so")
@@ -77,6 +77,9 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/effort_controllers" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/effort_controllers/effort_controllers_plugins.xml")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/effort_controllers" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/ros_controllers/effort_controllers/effort_controllers_plugins.xml")
 endif()
 

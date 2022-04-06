@@ -1,8 +1,0 @@
-prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install
-
-Name: openrave_catkin
-Description: Description of openrave_catkin
-Version: 1.0.1
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

@@ -67,14 +67,14 @@ set(gazebo_version_helpers_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(gazebo_version_helpers_SOURCE_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/gazebo_version_helpers)
-  set(gazebo_version_helpers_DEVEL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel)
+  set(gazebo_version_helpers_SOURCE_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/gazebo_version_helpers)
+  set(gazebo_version_helpers_DEVEL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel)
   set(gazebo_version_helpers_INSTALL_PREFIX "")
   set(gazebo_version_helpers_PREFIX ${gazebo_version_helpers_DEVEL_PREFIX})
 else()
   set(gazebo_version_helpers_SOURCE_PREFIX "")
   set(gazebo_version_helpers_DEVEL_PREFIX "")
-  set(gazebo_version_helpers_INSTALL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install)
+  set(gazebo_version_helpers_INSTALL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install)
   set(gazebo_version_helpers_PREFIX ${gazebo_version_helpers_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(gazebo_version_helpers_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/gazebo_version_helpers/include " STREQUAL " ")
+if(NOT "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/gazebo_version_helpers/include " STREQUAL " ")
   set(gazebo_version_helpers_INCLUDE_DIRS "")
-  set(_include_dirs "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/gazebo_version_helpers/include")
+  set(_include_dirs "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/gazebo_version_helpers/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/gazebo_version_helper
         message(FATAL_ERROR "Project 'gazebo_version_helpers' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'gazebo_version_helpers' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/gazebo_version_helpers/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'gazebo_version_helpers' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/gazebo_version_helpers/${idir}'.  ${_report}")
     endif()
     _list_append_unique(gazebo_version_helpers_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib;/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib;/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(gazebo_version_helpers_LIBRARIES ${gazebo_version_helpers_LIBRARIES})
 
   _list_append_unique(gazebo_version_helpers_LIBRARY_DIRS ${${gazebo_version_helpers_dep}_LIBRARY_DIRS})
-  list(APPEND gazebo_version_helpers_EXPORTED_TARGETS ${${gazebo_version_helpers_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(gazebo_version_helpers_EXPORTED_TARGETS ${${gazebo_version_helpers_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

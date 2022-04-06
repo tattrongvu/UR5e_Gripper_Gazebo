@@ -42,26 +42,26 @@
    (&optional __timestamp)
    (if __timestamp (setq _timestamp __timestamp)) _timestamp)
   (:is_robot_connected
-   (&optional __is_robot_connected)
-   (if __is_robot_connected (setq _is_robot_connected __is_robot_connected)) _is_robot_connected)
+   (&optional (__is_robot_connected :null))
+   (if (not (eq __is_robot_connected :null)) (setq _is_robot_connected __is_robot_connected)) _is_robot_connected)
   (:is_real_robot_enabled
-   (&optional __is_real_robot_enabled)
-   (if __is_real_robot_enabled (setq _is_real_robot_enabled __is_real_robot_enabled)) _is_real_robot_enabled)
+   (&optional (__is_real_robot_enabled :null))
+   (if (not (eq __is_real_robot_enabled :null)) (setq _is_real_robot_enabled __is_real_robot_enabled)) _is_real_robot_enabled)
   (:is_power_on_robot
-   (&optional __is_power_on_robot)
-   (if __is_power_on_robot (setq _is_power_on_robot __is_power_on_robot)) _is_power_on_robot)
+   (&optional (__is_power_on_robot :null))
+   (if (not (eq __is_power_on_robot :null)) (setq _is_power_on_robot __is_power_on_robot)) _is_power_on_robot)
   (:is_emergency_stopped
-   (&optional __is_emergency_stopped)
-   (if __is_emergency_stopped (setq _is_emergency_stopped __is_emergency_stopped)) _is_emergency_stopped)
+   (&optional (__is_emergency_stopped :null))
+   (if (not (eq __is_emergency_stopped :null)) (setq _is_emergency_stopped __is_emergency_stopped)) _is_emergency_stopped)
   (:is_protective_stopped
-   (&optional __is_protective_stopped)
-   (if __is_protective_stopped (setq _is_protective_stopped __is_protective_stopped)) _is_protective_stopped)
+   (&optional (__is_protective_stopped :null))
+   (if (not (eq __is_protective_stopped :null)) (setq _is_protective_stopped __is_protective_stopped)) _is_protective_stopped)
   (:is_program_running
-   (&optional __is_program_running)
-   (if __is_program_running (setq _is_program_running __is_program_running)) _is_program_running)
+   (&optional (__is_program_running :null))
+   (if (not (eq __is_program_running :null)) (setq _is_program_running __is_program_running)) _is_program_running)
   (:is_program_paused
-   (&optional __is_program_paused)
-   (if __is_program_paused (setq _is_program_paused __is_program_paused)) _is_program_paused)
+   (&optional (__is_program_paused :null))
+   (if (not (eq __is_program_paused :null)) (setq _is_program_paused __is_program_paused)) _is_program_paused)
   (:serialization-length
    ()
    (+

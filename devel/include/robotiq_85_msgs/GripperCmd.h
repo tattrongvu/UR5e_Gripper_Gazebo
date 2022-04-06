@@ -117,22 +117,22 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::robotiq_85_msgs::GripperCmd_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::robotiq_85_msgs::GripperCmd_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::robotiq_85_msgs::GripperCmd_<ContainerAllocator> >
   : TrueType
   { };
 
 template <class ContainerAllocator>
 struct IsMessage< ::robotiq_85_msgs::GripperCmd_<ContainerAllocator> const>
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::robotiq_85_msgs::GripperCmd_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::robotiq_85_msgs::GripperCmd_<ContainerAllocator> const>
   : TrueType
   { };
 

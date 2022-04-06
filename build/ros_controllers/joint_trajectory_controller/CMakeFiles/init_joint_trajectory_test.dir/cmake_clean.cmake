@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib/joint_trajectory_controller/init_joint_trajectory_test"
+  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib/joint_trajectory_controller/init_joint_trajectory_test.pdb"
   "CMakeFiles/init_joint_trajectory_test.dir/test/init_joint_trajectory_test.cpp.o"
-  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/joint_trajectory_controller/init_joint_trajectory_test.pdb"
-  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/joint_trajectory_controller/init_joint_trajectory_test"
 )
 
 # Per-language clean rules from dependency scanning.

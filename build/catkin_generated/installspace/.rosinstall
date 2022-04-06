@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install/setup.sh
+    local-name: /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install/setup.sh

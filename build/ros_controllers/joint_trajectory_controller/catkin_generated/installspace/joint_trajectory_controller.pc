@@ -1,8 +1,8 @@
-prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install
+prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install
 
 Name: joint_trajectory_controller
 Description: Description of joint_trajectory_controller
-Version: 0.17.2
-Cflags: -I${prefix}/include
+Version: 0.19.0
+Cflags: -I${prefix}/include -I/usr/include
 Libs: -L${prefix}/lib -ljoint_trajectory_controller
-Requires: actionlib angles roscpp urdf control_toolbox controller_interface hardware_interface realtime_tools control_msgs trajectory_msgs
+Requires: actionlib angles control_msgs control_toolbox controller_interface hardware_interface realtime_tools roscpp trajectory_msgs urdf

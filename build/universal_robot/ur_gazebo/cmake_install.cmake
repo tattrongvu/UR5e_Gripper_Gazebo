@@ -1,8 +1,8 @@
-# Install script for directory: /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/universal_robot/ur_gazebo
+# Install script for directory: /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/universal_robot/ur_gazebo
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,24 +38,24 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/universal_robot/ur_gazebo/catkin_generated/installspace/ur_gazebo.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/build/universal_robot/ur_gazebo/catkin_generated/installspace/ur_gazebo.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_gazebo/cmake" TYPE FILE FILES
-    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/universal_robot/ur_gazebo/catkin_generated/installspace/ur_gazeboConfig.cmake"
-    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/universal_robot/ur_gazebo/catkin_generated/installspace/ur_gazeboConfig-version.cmake"
+    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/build/universal_robot/ur_gazebo/catkin_generated/installspace/ur_gazeboConfig.cmake"
+    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/build/universal_robot/ur_gazebo/catkin_generated/installspace/ur_gazeboConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_gazebo" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/universal_robot/ur_gazebo/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_gazebo" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/universal_robot/ur_gazebo/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_gazebo" TYPE DIRECTORY FILES
-    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/universal_robot/ur_gazebo/launch"
-    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/universal_robot/ur_gazebo/controller"
+    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/universal_robot/ur_gazebo/launch"
+    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/universal_robot/ur_gazebo/controller"
     )
 endif()
 

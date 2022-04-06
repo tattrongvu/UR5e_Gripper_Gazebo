@@ -4,38 +4,51 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/roboticsgroup_gazebo_plugins/src/disable_link_plugin.cpp" "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_disable_link_plugin.dir/src/disable_link_plugin.cpp.o"
+  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/roboticsgroup_gazebo_plugins/src/disable_link_plugin.cpp" "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/build/roboticsgroup_gazebo_plugins/CMakeFiles/roboticsgroup_gazebo_disable_link_plugin.dir/src/disable_link_plugin.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
-  "LIBBULLET_VERSION=2.87"
+  "BOOST_ALL_NO_LIB"
+  "BOOST_ATOMIC_DYN_LINK"
+  "BOOST_DATE_TIME_DYN_LINK"
+  "BOOST_FILESYSTEM_DYN_LINK"
+  "BOOST_IOSTREAMS_DYN_LINK"
+  "BOOST_PROGRAM_OPTIONS_DYN_LINK"
+  "BOOST_REGEX_DYN_LINK"
+  "BOOST_SYSTEM_DYN_LINK"
+  "BOOST_TEST_DYN_LINK"
+  "BOOST_THREAD_DYN_LINK"
+  "LIBBULLET_VERSION=2.88"
   "LIBBULLET_VERSION_GT_282"
   "ROSCONSOLE_BACKEND_LOG4CXX"
   "ROS_BUILD_SHARED_LIBS=1"
   "ROS_PACKAGE_NAME=\"roboticsgroup_gazebo_plugins\""
+  "roboticsgroup_gazebo_disable_link_plugin_EXPORTS"
   )
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/opt/ros/melodic/include"
-  "/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
-  "/usr/include/gazebo-9"
+  "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
+  "/usr/include/gazebo-11"
   "/usr/include/bullet"
-  "/usr/include/simbody"
-  "/usr/include/sdformat-6.0"
-  "/usr/include/ignition/math4"
+  "/usr/include/sdformat-9.7"
   "/usr/include/OGRE"
   "/usr/include/OGRE/Terrain"
   "/usr/include/OGRE/Paging"
-  "/usr/include/ignition/transport4"
-  "/usr/include/ignition/msgs1"
-  "/usr/include/ignition/common1"
-  "/usr/include/ignition/fuel_tools1"
-  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/roboticsgroup_gazebo_plugins/include"
+  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/roboticsgroup_gazebo_plugins/include"
+  "/opt/ros/noetic/include"
+  "/usr/include/simbody"
+  "/usr/include/ignition/math6"
+  "/usr/include/ignition/transport8"
+  "/usr/include/ignition/msgs5"
+  "/usr/include/ignition/common3"
+  "/usr/include/ignition/fuel_tools4"
+  "/usr/include/eigen3"
+  "/usr/include/sdformat-9.7/sdf/.."
+  "/usr/include/ignition/cmake2"
   "/usr/include/uuid"
-  "/usr/include/x86_64-linux-gnu"
   )
 
 # Targets to which this target links.

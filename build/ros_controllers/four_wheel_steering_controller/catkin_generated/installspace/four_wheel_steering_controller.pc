@@ -1,8 +1,8 @@
-prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install
+prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install
 
 Name: four_wheel_steering_controller
 Description: Description of four_wheel_steering_controller
-Version: 0.17.2
-Cflags: -I${prefix}/include
+Version: 0.19.0
+Cflags: -I${prefix}/include -I/usr/include
 Libs: -L${prefix}/lib -lfour_wheel_steering_controller
-Requires: controller_interface nav_msgs four_wheel_steering_msgs realtime_tools tf urdf_geometry_parser pluginlib
+Requires: controller_interface four_wheel_steering_msgs hardware_interface nav_msgs realtime_tools roscpp tf

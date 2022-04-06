@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib/diff_drive_controller/diffbot"
+  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib/diff_drive_controller/diffbot.pdb"
   "CMakeFiles/diffbot.dir/test/diffbot.cpp.o"
-  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/diff_drive_controller/diffbot.pdb"
-  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/diff_drive_controller/diffbot"
 )
 
 # Per-language clean rules from dependency scanning.

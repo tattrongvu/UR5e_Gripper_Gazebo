@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib/joint_state_controller/joint_state_controller_test"
+  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib/joint_state_controller/joint_state_controller_test.pdb"
   "CMakeFiles/joint_state_controller_test.dir/test/joint_state_controller_test.cpp.o"
-  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/joint_state_controller/joint_state_controller_test.pdb"
-  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/joint_state_controller/joint_state_controller_test"
 )
 
 # Per-language clean rules from dependency scanning.

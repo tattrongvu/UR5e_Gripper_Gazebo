@@ -18,6 +18,13 @@
 (intern "*CURRENT*" (find-package "UR_MSGS::ANALOG"))
 (shadow '*CURRENT* (find-package "UR_MSGS::ANALOG"))
 (defconstant ur_msgs::Analog::*CURRENT* 1)
+
+(defun ur_msgs::Analog-to-symbol (const)
+  (cond
+        ((= const 0) 'ur_msgs::Analog::*VOLTAGE*)
+        ((= const 1) 'ur_msgs::Analog::*CURRENT*)
+        (t nil)))
+
 (defclass ur_msgs::Analog
   :super ros::object
   :slots (_pin _domain _state ))

@@ -1,8 +1,8 @@
-# Install script for directory: /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/myur5e_gym
+# Install script for directory: /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/myur5e_gym
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/myur5e_gym/catkin_generated/installspace/myur5e_gym.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/build/myur5e_gym/catkin_generated/installspace/myur5e_gym.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/myur5e_gym/cmake" TYPE FILE FILES
-    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/myur5e_gym/catkin_generated/installspace/myur5e_gymConfig.cmake"
-    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/myur5e_gym/catkin_generated/installspace/myur5e_gymConfig-version.cmake"
+    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/build/myur5e_gym/catkin_generated/installspace/myur5e_gymConfig.cmake"
+    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/build/myur5e_gym/catkin_generated/installspace/myur5e_gymConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/myur5e_gym" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/myur5e_gym/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/myur5e_gym" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/myur5e_gym/package.xml")
 endif()
 

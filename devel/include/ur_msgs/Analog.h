@@ -115,22 +115,22 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::ur_msgs::Analog_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::ur_msgs::Analog_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::ur_msgs::Analog_<ContainerAllocator> >
   : TrueType
   { };
 
 template <class ContainerAllocator>
 struct IsMessage< ::ur_msgs::Analog_<ContainerAllocator> const>
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::ur_msgs::Analog_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::ur_msgs::Analog_<ContainerAllocator> const>
   : TrueType
   { };
 

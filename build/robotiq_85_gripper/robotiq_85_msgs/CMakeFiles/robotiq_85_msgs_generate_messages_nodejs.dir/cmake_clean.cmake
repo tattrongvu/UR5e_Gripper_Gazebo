@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/share/gennodejs/ros/robotiq_85_msgs/msg/GripperCmd.js"
+  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/share/gennodejs/ros/robotiq_85_msgs/msg/GripperStat.js"
   "CMakeFiles/robotiq_85_msgs_generate_messages_nodejs"
-  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/share/gennodejs/ros/robotiq_85_msgs/msg/GripperStat.js"
-  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/share/gennodejs/ros/robotiq_85_msgs/msg/GripperCmd.js"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,8 +1,8 @@
-# Install script for directory: /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/universal_robot/ur_driver
+# Install script for directory: /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/universal_robot/ur_driver
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,51 +38,51 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/universal_robot/ur_driver/catkin_generated/safe_execute_install.cmake")
+  include("/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/build/universal_robot/ur_driver/catkin_generated/safe_execute_install.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/ur_driver" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/include/ur_driver/URDriverConfig.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/ur_driver" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/include/ur_driver/URDriverConfig.h")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python2" -m compileall "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/python2.7/dist-packages/ur_driver/cfg")
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib/python3/dist-packages/ur_driver/cfg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages/ur_driver" TYPE DIRECTORY FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/python2.7/dist-packages/ur_driver/cfg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages/ur_driver" TYPE DIRECTORY FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib/python3/dist-packages/ur_driver/cfg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/universal_robot/ur_driver/catkin_generated/installspace/ur_driver.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/build/universal_robot/ur_driver/catkin_generated/installspace/ur_driver.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_driver/cmake" TYPE FILE FILES
-    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/universal_robot/ur_driver/catkin_generated/installspace/ur_driverConfig.cmake"
-    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/universal_robot/ur_driver/catkin_generated/installspace/ur_driverConfig-version.cmake"
+    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/build/universal_robot/ur_driver/catkin_generated/installspace/ur_driverConfig.cmake"
+    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/build/universal_robot/ur_driver/catkin_generated/installspace/ur_driverConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_driver" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/universal_robot/ur_driver/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_driver" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/universal_robot/ur_driver/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/ur_driver" TYPE PROGRAM FILES
-    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/universal_robot/ur_driver/test_move.py"
-    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/universal_robot/ur_driver/test_io.py"
+    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/universal_robot/ur_driver/test_move.py"
+    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/universal_robot/ur_driver/test_io.py"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/ur_driver" TYPE PROGRAM FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/universal_robot/ur_driver/src/ur_driver/driver.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/ur_driver" TYPE PROGRAM FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/universal_robot/ur_driver/src/ur_driver/driver.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur_driver" TYPE FILE FILES
-    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/universal_robot/ur_driver/prog"
-    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/universal_robot/ur_driver/prog_reset"
+    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/universal_robot/ur_driver/prog"
+    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/universal_robot/ur_driver/prog_reset"
     )
 endif()
 

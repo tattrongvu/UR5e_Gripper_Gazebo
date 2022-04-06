@@ -1,8 +1,8 @@
-# Install script for directory: /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/myur5e/myur5e_description
+# Install script for directory: /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/myur5e/myur5e_description
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/myur5e/myur5e_description/catkin_generated/installspace/myur5e_description.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/build/myur5e/myur5e_description/catkin_generated/installspace/myur5e_description.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/myur5e_description/cmake" TYPE FILE FILES
-    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/myur5e/myur5e_description/catkin_generated/installspace/myur5e_descriptionConfig.cmake"
-    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build/myur5e/myur5e_description/catkin_generated/installspace/myur5e_descriptionConfig-version.cmake"
+    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/build/myur5e/myur5e_description/catkin_generated/installspace/myur5e_descriptionConfig.cmake"
+    "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/build/myur5e/myur5e_description/catkin_generated/installspace/myur5e_descriptionConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/myur5e_description" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/myur5e/myur5e_description/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/myur5e_description" TYPE FILE FILES "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/myur5e/myur5e_description/package.xml")
 endif()
 

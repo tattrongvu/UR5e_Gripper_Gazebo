@@ -129,22 +129,22 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::ur_msgs::RobotModeDataMsg_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::ur_msgs::RobotModeDataMsg_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::ur_msgs::RobotModeDataMsg_<ContainerAllocator> >
   : TrueType
   { };
 
 template <class ContainerAllocator>
 struct IsMessage< ::ur_msgs::RobotModeDataMsg_<ContainerAllocator> const>
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::ur_msgs::RobotModeDataMsg_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::ur_msgs::RobotModeDataMsg_<ContainerAllocator> const>
   : TrueType
   { };
 

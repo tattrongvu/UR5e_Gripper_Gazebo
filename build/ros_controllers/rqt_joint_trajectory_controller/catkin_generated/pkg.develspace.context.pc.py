@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "rqt_joint_trajectory_controller"
-PROJECT_SPACE_DIR = "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel"
-PROJECT_VERSION = "0.17.2"
+PROJECT_SPACE_DIR = "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel"
+PROJECT_VERSION = "0.19.0"

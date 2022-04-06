@@ -1,8 +1,0 @@
-prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel
-
-Name: socketcan_bridge
-Description: Description of socketcan_bridge
-Version: 0.8.0
-Cflags: -I/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/socketcan_interface/socketcan_bridge/include
-Libs: -L${prefix}/lib -lsocketcan_to_topic -ltopic_to_socketcan
-Requires: can_msgs roscpp socketcan_interface

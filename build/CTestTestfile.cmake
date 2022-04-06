@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src
-# Build directory: /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build
+# Source directory: /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src
+# Build directory: /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/build
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
@@ -37,12 +37,12 @@ subdirs("universal_robot/ur_bringup")
 subdirs("universal_robot/ur_driver")
 subdirs("universal_robot/ur_e_gazebo")
 subdirs("universal_robot/ur_gazebo")
+subdirs("ros_controllers/gripper_action_controller")
 subdirs("universal_robot/ur_kinematics")
 subdirs("ros_controllers/velocity_controllers")
 subdirs("ros_controllers/diff_drive_controller")
 subdirs("ros_controllers/ackermann_steering_controller")
 subdirs("ros_controllers/effort_controllers")
-subdirs("ros_controllers/gripper_action_controller")
 subdirs("ros_controllers/joint_trajectory_controller")
 subdirs("robotiq_85_gripper/robotiq_85_moveit_config")
 subdirs("universal_robot/ur10_e_moveit_config")

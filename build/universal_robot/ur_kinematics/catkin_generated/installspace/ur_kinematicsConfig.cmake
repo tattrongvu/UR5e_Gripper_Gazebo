@@ -67,14 +67,14 @@ set(ur_kinematics_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(ur_kinematics_SOURCE_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/universal_robot/ur_kinematics)
-  set(ur_kinematics_DEVEL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel)
+  set(ur_kinematics_SOURCE_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/universal_robot/ur_kinematics)
+  set(ur_kinematics_DEVEL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel)
   set(ur_kinematics_INSTALL_PREFIX "")
   set(ur_kinematics_PREFIX ${ur_kinematics_DEVEL_PREFIX})
 else()
   set(ur_kinematics_SOURCE_PREFIX "")
   set(ur_kinematics_DEVEL_PREFIX "")
-  set(ur_kinematics_INSTALL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install)
+  set(ur_kinematics_INSTALL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install)
   set(ur_kinematics_PREFIX ${ur_kinematics_INSTALL_PREFIX})
 endif()
 
@@ -116,7 +116,7 @@ if(NOT "include;/usr/include " STREQUAL " ")
   endforeach()
 endif()
 
-set(libraries "ur3_kin;ur5_kin;ur10_kin;ur3_moveit_plugin;ur5_moveit_plugin;ur10_moveit_plugin;/usr/lib/x86_64-linux-gnu/libboost_system.so")
+set(libraries "ur3_kin;ur5_kin;ur10_kin;ur3_moveit_plugin;ur5_moveit_plugin;ur10_moveit_plugin;/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install/lib;/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install/lib;/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(ur_kinematics_LIBRARIES ${ur_kinematics_LIBRARIES})
 
   _list_append_unique(ur_kinematics_LIBRARY_DIRS ${${ur_kinematics_dep}_LIBRARY_DIRS})
-  list(APPEND ur_kinematics_EXPORTED_TARGETS ${${ur_kinematics_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(ur_kinematics_EXPORTED_TARGETS ${${ur_kinematics_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

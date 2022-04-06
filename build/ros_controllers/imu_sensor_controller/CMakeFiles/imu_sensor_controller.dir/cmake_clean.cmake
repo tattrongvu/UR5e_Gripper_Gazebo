@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib/libimu_sensor_controller.pdb"
+  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib/libimu_sensor_controller.so"
   "CMakeFiles/imu_sensor_controller.dir/src/imu_sensor_controller.cpp.o"
-  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libimu_sensor_controller.pdb"
-  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libimu_sensor_controller.so"
 )
 
 # Per-language clean rules from dependency scanning.

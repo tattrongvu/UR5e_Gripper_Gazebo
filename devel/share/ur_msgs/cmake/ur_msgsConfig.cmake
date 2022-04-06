@@ -67,14 +67,14 @@ set(ur_msgs_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(ur_msgs_SOURCE_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/universal_robot/ur_msgs)
-  set(ur_msgs_DEVEL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel)
+  set(ur_msgs_SOURCE_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/universal_robot/ur_msgs)
+  set(ur_msgs_DEVEL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel)
   set(ur_msgs_INSTALL_PREFIX "")
   set(ur_msgs_PREFIX ${ur_msgs_DEVEL_PREFIX})
 else()
   set(ur_msgs_SOURCE_PREFIX "")
   set(ur_msgs_DEVEL_PREFIX "")
-  set(ur_msgs_INSTALL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install)
+  set(ur_msgs_INSTALL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install)
   set(ur_msgs_PREFIX ${ur_msgs_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(ur_msgs_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/include " STREQUAL " ")
+if(NOT "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/include " STREQUAL " ")
   set(ur_msgs_INCLUDE_DIRS "")
-  set(_include_dirs "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/include")
+  set(_include_dirs "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/include " STREQUAL 
         message(FATAL_ERROR "Project 'ur_msgs' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'ur_msgs' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/universal_robot/ur_msgs/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'ur_msgs' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/universal_robot/ur_msgs/${idir}'.  ${_report}")
     endif()
     _list_append_unique(ur_msgs_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib;/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib;/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(ur_msgs_LIBRARIES ${ur_msgs_LIBRARIES})
 
   _list_append_unique(ur_msgs_LIBRARY_DIRS ${${ur_msgs_dep}_LIBRARY_DIRS})
-  list(APPEND ur_msgs_EXPORTED_TARGETS ${${ur_msgs_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(ur_msgs_EXPORTED_TARGETS ${${ur_msgs_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "ur_msgs-msg-extras.cmake")

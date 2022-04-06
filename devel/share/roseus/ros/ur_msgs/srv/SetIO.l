@@ -45,6 +45,20 @@
 (intern "*STATE_TOOL_VOLTAGE_24V*" (find-package "UR_MSGS::SETIOREQUEST"))
 (shadow '*STATE_TOOL_VOLTAGE_24V* (find-package "UR_MSGS::SETIOREQUEST"))
 (defconstant ur_msgs::SetIORequest::*STATE_TOOL_VOLTAGE_24V* 24)
+
+(defun ur_msgs::SetIORequest-to-symbol (const)
+  (cond
+        ((= const 1) 'ur_msgs::SetIORequest::*FUN_SET_DIGITAL_OUT*)
+        ((= const 2) 'ur_msgs::SetIORequest::*FUN_SET_FLAG*)
+        ((= const 3) 'ur_msgs::SetIORequest::*FUN_SET_ANALOG_OUT*)
+        ((= const 4) 'ur_msgs::SetIORequest::*FUN_SET_TOOL_VOLTAGE*)
+        ((= const 0) 'ur_msgs::SetIORequest::*STATE_OFF*)
+        ((= const 1) 'ur_msgs::SetIORequest::*STATE_ON*)
+        ((= const 0) 'ur_msgs::SetIORequest::*STATE_TOOL_VOLTAGE_0V*)
+        ((= const 12) 'ur_msgs::SetIORequest::*STATE_TOOL_VOLTAGE_12V*)
+        ((= const 24) 'ur_msgs::SetIORequest::*STATE_TOOL_VOLTAGE_24V*)
+        (t nil)))
+
 (defclass ur_msgs::SetIORequest
   :super ros::object
   :slots (_fun _pin _state ))
@@ -119,8 +133,8 @@
    (setq _success __success)
    self)
   (:success
-   (&optional __success)
-   (if __success (setq _success __success)) _success)
+   (&optional (__success :null))
+   (if (not (eq __success :null)) (setq _success __success)) _success)
   (:serialization-length
    ()
    (+

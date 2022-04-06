@@ -1,8 +1,8 @@
-prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install
+prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install
 
 Name: force_torque_sensor_controller
 Description: Description of force_torque_sensor_controller
-Version: 0.17.2
+Version: 0.19.0
 Cflags: -I${prefix}/include
 Libs: -L${prefix}/lib -lforce_torque_sensor_controller
-Requires: controller_interface geometry_msgs hardware_interface pluginlib realtime_tools roscpp
+Requires: controller_interface geometry_msgs hardware_interface realtime_tools roscpp

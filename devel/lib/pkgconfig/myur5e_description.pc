@@ -1,4 +1,4 @@
-prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel
+prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel
 
 Name: myur5e_description
 Description: Description of myur5e_description

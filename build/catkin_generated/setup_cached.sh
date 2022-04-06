@@ -7,6 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export OPENRAVE_DATA="/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/share/openrave-/data:/opt/ros/melodic/share/openrave-/data:$OPENRAVE_DATA"
-export OPENRAVE_PLUGINS="/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/share/openrave-/plugins:/opt/ros/melodic/share/openrave-/plugins:$OPENRAVE_PLUGINS"
-export PWD='/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/build'
+export PWD='/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/build'

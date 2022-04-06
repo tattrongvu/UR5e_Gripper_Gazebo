@@ -13,6 +13,7 @@ Run Moveit:
 Moveit (with rviz) and Gazebo:
   roslaunch myur5e_gazebo myur5e_gazebo_moveit_rviz.launch
   roslaunch myur5e_gazebo myur5e_gazebo_moveit.launch
+  roslaunch myur5e_gazebo myur5e_test.launch
 
 Run some examples:
   rosrun my_grasp myvision.py
@@ -108,3 +109,39 @@ https://github.com/crigroup/robotiq
 
 Fix broken gripper original: 
 https://github.com/ros-industrial/robotiq/issues/150?fbclid=IwAR2X9i3S3c5OImAd-8LYYSuDHSukO3QbjT2mNpEIo6hvRFaVljjZDoKt2-U
+
+
+#=============NEW SETUP FOR ROS NOETIC==================
+
+cd ws/src
+
+#=ros_control==
+Build from source: (overlayer)
+  cd /ws/src/
+  rm ros_controllers
+  git clone -b noetic-devel https://github.com/ros-controls/ros_controllers
+  cd /ws/
+  rosdep update
+  rosdep install --from-paths src --ignore-src --rosdistro noetic
+  
+OR (when install new pkg for ros underlayer)
+  apt-get install -y --no-install-recommends ros-noetic-ros-control ros-noetic-ros-controllers
+  source ~/.bashrc 
+
+Remove old version devel, build folder
+cd /ws/ (should contain only src folder)
+
+catkin_make
+
+(when not default interpreter) catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python3
+
+source devel/setup.bash
+
+
+
+#!/usr/bin/env python3
+
+USE: 'which python' to determine which python interpreter use
+switch to system default python (should be /usr/bin/python3, in the nvidia_pytorch-docker it default as conda/env/python)
+Remove conda if needed
+

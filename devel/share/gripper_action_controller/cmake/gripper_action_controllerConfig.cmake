@@ -67,14 +67,14 @@ set(gripper_action_controller_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(gripper_action_controller_SOURCE_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/gripper_action_controller)
-  set(gripper_action_controller_DEVEL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel)
+  set(gripper_action_controller_SOURCE_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/ros_controllers/gripper_action_controller)
+  set(gripper_action_controller_DEVEL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel)
   set(gripper_action_controller_INSTALL_PREFIX "")
   set(gripper_action_controller_PREFIX ${gripper_action_controller_DEVEL_PREFIX})
 else()
   set(gripper_action_controller_SOURCE_PREFIX "")
   set(gripper_action_controller_DEVEL_PREFIX "")
-  set(gripper_action_controller_INSTALL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install)
+  set(gripper_action_controller_INSTALL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install)
   set(gripper_action_controller_PREFIX ${gripper_action_controller_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(gripper_action_controller_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/gripper_action_controller/include " STREQUAL " ")
+if(NOT "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/ros_controllers/gripper_action_controller/include " STREQUAL " ")
   set(gripper_action_controller_INCLUDE_DIRS "")
-  set(_include_dirs "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/gripper_action_controller/include")
+  set(_include_dirs "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/ros_controllers/gripper_action_controller/include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/gripp
         message(FATAL_ERROR "Project 'gripper_action_controller' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'gripper_action_controller' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/gripper_action_controller/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'gripper_action_controller' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/ros_controllers/gripper_action_controller/${idir}'.  ${_report}")
     endif()
     _list_append_unique(gripper_action_controller_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib;/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib;/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -185,7 +185,7 @@ foreach(t ${gripper_action_controller_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "actionlib;cmake_modules;controller_interface;control_msgs;hardware_interface;realtime_tools;trajectory_msgs")
+set(depends "actionlib;control_msgs;control_toolbox;controller_interface;hardware_interface;realtime_tools;roscpp;urdf")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(gripper_action_controller_LIBRARIES ${gripper_action_controller_LIBRARIES})
 
   _list_append_unique(gripper_action_controller_LIBRARY_DIRS ${${gripper_action_controller_dep}_LIBRARY_DIRS})
-  list(APPEND gripper_action_controller_EXPORTED_TARGETS ${${gripper_action_controller_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(gripper_action_controller_EXPORTED_TARGETS ${${gripper_action_controller_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib/libur5_moveit_plugin.pdb"
+  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib/libur5_moveit_plugin.so"
   "CMakeFiles/ur5_moveit_plugin.dir/src/ur_moveit_plugin.cpp.o"
-  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libur5_moveit_plugin.pdb"
-  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/libur5_moveit_plugin.so"
 )
 
 # Per-language clean rules from dependency scanning.

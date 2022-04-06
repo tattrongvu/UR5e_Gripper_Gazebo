@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "ur_bringup"
-PROJECT_SPACE_DIR = "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install"
+PROJECT_SPACE_DIR = "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install"
 PROJECT_VERSION = "1.2.5"

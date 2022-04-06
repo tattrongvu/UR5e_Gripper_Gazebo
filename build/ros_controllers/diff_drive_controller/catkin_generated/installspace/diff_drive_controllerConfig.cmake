@@ -67,14 +67,14 @@ set(diff_drive_controller_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(diff_drive_controller_SOURCE_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/diff_drive_controller)
-  set(diff_drive_controller_DEVEL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel)
+  set(diff_drive_controller_SOURCE_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/ros_controllers/diff_drive_controller)
+  set(diff_drive_controller_DEVEL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel)
   set(diff_drive_controller_INSTALL_PREFIX "")
   set(diff_drive_controller_PREFIX ${diff_drive_controller_DEVEL_PREFIX})
 else()
   set(diff_drive_controller_SOURCE_PREFIX "")
   set(diff_drive_controller_DEVEL_PREFIX "")
-  set(diff_drive_controller_INSTALL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install)
+  set(diff_drive_controller_INSTALL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install)
   set(diff_drive_controller_PREFIX ${diff_drive_controller_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(diff_drive_controller_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "include " STREQUAL " ")
+if(NOT "include;/usr/include " STREQUAL " ")
   set(diff_drive_controller_INCLUDE_DIRS "")
-  set(_include_dirs "include")
+  set(_include_dirs "include;/usr/include")
   if(NOT "https://github.com/ros-controls/ros_controllers/issues " STREQUAL " ")
     set(_report "Check the issue tracker 'https://github.com/ros-controls/ros_controllers/issues' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "https://github.com/ros-controls/ros_controllers/wiki " STREQUAL " ")
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install/lib;/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install/lib;/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -185,7 +185,7 @@ foreach(t ${diff_drive_controller_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "")
+set(depends "controller_interface;control_msgs;dynamic_reconfigure;geometry_msgs;hardware_interface;nav_msgs;realtime_tools;tf")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(diff_drive_controller_LIBRARIES ${diff_drive_controller_LIBRARIES})
 
   _list_append_unique(diff_drive_controller_LIBRARY_DIRS ${${diff_drive_controller_dep}_LIBRARY_DIRS})
-  list(APPEND diff_drive_controller_EXPORTED_TARGETS ${${diff_drive_controller_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(diff_drive_controller_EXPORTED_TARGETS ${${diff_drive_controller_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

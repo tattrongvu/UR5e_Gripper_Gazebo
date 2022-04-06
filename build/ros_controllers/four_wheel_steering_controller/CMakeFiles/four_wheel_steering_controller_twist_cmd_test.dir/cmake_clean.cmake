@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib/four_wheel_steering_controller/four_wheel_steering_controller_twist_cmd_test"
+  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib/four_wheel_steering_controller/four_wheel_steering_controller_twist_cmd_test.pdb"
   "CMakeFiles/four_wheel_steering_controller_twist_cmd_test.dir/test/src/four_wheel_steering_twist_cmd_test.cpp.o"
-  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/four_wheel_steering_controller/four_wheel_steering_controller_twist_cmd_test.pdb"
-  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/four_wheel_steering_controller/four_wheel_steering_controller_twist_cmd_test"
 )
 
 # Per-language clean rules from dependency scanning.

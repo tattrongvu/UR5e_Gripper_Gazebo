@@ -19,11 +19,11 @@
 (defmethod ur_msgs::IOStates
   (:init
    (&key
-    ((:digital_in_states __digital_in_states) (let (r) (dotimes (i 0) (push (instance ur_msgs::Digital :init) r)) r))
-    ((:digital_out_states __digital_out_states) (let (r) (dotimes (i 0) (push (instance ur_msgs::Digital :init) r)) r))
-    ((:flag_states __flag_states) (let (r) (dotimes (i 0) (push (instance ur_msgs::Digital :init) r)) r))
-    ((:analog_in_states __analog_in_states) (let (r) (dotimes (i 0) (push (instance ur_msgs::Analog :init) r)) r))
-    ((:analog_out_states __analog_out_states) (let (r) (dotimes (i 0) (push (instance ur_msgs::Analog :init) r)) r))
+    ((:digital_in_states __digital_in_states) ())
+    ((:digital_out_states __digital_out_states) ())
+    ((:flag_states __flag_states) ())
+    ((:analog_in_states __analog_in_states) ())
+    ((:analog_out_states __analog_out_states) ())
     )
    (send-super :init)
    (setq _digital_in_states __digital_in_states)

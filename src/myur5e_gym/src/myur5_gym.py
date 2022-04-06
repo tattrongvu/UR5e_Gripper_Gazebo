@@ -1,4 +1,4 @@
-#! /usr/bin/env python2.7
+#! /usr/bin/env python3
 import sys
 import copy
 from copy import deepcopy
@@ -95,7 +95,7 @@ class myur5e_gym:
       self.get_obj_pos_client = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
       rospy.wait_for_service('/gazebo/set_model_state')
       self.set_state_client = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
-    except rospy.ServiceException, e:
+    except rospy.ServiceException as e:
       print("Service call failed: {}".format(e))
     
     self.spawn_track = False
@@ -113,8 +113,8 @@ class myur5e_gym:
     self.world_name = 'world'
     self.obj_name_list=[(self.obj_prefix+str(i)) for i in range(self.num_obj)]
 
-    self.box_path = '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/myur5e/myur5e_description/urdf/objects/mybox.urdf.xacro'
-    self.target_path = '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/myur5e/myur5e_description/urdf/objects/mytarget.urdf.xacro'
+    self.box_path = '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/myur5e/myur5e_description/urdf/objects/mybox.urdf.xacro'
+    self.target_path = '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/myur5e/myur5e_description/urdf/objects/mytarget.urdf.xacro'
     self.tcp_path = '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/myur5e/myur5e_description/urdf/objects/mytcp.urdf.xacro'
 
     #======Action space=======
@@ -131,7 +131,7 @@ class myur5e_gym:
       rospy.wait_for_service('/gazebo/reset_world')
       self.reset_world_client = rospy.ServiceProxy('/gazebo/reset_world', Empty)
       self.reset_world_client()
-    except rospy.ServiceException, e:
+    except rospy.ServiceException as e:
       print("Service call failed: {}".format(e))
     self.rate.sleep()
     self._spawn_obj()
@@ -181,7 +181,7 @@ class myur5e_gym:
     try:
       target = self.get_obj_pos_client(self.target_name, 'world').pose.position
       self.desired_goal = [target.x,target.y,target.z]
-    except rospy.ServiceException, e:
+    except rospy.ServiceException as e:
       print("Service call failed: {}".format(e))
 
   #=========================================================================================================
@@ -199,7 +199,7 @@ class myur5e_gym:
     #   state_msg.pose = _pose
     #   try:
     #     self.set_state_client(state_msg)
-    #   except rospy.ServiceException, e:
+    #   except rospy.ServiceException as e:
     #     print("Service call failed: {}".format(e))
     #=====================TCP==============
     
@@ -303,7 +303,7 @@ class myur5e_gym:
       state_msg.pose = random_pose
       try:
         self.set_state_client(state_msg)
-      except rospy.ServiceException, e:
+      except rospy.ServiceException as e:
         print("Service call failed: {}".format(e))
 
   def _sample_target_state(self):
@@ -317,7 +317,7 @@ class myur5e_gym:
     state_msg.pose = random_pose
     try:
       self.set_state_client(state_msg)
-    except rospy.ServiceException, e:
+    except rospy.ServiceException as e:
       print("Service call failed: {}".format(e))
   
   def _spawn_obj(self):
@@ -332,7 +332,7 @@ class myur5e_gym:
             robot_namespace='',\
             initial_pose=random_pose,\
             reference_frame=self.table_name)
-        except rospy.ServiceException, e:
+        except rospy.ServiceException as e:
           print("Service call failed: {}".format(e))
 
       #==============OBJ===============
@@ -345,7 +345,7 @@ class myur5e_gym:
             robot_namespace='',\
             initial_pose=random_pose,\
             reference_frame=self.table_name)
-        except rospy.ServiceException, e:
+        except rospy.ServiceException as e:
           print("Service call failed: {}".format(e))
 
       #==============TARGET===============
@@ -357,7 +357,7 @@ class myur5e_gym:
             robot_namespace='',\
             initial_pose=random_pose,\
             reference_frame=self.table_name)
-      except rospy.ServiceException, e:
+      except rospy.ServiceException as e:
         print("Service call failed: {}".format(e))
       self.spawn_track=True
       #===================================
@@ -412,5 +412,5 @@ if __name__ == '__main__':
   try:
     main()
   except KeyboardInterrupt:
-    print "Shutting down Gym node."
+    print("Shutting down Gym node.")
   

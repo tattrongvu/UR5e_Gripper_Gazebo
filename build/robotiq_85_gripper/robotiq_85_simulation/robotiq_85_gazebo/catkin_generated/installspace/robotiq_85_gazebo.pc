@@ -1,4 +1,4 @@
-prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install
+prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install
 
 Name: robotiq_85_gazebo
 Description: Description of robotiq_85_gazebo

@@ -1,4 +1,4 @@
-#! /usr/bin/env python2.7
+#! /usr/bin/env python3
 import sys
 import copy
 import rospy
@@ -22,8 +22,8 @@ eef_link = arm.get_end_effector_link()
 print(arm.get_pose_reference_frame())
 arm.set_named_target('start')
 arm.go(wait=True)
-# wpose = arm.get_current_pose(eef_link).pose
-# print("Current pose: ",wpose)
+start_pose = arm.get_current_pose(eef_link).pose
+print("Current pose: ",start_pose)
 # grp.set_named_target('close')
 # grp.go(wait=True)
 # grp.set_named_target('open')
@@ -52,7 +52,7 @@ pose_goal = geometry_msgs.msg.Pose()
 pose_goal.position.x = 1
 pose_goal.position.y = 1
 pose_goal.position.z = 1
-pose_goal.orientation.w = obj_pose.orientation.w 
+pose_goal.orientation = start_pose.orientation
 # pose_goal.position.x = 0.65
 # pose_goal.position.y = 0
 # pose_goal.position.z = 1.02

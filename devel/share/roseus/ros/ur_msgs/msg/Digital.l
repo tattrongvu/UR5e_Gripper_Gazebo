@@ -30,8 +30,8 @@
    (&optional __pin)
    (if __pin (setq _pin __pin)) _pin)
   (:state
-   (&optional __state)
-   (if __state (setq _state __state)) _state)
+   (&optional (__state :null))
+   (if (not (eq __state :null)) (setq _state __state)) _state)
   (:serialization-length
    ()
    (+

@@ -67,14 +67,14 @@ set(ur_driver_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(ur_driver_SOURCE_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/universal_robot/ur_driver)
-  set(ur_driver_DEVEL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel)
+  set(ur_driver_SOURCE_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/universal_robot/ur_driver)
+  set(ur_driver_DEVEL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel)
   set(ur_driver_INSTALL_PREFIX "")
   set(ur_driver_PREFIX ${ur_driver_DEVEL_PREFIX})
 else()
   set(ur_driver_SOURCE_PREFIX "")
   set(ur_driver_DEVEL_PREFIX "")
-  set(ur_driver_INSTALL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install)
+  set(ur_driver_INSTALL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install)
   set(ur_driver_PREFIX ${ur_driver_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install/lib;/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install/lib;/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(ur_driver_LIBRARIES ${ur_driver_LIBRARIES})
 
   _list_append_unique(ur_driver_LIBRARY_DIRS ${${ur_driver_dep}_LIBRARY_DIRS})
-  list(APPEND ur_driver_EXPORTED_TARGETS ${${ur_driver_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(ur_driver_EXPORTED_TARGETS ${${ur_driver_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

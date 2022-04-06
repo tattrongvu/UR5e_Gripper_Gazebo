@@ -35,14 +35,14 @@
    (setq _force (float __force))
    self)
   (:emergency_release
-   (&optional __emergency_release)
-   (if __emergency_release (setq _emergency_release __emergency_release)) _emergency_release)
+   (&optional (__emergency_release :null))
+   (if (not (eq __emergency_release :null)) (setq _emergency_release __emergency_release)) _emergency_release)
   (:emergency_release_dir
    (&optional __emergency_release_dir)
    (if __emergency_release_dir (setq _emergency_release_dir __emergency_release_dir)) _emergency_release_dir)
   (:stop
-   (&optional __stop)
-   (if __stop (setq _stop __stop)) _stop)
+   (&optional (__stop :null))
+   (if (not (eq __stop :null)) (setq _stop __stop)) _stop)
   (:position
    (&optional __position)
    (if __position (setq _position __position)) _position)

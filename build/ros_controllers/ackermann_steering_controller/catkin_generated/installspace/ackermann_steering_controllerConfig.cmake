@@ -67,14 +67,14 @@ set(ackermann_steering_controller_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(ackermann_steering_controller_SOURCE_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/ackermann_steering_controller)
-  set(ackermann_steering_controller_DEVEL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel)
+  set(ackermann_steering_controller_SOURCE_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/ros_controllers/ackermann_steering_controller)
+  set(ackermann_steering_controller_DEVEL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel)
   set(ackermann_steering_controller_INSTALL_PREFIX "")
   set(ackermann_steering_controller_PREFIX ${ackermann_steering_controller_DEVEL_PREFIX})
 else()
   set(ackermann_steering_controller_SOURCE_PREFIX "")
   set(ackermann_steering_controller_DEVEL_PREFIX "")
-  set(ackermann_steering_controller_INSTALL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install)
+  set(ackermann_steering_controller_INSTALL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install)
   set(ackermann_steering_controller_PREFIX ${ackermann_steering_controller_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(ackermann_steering_controller_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "include;/usr/include " STREQUAL " ")
+if(NOT " " STREQUAL " ")
   set(ackermann_steering_controller_INCLUDE_DIRS "")
-  set(_include_dirs "include;/usr/include")
+  set(_include_dirs "")
   if(NOT "https://github.com/ros-controls/ros_controllers/issues " STREQUAL " ")
     set(_report "Check the issue tracker 'https://github.com/ros-controls/ros_controllers/issues' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -116,7 +116,7 @@ if(NOT "include;/usr/include " STREQUAL " ")
   endforeach()
 endif()
 
-set(libraries "ackermann_steering_controller;/usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_thread.so;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;/usr/lib/x86_64-linux-gnu/libpthread.so")
+set(libraries "ackermann_steering_controller")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install/lib;/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install/lib;/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(ackermann_steering_controller_LIBRARIES ${ackermann_steering_controller_LIBRARIES})
 
   _list_append_unique(ackermann_steering_controller_LIBRARY_DIRS ${${ackermann_steering_controller_dep}_LIBRARY_DIRS})
-  list(APPEND ackermann_steering_controller_EXPORTED_TARGETS ${${ackermann_steering_controller_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(ackermann_steering_controller_EXPORTED_TARGETS ${${ackermann_steering_controller_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

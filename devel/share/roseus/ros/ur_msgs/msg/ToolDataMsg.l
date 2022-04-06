@@ -27,6 +27,16 @@
 (intern "*TOOL_IDLE_MODE*" (find-package "UR_MSGS::TOOLDATAMSG"))
 (shadow '*TOOL_IDLE_MODE* (find-package "UR_MSGS::TOOLDATAMSG"))
 (defconstant ur_msgs::ToolDataMsg::*TOOL_IDLE_MODE* 255)
+
+(defun ur_msgs::ToolDataMsg-to-symbol (const)
+  (cond
+        ((= const 0) 'ur_msgs::ToolDataMsg::*ANALOG_INPUT_RANGE_CURRENT*)
+        ((= const 1) 'ur_msgs::ToolDataMsg::*ANALOG_INPUT_RANGE_VOLTAGE*)
+        ((= const 249) 'ur_msgs::ToolDataMsg::*TOOL_BOOTLOADER_MODE*)
+        ((= const 253) 'ur_msgs::ToolDataMsg::*TOOL_RUNNING_MODE*)
+        ((= const 255) 'ur_msgs::ToolDataMsg::*TOOL_IDLE_MODE*)
+        (t nil)))
+
 (defclass ur_msgs::ToolDataMsg
   :super ros::object
   :slots (_analog_input_range2 _analog_input_range3 _analog_input2 _analog_input3 _tool_voltage_48v _tool_output_voltage _tool_current _tool_temperature _tool_mode ))

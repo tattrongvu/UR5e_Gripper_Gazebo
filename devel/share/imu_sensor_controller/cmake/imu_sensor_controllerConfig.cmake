@@ -67,14 +67,14 @@ set(imu_sensor_controller_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(imu_sensor_controller_SOURCE_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/imu_sensor_controller)
-  set(imu_sensor_controller_DEVEL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel)
+  set(imu_sensor_controller_SOURCE_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/ros_controllers/imu_sensor_controller)
+  set(imu_sensor_controller_DEVEL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel)
   set(imu_sensor_controller_INSTALL_PREFIX "")
   set(imu_sensor_controller_PREFIX ${imu_sensor_controller_DEVEL_PREFIX})
 else()
   set(imu_sensor_controller_SOURCE_PREFIX "")
   set(imu_sensor_controller_DEVEL_PREFIX "")
-  set(imu_sensor_controller_INSTALL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/install)
+  set(imu_sensor_controller_INSTALL_PREFIX /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install)
   set(imu_sensor_controller_PREFIX ${imu_sensor_controller_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(imu_sensor_controller_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/imu_sensor_controller/include " STREQUAL " ")
+if(NOT "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/ros_controllers/imu_sensor_controller/include " STREQUAL " ")
   set(imu_sensor_controller_INCLUDE_DIRS "")
-  set(_include_dirs "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/imu_sensor_controller/include")
+  set(_include_dirs "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/ros_controllers/imu_sensor_controller/include")
   if(NOT "https://github.com/ros-controls/ros_controllers/issues " STREQUAL " ")
     set(_report "Check the issue tracker 'https://github.com/ros-controls/ros_controllers/issues' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "https://github.com/ros-controls/ros_controllers/wiki " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/imu_s
         message(FATAL_ERROR "Project 'imu_sensor_controller' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'imu_sensor_controller' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/ros_controllers/imu_sensor_controller/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'imu_sensor_controller' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/ros_controllers/imu_sensor_controller/${idir}'.  ${_report}")
     endif()
     _list_append_unique(imu_sensor_controller_INCLUDE_DIRS ${include})
   endforeach()
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib;/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib;/opt/ros/melodic/lib)
+    foreach(path /home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib;/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -185,7 +185,7 @@ foreach(t ${imu_sensor_controller_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "controller_interface;hardware_interface;pluginlib;realtime_tools;roscpp;sensor_msgs")
+set(depends "controller_interface;hardware_interface;realtime_tools;roscpp;sensor_msgs")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(imu_sensor_controller_LIBRARIES ${imu_sensor_controller_LIBRARIES})
 
   _list_append_unique(imu_sensor_controller_LIBRARY_DIRS ${${imu_sensor_controller_dep}_LIBRARY_DIRS})
-  list(APPEND imu_sensor_controller_EXPORTED_TARGETS ${${imu_sensor_controller_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(imu_sensor_controller_EXPORTED_TARGETS ${${imu_sensor_controller_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

@@ -87,22 +87,22 @@ namespace message_traits
 
 
 template <class ContainerAllocator>
-struct IsFixedSize< ::ur_msgs::SetSpeedSliderFractionRequest_<ContainerAllocator> >
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
-struct IsFixedSize< ::ur_msgs::SetSpeedSliderFractionRequest_<ContainerAllocator> const>
-  : TrueType
-  { };
-
-template <class ContainerAllocator>
 struct IsMessage< ::ur_msgs::SetSpeedSliderFractionRequest_<ContainerAllocator> >
   : TrueType
   { };
 
 template <class ContainerAllocator>
 struct IsMessage< ::ur_msgs::SetSpeedSliderFractionRequest_<ContainerAllocator> const>
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::ur_msgs::SetSpeedSliderFractionRequest_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsFixedSize< ::ur_msgs::SetSpeedSliderFractionRequest_<ContainerAllocator> const>
   : TrueType
   { };
 

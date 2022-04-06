@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib/ackermann_steering_controller/ackermann_steering_controller_nan_test"
+  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/lib/ackermann_steering_controller/ackermann_steering_controller_nan_test.pdb"
   "CMakeFiles/ackermann_steering_controller_nan_test.dir/test/ackermann_steering_controller_nan_test/ackermann_steering_controller_nan_test.cpp.o"
-  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/ackermann_steering_controller/ackermann_steering_controller_nan_test.pdb"
-  "/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/devel/lib/ackermann_steering_controller/ackermann_steering_controller_nan_test"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -50,17 +50,17 @@
        (if __header (setq _header (car __header)))
        _header)))
   (:is_ready
-   (&optional __is_ready)
-   (if __is_ready (setq _is_ready __is_ready)) _is_ready)
+   (&optional (__is_ready :null))
+   (if (not (eq __is_ready :null)) (setq _is_ready __is_ready)) _is_ready)
   (:is_reset
-   (&optional __is_reset)
-   (if __is_reset (setq _is_reset __is_reset)) _is_reset)
+   (&optional (__is_reset :null))
+   (if (not (eq __is_reset :null)) (setq _is_reset __is_reset)) _is_reset)
   (:is_moving
-   (&optional __is_moving)
-   (if __is_moving (setq _is_moving __is_moving)) _is_moving)
+   (&optional (__is_moving :null))
+   (if (not (eq __is_moving :null)) (setq _is_moving __is_moving)) _is_moving)
   (:obj_detected
-   (&optional __obj_detected)
-   (if __obj_detected (setq _obj_detected __obj_detected)) _obj_detected)
+   (&optional (__obj_detected :null))
+   (if (not (eq __obj_detected :null)) (setq _obj_detected __obj_detected)) _obj_detected)
   (:fault_status
    (&optional __fault_status)
    (if __fault_status (setq _fault_status __fault_status)) _fault_status)

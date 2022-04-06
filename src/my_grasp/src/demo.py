@@ -36,7 +36,7 @@ model_coordinates = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
 spawn_model_client = rospy.ServiceProxy('/gazebo/spawn_sdf_model', SpawnModel)
 
 spawn_model_client(model_name='box',\
-  model_xml=open('/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/myur5e/myur5e_description/urdf/objects/mybox.urdf.xacro', 'r').read(),\
+  model_xml=open('/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/myur5e/myur5e_description/urdf/objects/mybox.urdf.xacro', 'r').read(),\
   robot_namespace='',\
   initial_pose=Pose(position= Point(0,0,0.1),orientation=Quaternion(0,0,0,0)),reference_frame="mytable")
 
@@ -49,20 +49,23 @@ obj_pose= model_coordinates('box','world').pose
 #============================================
 
 pose_goal = geometry_msgs.msg.Pose()
-pose_goal.position.x = 1
-pose_goal.position.y = 1
-pose_goal.position.z = 1
-pose_goal.orientation = start_pose.orientation
-# pose_goal.position.x = 0.65
-# pose_goal.position.y = 0
-# pose_goal.position.z = 1.02
+pose_goal.orientation.w = 1
+pose_goal.position.x = 0.65
+pose_goal.position.y = 0
+pose_goal.position.z = 1.02
 
 arm.set_pose_target(pose_goal)
 arm.go(wait=True)
 arm.clear_pose_targets()
 
+grp.set_named_target('close')
+grp.go(wait=True)
+
+arm.set_named_target('start')
+arm.go(wait=True)
+
 
 
 rospy.sleep(2)
-# moveit_commander.roscpp_shutdown()
+moveit_commander.roscpp_shutdown()
 print("Done!")

@@ -41,7 +41,7 @@ class myur5e_vision:
     return self._image
 
 class myur5e_gym:
-  def __init__(self, vision_obs = False, num_obj=0,arm_name='arm', gripper_name = 'gripper', reward_type='sparse', render=True, verbose=False):
+  def __init__(self, vision_obs = False, num_obj=3,arm_name='arm', gripper_name = 'gripper', reward_type='sparse', render=True, verbose=False):
 
     #============Init var===========
     self.vision_obs = vision_obs
@@ -115,7 +115,7 @@ class myur5e_gym:
 
     self.box_path = '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/myur5e/myur5e_description/urdf/objects/mybox.urdf.xacro'
     self.target_path = '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/myur5e/myur5e_description/urdf/objects/mytarget.urdf.xacro'
-    self.tcp_path = '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/myws/src/myur5e/myur5e_description/urdf/objects/mytcp.urdf.xacro'
+    self.tcp_path = '/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/src/myur5e/myur5e_description/urdf/objects/mytcp.urdf.xacro'
 
     #======Action space=======
     self.act_dim = 3

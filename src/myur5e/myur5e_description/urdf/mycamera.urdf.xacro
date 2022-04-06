@@ -26,7 +26,7 @@
     </link>
 
     <gazebo reference="wrist_attach">
-      <material>Gazebo/Green</material>
+      <material>Gazebo/FlatBlack</material>
     </gazebo>
 
     <joint name="wrist_joint" type="fixed">
@@ -56,7 +56,7 @@
         <geometry>
           <box size="${camera_link} ${camera_link} ${camera_link}"/>
         </geometry>
-        <material name="red"/>
+        <!-- <material name="red"/> -->
       </visual>
 
       <inertial>
@@ -68,7 +68,7 @@
 
     <!-- camera -->
     <gazebo reference="camera_link">
-      <material>Gazebo/Red</material>
+      <material>Gazebo/RedTransparent</material>
       <sensor type="camera" name="wrist_camera">
         <update_rate>20.0</update_rate>
         <camera name="wrist_cam">

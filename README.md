@@ -19,9 +19,5 @@
 
 # Run some examples:
   rosrun perception_modul myvision.py
-
-Print package: rospack list | grep gazebo_ros
-Print current active topics: rostopic list
-
 # TEST GRIPPER PKG: 
 roslaunch robotiq_85_gazebo robotiq_85_moveit_rviz_test.launch

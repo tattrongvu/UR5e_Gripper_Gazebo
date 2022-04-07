@@ -9,7 +9,7 @@
   
   <!-- startup simulated world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" default="$(find myur5e_gazebo/worlds/myempty.world"/>
+    <arg name="world_name" default="$(find myur5e_gazebo)/worlds/myempty.world"/>
     <arg name="paused" value="$(arg paused)"/>
     <arg name="gui" value="$(arg gui)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
@@ -28,7 +28,7 @@
   <!-- MOVEIT Component -->
   <include file="$(find myur5e_gazebo)/launch/myur5e_planning_execution.launch"/>
 
-  <!-- python Component -->
-  <node pkg="my_grasp" name="vision_node" type="myvision.py" output="screen"/>
+  <!-- vision Component -->
+  <node pkg="perception_modul" name="vision_node" type="myvision.py" output="screen"/>
 
 </launch>

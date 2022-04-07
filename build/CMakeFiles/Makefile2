@@ -68,8 +68,7 @@ all: universal_robot/universal_robots/all
 all: universal_robot/ur_description/all
 all: universal_robot/ur_e_description/all
 all: universal_robot/ur_msgs/all
-all: my_grasp/all
-all: myur5e_gym/all
+all: perception_modul/all
 all: robotiq_85_gripper/robotiq_85_bringup/all
 all: robotiq_85_gripper/robotiq_85_description/all
 all: robotiq_85_gripper/robotiq_85_msgs/all
@@ -120,8 +119,7 @@ preinstall: universal_robot/universal_robots/preinstall
 preinstall: universal_robot/ur_description/preinstall
 preinstall: universal_robot/ur_e_description/preinstall
 preinstall: universal_robot/ur_msgs/preinstall
-preinstall: my_grasp/preinstall
-preinstall: myur5e_gym/preinstall
+preinstall: perception_modul/preinstall
 preinstall: robotiq_85_gripper/robotiq_85_bringup/preinstall
 preinstall: robotiq_85_gripper/robotiq_85_description/preinstall
 preinstall: robotiq_85_gripper/robotiq_85_msgs/preinstall
@@ -177,8 +175,7 @@ clean: universal_robot/universal_robots/clean
 clean: universal_robot/ur_description/clean
 clean: universal_robot/ur_e_description/clean
 clean: universal_robot/ur_msgs/clean
-clean: my_grasp/clean
-clean: myur5e_gym/clean
+clean: perception_modul/clean
 clean: robotiq_85_gripper/robotiq_85_bringup/clean
 clean: robotiq_85_gripper/robotiq_85_description/clean
 clean: robotiq_85_gripper/robotiq_85_msgs/clean
@@ -369,24 +366,6 @@ gtest/googletest/clean: gtest/googletest/CMakeFiles/gtest.dir/clean
 .PHONY : gtest/googletest/clean
 
 #=============================================================================
-# Directory level rules for directory my_grasp
-
-# Recursive "all" directory target.
-my_grasp/all:
-
-.PHONY : my_grasp/all
-
-# Recursive "preinstall" directory target.
-my_grasp/preinstall:
-
-.PHONY : my_grasp/preinstall
-
-# Recursive "clean" directory target.
-my_grasp/clean:
-
-.PHONY : my_grasp/clean
-
-#=============================================================================
 # Directory level rules for directory myur5e/myur5e_description
 
 # Recursive "all" directory target.
@@ -423,24 +402,6 @@ myur5e/myur5e_gazebo/clean:
 .PHONY : myur5e/myur5e_gazebo/clean
 
 #=============================================================================
-# Directory level rules for directory myur5e_gym
-
-# Recursive "all" directory target.
-myur5e_gym/all:
-
-.PHONY : myur5e_gym/all
-
-# Recursive "preinstall" directory target.
-myur5e_gym/preinstall:
-
-.PHONY : myur5e_gym/preinstall
-
-# Recursive "clean" directory target.
-myur5e_gym/clean:
-
-.PHONY : myur5e_gym/clean
-
-#=============================================================================
 # Directory level rules for directory myur5e_moveit_config
 
 # Recursive "all" directory target.
@@ -457,6 +418,24 @@ myur5e_moveit_config/preinstall:
 myur5e_moveit_config/clean:
 
 .PHONY : myur5e_moveit_config/clean
+
+#=============================================================================
+# Directory level rules for directory perception_modul
+
+# Recursive "all" directory target.
+perception_modul/all:
+
+.PHONY : perception_modul/all
+
+# Recursive "preinstall" directory target.
+perception_modul/preinstall:
+
+.PHONY : perception_modul/preinstall
+
+# Recursive "clean" directory target.
+perception_modul/clean:
+
+.PHONY : perception_modul/clean
 
 #=============================================================================
 # Directory level rules for directory roboticsgroup_gazebo_plugins

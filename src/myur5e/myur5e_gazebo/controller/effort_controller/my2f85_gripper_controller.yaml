@@ -1,0 +1,10 @@
+my2f85_gripper_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - robotiq_85_left_knuckle_joint
+  gains:
+    robotiq_85_left_knuckle_joint:
+      p: 40
+      d: 0
+      i: 0
+      i_clamp: 1

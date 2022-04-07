@@ -3,8 +3,8 @@
   
   <!-- Controllers config -->
   <rosparam file="$(find myur5e_gazebo)/controller/joint_state_controller.yaml" command="load"/>
-  <rosparam file="$(find myur5e_gazebo)/controller/myur5e_arm_controller.yaml" command="load"/>
-  <rosparam file="$(find myur5e_gazebo)/controller/my2f85_gripper_controller.yaml" command="load"/>
+  <rosparam file="$(find myur5e_gazebo)/controller/position_controller/myur5e_arm_controller.yaml" command="load"/>
+  <rosparam file="$(find myur5e_gazebo)/controller/position_controller/my2f85_gripper_controller.yaml" command="load"/>
   <!-- PID config -->
   <!-- <rosparam file="$(find myur5e_gazebo)/controller/pid_gain_gazebo.yaml" command="load"/> -->
 

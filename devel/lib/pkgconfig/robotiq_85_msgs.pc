@@ -1,8 +1,0 @@
-prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel
-
-Name: robotiq_85_msgs
-Description: Description of robotiq_85_msgs
-Version: 0.0.1
-Cflags: -I/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel/include
-Libs: -L${prefix}/lib 
-Requires: message_runtime std_msgs

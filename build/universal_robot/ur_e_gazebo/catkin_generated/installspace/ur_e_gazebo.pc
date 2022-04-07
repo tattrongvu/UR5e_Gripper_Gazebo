@@ -1,8 +1,0 @@
-prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install
-
-Name: ur_e_gazebo
-Description: Description of ur_e_gazebo
-Version: 1.2.5
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

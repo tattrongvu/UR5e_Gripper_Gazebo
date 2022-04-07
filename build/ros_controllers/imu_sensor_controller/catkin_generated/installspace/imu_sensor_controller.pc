@@ -1,8 +1,0 @@
-prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install
-
-Name: imu_sensor_controller
-Description: Description of imu_sensor_controller
-Version: 0.19.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib -limu_sensor_controller
-Requires: controller_interface hardware_interface realtime_tools roscpp sensor_msgs

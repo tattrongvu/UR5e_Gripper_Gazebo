@@ -1,8 +1,0 @@
-prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install
-
-Name: effort_controllers
-Description: Description of effort_controllers
-Version: 0.19.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib -leffort_controllers
-Requires: control_msgs control_toolbox controller_interface forward_command_controller hardware_interface realtime_tools std_msgs urdf

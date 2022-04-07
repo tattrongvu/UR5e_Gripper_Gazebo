@@ -1,8 +1,0 @@
-prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/devel
-
-Name: si_utils
-Description: Description of si_utils
-Version: 0.0.1
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

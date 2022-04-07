@@ -1,8 +1,0 @@
-prefix=/home/trong/Desktop/MASTER_THESIS/ROS_Lab/noetic/my_noetic_ws/install
-
-Name: ackermann_steering_controller
-Description: Description of ackermann_steering_controller
-Version: 0.19.0
-Cflags: 
-Libs: -L${prefix}/lib -lackermann_steering_controller
-Requires: controller_interface diff_drive_controller hardware_interface nav_msgs realtime_tools roscpp tf

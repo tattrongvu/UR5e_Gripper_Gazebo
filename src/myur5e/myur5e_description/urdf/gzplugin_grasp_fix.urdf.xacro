@@ -12,7 +12,7 @@
 					<palm_link> gripper_finger2_inner_knuckle_link </palm_link>
 					<gripper_link>gripper_finger2_finger_tip_link</gripper_link>
 				</arm>
-				<forces_angle_tolerance>100</forces_angle_tolerance>
+				<forces_angle_tolerance>60</forces_angle_tolerance>
 				<update_rate>4</update_rate>
 				<grip_count_threshold>4</grip_count_threshold>
 				<max_grip_count>8</max_grip_count>

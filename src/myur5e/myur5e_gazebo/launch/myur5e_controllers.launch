@@ -6,7 +6,7 @@
   <rosparam file="$(find myur5e_gazebo)/controller/position_controller/myur5e_arm_controller.yaml" command="load"/>
   <rosparam file="$(find myur5e_gazebo)/controller/position_controller/my2f85_gripper_controller.yaml" command="load"/>
   <!-- PID config -->
-  <rosparam file="$(find myur5e_gazebo)/controller/position_controller/pid_gain_gazebo_1.yaml" command="load"/>
+  <rosparam file="$(find myur5e_gazebo)/controller/position_controller/pid_gain_gazebo_2.yaml" command="load"/>
 
   <!-- Load controllers -->
   <node name="robot_controllers" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" 

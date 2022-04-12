@@ -31,4 +31,10 @@
   <!-- vision Component -->
   <!-- <node pkg="perception_modul" name="vision_node" type="myvision.py" output="screen"/> -->
 
+  <!-- Run Rviz and load the default config to see the state of the move_group node -->
+  <!-- <include file="$(find myur5e_moveit_config)/launch/moveit_rviz.launch">
+    <arg name="rviz_config" value="$(find myur5e_moveit_config)/launch/moveit.rviz"/>
+    <arg name="debug" value="false"/>
+  </include> -->
+
 </launch>

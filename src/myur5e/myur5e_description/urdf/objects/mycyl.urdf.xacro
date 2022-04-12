@@ -9,18 +9,18 @@
         <visual>
             <origin xyz="0 0 0"/>
             <geometry>
-                <cylinder radius="0.03" length="0.1"/>
+                <cylinder radius="0.03" length="0.05"/>
             </geometry>
         </visual>
         <collision>
             <origin xyz="0 0 0"/>
             <geometry>
-                <cylinder radius="0.03" length="0.1"/>
+                <cylinder radius="0.03" length="0.05"/>
             </geometry>
         </collision>
     </link>
-    <gazebo reference="mybox">
-        <material>Gazebo/Blue</material>
+    <gazebo reference="mycyl">
+        <material>Gazebo/Gold</material>
         <mu1>0.4</mu1>
         <mu2>0.3</mu2>
         <kp>10000</kp>

@@ -2,7 +2,7 @@
 <launch>
   <arg name="limited" default="false"  doc="If true, limits joint range [-PI, PI] on all joints." />
   <arg name="paused" default="false" doc="Starts gazebo in paused mode" />
-  <arg name="gui" default="true" doc="Starts gazebo gui" />
+  <arg name="gui" default="false" doc="Starts gazebo gui" />
   <arg name="use_sim_time" default="true"/>
   <arg name="headless" default="true"/>
   <arg name="debug" default="false"/>
@@ -29,7 +29,7 @@
   <include file="$(find myur5e_gazebo)/launch/myur5e_planning_execution.launch"/>
 
   <!-- vision Component -->
-  <!-- <node pkg="perception_modul" name="vision_node" type="myvision.py" output="screen"/> -->
+  <node pkg="perception_modul" name="vision_node" type="myvision.py" output="screen"/>
 
   <!-- Run Rviz and load the default config to see the state of the move_group node -->
   <!-- <include file="$(find myur5e_moveit_config)/launch/moveit_rviz.launch">

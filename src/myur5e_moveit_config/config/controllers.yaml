@@ -11,8 +11,13 @@ controller_list:
       - wrist_2_joint
       - wrist_3_joint
   - name: "my2f85_gripper_controller"
-    action_ns: follow_joint_trajectory
-    type: FollowJointTrajectory
+    # action_ns: follow_joint_trajectory
+    # type: FollowJointTrajectory
+    # default: true
+    # joints:
+    #   - gripper_finger1_joint
+    action_ns: gripper_cmd
+    type: GripperCommand
     default: true
     joints:
       - gripper_finger1_joint

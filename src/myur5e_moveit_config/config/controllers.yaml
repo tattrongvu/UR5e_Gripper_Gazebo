@@ -16,6 +16,7 @@ controller_list:
     # default: true
     # joints:
     #   - gripper_finger1_joint
+
     action_ns: gripper_cmd
     type: GripperCommand
     default: true

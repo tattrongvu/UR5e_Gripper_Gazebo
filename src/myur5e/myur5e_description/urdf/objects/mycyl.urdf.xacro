@@ -3,7 +3,7 @@
     <link name="mycyl">
         <inertial>
             <origin xyz="0 0 0" />
-            <mass value="0.05" />
+            <mass value="0.1" />
         <inertia  ixx="0.0001" ixy="0"  ixz="0"  iyy="0.0001"  iyz="0"  izz="0.0001" />
         </inertial>
         <visual>
@@ -20,7 +20,7 @@
         </collision>
     </link>
     <gazebo reference="mycyl">
-        <material>Gazebo/Gold</material>
+        <material>Gazebo/Green</material>
         <mu1>0.4</mu1>
         <mu2>0.3</mu2>
         <kp>10000</kp>

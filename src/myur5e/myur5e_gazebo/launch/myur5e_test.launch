@@ -2,7 +2,7 @@
 <launch>
   <arg name="limited" default="false"  doc="If true, limits joint range [-PI, PI] on all joints." />
   <arg name="paused" default="false" doc="Starts gazebo in paused mode" />
-  <arg name="gui" default="false" doc="Starts gazebo gui" />
+  <arg name="gui" default="True" doc="Starts gazebo gui" />
   <arg name="use_sim_time" default="true"/>
   <arg name="headless" default="true"/>
   <arg name="debug" default="false"/>
@@ -20,9 +20,13 @@
   <env name="ROSCONSOLE_CONFIG_FILE" value="$(find myur5e_description)/cfg/custom_rosconsole.conf"/>
 
   <!-- send robot urdf to param server -->
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find myur5e_description)/urdf/myur5e_robot.urdf.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find myur5e_description)/urdf/myur5e_robot_without_table.urdf.xacro'" />
   <!-- push robot_description to factory and spawn robot in gazebo -->
   <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model robot" respawn="false" output="screen" />
+
+  <group ns="conveyor">
+		<node name="spawn_model_belt" pkg="gazebo_ros" type="spawn_model" args="-file $(find myur5e_description)/urdf/conveyor/simple_conveyor.urdf.xacro -urdf -model conveyor_belt" respawn="false" output="screen" />
+	</group>
 
   <!-- load controllers -->
   <include file="$(find myur5e_gazebo)/launch/myur5e_controllers.launch" />

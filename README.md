@@ -1,4 +1,4 @@
-# UR5e_Gripper_Gazebo
+# Gazebo simulation for UR5e robot with Robotiq Wrist Camera & 2F85 Adaptive Gripper
 
 ## Rviz:
 ```bash

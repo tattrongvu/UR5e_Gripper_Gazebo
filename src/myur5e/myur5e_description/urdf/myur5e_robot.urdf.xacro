@@ -51,7 +51,7 @@
   
   <link name="world" />
 
-  <xacro:property name="table_height" value="0.95" />
+  <xacro:property name="table_height" value="0.7" />
 
   <joint name="world_joint" type="fixed">
     <parent link="world" />
@@ -62,7 +62,7 @@
   <joint name="world_to_table" type="fixed">
     <parent link="world"/>
     <child link="mytable"/>
-    <origin xyz="0.61 0.0 ${table_height}" rpy="0 0 0"/>
+    <origin xyz="0.7 0.0 ${table_height}" rpy="0 0 0"/>
   </joint>
 
   <joint name="robot_to_pedestal" type="fixed">

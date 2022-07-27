@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mypedestal" >
   <xacro:property name="pe_radius" value="0.1" />
-  <xacro:property name="pedestal_height" value="0.75" />
+  <xacro:property name="pedestal_height" value="0.95" />
   <link name="mypedestal">
     <inertial>
       <origin xyz="0 0 ${pedestal_height/2}" rpy="0 0 0"/>

@@ -72,10 +72,10 @@
       <sensor type="camera" name="wrist_camera">
         <update_rate>20.0</update_rate>
         <camera name="wrist_cam">
-          <horizontal_fov>1.3962634</horizontal_fov>
+          <horizontal_fov>0.69</horizontal_fov>
           <image>
-            <width>512</width>
-            <height>512</height>
+            <width>640</width>
+            <height>480</height>
             <format>R8G8B8</format>
           </image>
           <clip>

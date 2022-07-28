@@ -33,7 +33,7 @@
   </link>
 
   <gazebo reference="mytable">
-    <material>Gazebo/Wood</material>
+    <material>Gazebo/DarkGrey</material>
     <static>True</static>
   </gazebo> 
 

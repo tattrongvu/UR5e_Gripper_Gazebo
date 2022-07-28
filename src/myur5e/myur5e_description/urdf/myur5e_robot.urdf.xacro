@@ -74,7 +74,7 @@
   <joint name="table_to_overcamera" type="fixed">
     <parent link="mytable"/>
     <child link="overcamera_link"/>
-    <origin xyz="0.75 0.0 0.8" rpy="${pi} ${3*pi/4} 0"/>
+    <origin xyz="0.6 0.0 0.3" rpy="${pi} ${4*pi/5} 0"/>
   </joint>
   <xacro:include filename="$(find myur5e_description)/urdf/gzplugin_grasp_fix.urdf.xacro"/>
   <xacro:gzplugin_grasp_fix/>

@@ -15,12 +15,6 @@
   #random move to test gym environment
   python3 ur5e_gazebo.py
 ```
-## Moveit (with rviz) and Gazebo:
-```bash
-  roslaunch myur5e_gazebo myur5e_gazebo_moveit_rviz.launch
-  roslaunch myur5e_gazebo myur5e_gazebo_moveit.launch
-  roslaunch myur5e_gazebo myur5e_test.launch
-```
 ## Rviz:
 ```bash
   roslaunch myur5e_description myur5e_rviz.launch

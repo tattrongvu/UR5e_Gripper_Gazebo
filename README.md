@@ -1,20 +1,19 @@
 # Gazebo simulation for UR5e robot with Robotiq Wrist Camera & 2F85 Adaptive Gripper
-
-## Rviz:
+## 1. Source bash file in any terminal that will use this simulation:
 ```bash
-  roslaunch myur5e_description myur5e_rviz.launch
+  source /home/notebooks/UR5e_Gripper_Gazebo/devel/setup.bash
 ```
-## Run only Gazebo Simulation:
+## 2. Start Gazebo & Moveit:
 ```bash
-  roslaunch myur5e_gazebo myur5e_gazebo.launch
+  roslaunch myur5e_gazebo myur5e.launch
 ```
-## RQT rqt_joint_trajectory_controller gui:
+## 3. Then we can control with rqt_joint_trajectory_controller gui or control with python file:
 ```bash
   rosrun rqt_joint_trajectory_controller rqt_joint_trajectory_controller
 ```
-## Run Moveit:
 ```bash
-  roslaunch myur5e_gazebo myur5e_planning_execution.launch
+  #random move to test gym environment
+  python3 ur5e_gazebo.py
 ```
 ## Moveit (with rviz) and Gazebo:
 ```bash
@@ -22,11 +21,7 @@
   roslaunch myur5e_gazebo myur5e_gazebo_moveit.launch
   roslaunch myur5e_gazebo myur5e_test.launch
 ```
-## Run some examples:
+## Rviz:
 ```bash
-  rosrun perception_modul myvision.py
-```
-## TEST GRIPPER PKG: 
-```bash
-roslaunch robotiq_85_gazebo robotiq_85_moveit_rviz_test.launch
+  roslaunch myur5e_description myur5e_rviz.launch
 ```

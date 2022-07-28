@@ -41,9 +41,8 @@
   
 
   <!-- pedestal -->
-  <xacro:include filename="$(find myur5e_description)/urdf/mypedestal.urdf.xacro" />
+  <xacro:include filename="$(find myur5e_description)/urdf/objects/mypedestal.urdf.xacro" />
 
-  
   <link name="world" />
 
   <joint name="world_joint" type="fixed">

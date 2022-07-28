@@ -41,10 +41,10 @@
   
 
   <!-- pedestal -->
-  <xacro:include filename="$(find myur5e_description)/urdf/mypedestal.urdf.xacro" />
+  <xacro:include filename="$(find myur5e_description)/urdf/objects/mypedestal.urdf.xacro" />
 
   <!-- table -->
-  <xacro:include filename="$(find myur5e_description)/urdf/mytable.urdf.xacro" />
+  <xacro:include filename="$(find myur5e_description)/urdf/objects/mytable.urdf.xacro" />
 
   <!-- overview camera -->
   <xacro:include filename="$(find myur5e_description)/urdf/my_overview_camera.urdf.xacro" />

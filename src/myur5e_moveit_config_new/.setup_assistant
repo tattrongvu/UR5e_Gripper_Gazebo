@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: myur5e_description
+    relative_path: urdf/myur5e_with_gripper_for_moveit.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/myur5e.srdf
+  CONFIG:
+    author_name: TrongVu
+    author_email: tattrongvu@gmail.com
+    generated_timestamp: 1659052362

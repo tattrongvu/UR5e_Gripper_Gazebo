@@ -11,18 +11,11 @@
       <max_step_size>0.001</max_step_size>
       <real_time_update_rate>0</real_time_update_rate>
     </physics>
-
     <gravity>0 0 -9.8</gravity>
     <scene>
-      <!-- <ambient>0.4 0.4 0.4 1</ambient> -->
-      <!-- <background>0.7 0.7 0.7 1</background> -->
       <shadows>0</shadows>
     </scene>
     <state world_name='default'>
-      <sim_time>102 92000000</sim_time>
-      <real_time>103 336812657</real_time>
-      <wall_time>1659034105 620520585</wall_time>
-      <iterations>102092</iterations>
       <model name='pedestal'>
         <pose>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -43,9 +36,6 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <light name='sun'>
-        <pose>0 0 10 0 -0 0</pose>
-      </light>
     </state>
     <model name='pedestal'>
       <link name='link'>
@@ -66,6 +56,7 @@
         <kinematic>0</kinematic>
         <pose>0 0 0 0 -0 0</pose>
         <gravity>1</gravity>
+        <static>1</static>
         <visual name='visual'>
           <geometry>
             <cylinder>
@@ -152,12 +143,13 @@
       <pose>0 0 0 0 -0 0</pose>
     </model>
     <model name='table'>
-      <link name='link'>
+      <link name='table_link'>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
         <pose>0 0 0 0 -0 0</pose>
         <gravity>1</gravity>
+        <static>1</static>
         <inertial>
           <mass>20</mass>
           <pose>0 0 0 0 -0 0</pose>
@@ -293,7 +285,7 @@
           <transparency>0</transparency>
           <cast_shadows>1</cast_shadows>
         </visual>
-        <collision name='back_right_leg'>
+        <collision name='back_right_legc'>
           <laser_retro>0</laser_retro>
           <max_contacts>10</max_contacts>
           <pose>-0.68 -0.38 0.325 0 -0 0</pose>
@@ -349,7 +341,7 @@
             </contact>
           </surface>
         </collision>
-        <collision name='back_left_leg'>
+        <collision name='back_left_legc'>
           <laser_retro>0</laser_retro>
           <max_contacts>10</max_contacts>
           <pose>-0.68 0.38 0.325 0 -0 0</pose>
@@ -460,7 +452,7 @@
             </contact>
           </surface>
         </collision>
-        <collision name='front_right_leg'>
+        <collision name='front_right_legc'>
           <laser_retro>0</laser_retro>
           <max_contacts>10</max_contacts>
           <pose>0.68 -0.38 0.325 0 -0 0</pose>
@@ -516,7 +508,7 @@
             </contact>
           </surface>
         </collision>
-        <collision name='front_left_leg'>
+        <collision name='front_left_legc'>
           <laser_retro>0</laser_retro>
           <max_contacts>10</max_contacts>
           <pose>0.68 0.38 0.325 0 -0 0</pose>

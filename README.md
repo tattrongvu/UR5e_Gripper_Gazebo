@@ -7,6 +7,10 @@
 ```bash
   roslaunch myur5e_gazebo myur5e.launch
 ```
+```bash
+  #recreate moveit config for only the robot and gripper, not with table and pedestal anymore
+  roslaunch myur5e_gazebo myur5e_new.launch
+```
 ## 3. Then we can control with rqt_joint_trajectory_controller gui or control with python file:
 ```bash
   rosrun rqt_joint_trajectory_controller rqt_joint_trajectory_controller

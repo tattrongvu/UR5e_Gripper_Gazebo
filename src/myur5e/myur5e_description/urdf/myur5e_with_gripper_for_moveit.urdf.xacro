@@ -33,12 +33,22 @@
     <origin xyz="${wrist_length} 0 0" rpy="0 0 0"/>
   </xacro:robotiq_85_gripper>
 
+  <!-- overview camera -->
+  <xacro:include filename="$(find myur5e_description)/urdf/my_overview_camera.urdf.xacro" />
+
   <link name="world" />
   <joint name="world_joint" type="fixed">
     <parent link="world" />
     <child link="base_link" />
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
+
+  <joint name="world_to_overcamera" type="fixed">
+    <parent link="world"/>
+    <child link="overcamera_link"/>
+    <origin xyz="1.0 0.0 0.15" rpy="${pi} ${4*pi/5} 0"/>
+  </joint>
+
   <xacro:include filename="$(find myur5e_description)/urdf/gzplugin_grasp_fix.urdf.xacro"/>
   <xacro:gzplugin_grasp_fix/>
 </robot>

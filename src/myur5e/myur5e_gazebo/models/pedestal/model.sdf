@@ -28,7 +28,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/Grey</name>
+            <name>Gazebo/Black</name>
             <uri>file://media/materials/scripts/gazebo.material</uri>
           </script>
           <shader type='pixel'>
